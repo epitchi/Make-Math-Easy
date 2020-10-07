@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solveMathApp/screen/MenuPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,47 +33,53 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Mai Linh nqu"),
-        ),
-        body: Container(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: <Widget>[
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Điền x"
-                  ),
-                   onChanged: (value){
-                    setState(() {
-                      //num1 == num parse .
-                    });
-                  },
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Điền y"
-                  ),
-                  onChanged: (value){
-                    setState(() {
-                      //num1 == num parse .
-                    });
-                  },
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Điền z"
-                  ),
-                   onChanged: (value){
-                    setState(() {
-                      //num1 == num parse .
-                    });
-                  },
-                ),
-              ],
-            ),
+      appBar: AppBar(
+        title: Text("Ứng dụng giải toán"),
+      ),
+      body: Container(
+        child: Padding(
+          padding: EdgeInsets.all(5),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                title: Text("Giải toán :v"),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MenuPage()),
+                  );
+                },
+              ),
+              ListTile(
+                title: Text("Mai Linh nqu"),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: Text("Đùa đấy chứ Thjen nqu hơn :("),
+                      content: Text("Bạn chắc chứ?"),
+                      actions: [
+                        FlatButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text("No")),
+                        FlatButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text("!Yes")),
+                      ],
+                      elevation: 24.0,
+                    ),
+                    barrierDismissible: false,
+                  );
+                },
+              )
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
