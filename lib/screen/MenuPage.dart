@@ -29,7 +29,7 @@ class _MenuPageState extends State<MenuPage> {
                 },
               ),
               RaisedButton(
-                child: Text("Mode 1"),
+                child: Text("Mode 2"),
                 onPressed: () {
                   showDialog(
                     context: context,
@@ -50,7 +50,7 @@ class _MenuPageState extends State<MenuPage> {
                 },
               ),
               RaisedButton(
-                child: Text("Mode 1"),
+                child: Text("Mode 3"),
                 onPressed: () {
                   showDialog(
                     context: context,

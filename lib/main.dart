@@ -50,32 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-              ListTile(
-                title: Text("Mai Linh nqu"),
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => AlertDialog(
-                      title: Text("Đùa đấy chứ Thjen nqu hơn :("),
-                      content: Text("Bạn chắc chứ?"),
-                      actions: [
-                        FlatButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text("No")),
-                        FlatButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text("!Yes")),
-                      ],
-                      elevation: 24.0,
-                    ),
-                    barrierDismissible: true,
-                  );
-                },
-              )
             ],
           ),
         ),

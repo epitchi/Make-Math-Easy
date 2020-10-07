@@ -10,7 +10,7 @@ class _FirstModePageState extends State<FirstModePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Mai Linh nqu"),
+          title: Text("Mode 1"),
         ),
         body: Container(
           child: Padding(
