@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                       elevation: 24.0,
                     ),
-                    barrierDismissible: false,
+                    barrierDismissible: true,
                   );
                 },
               )
