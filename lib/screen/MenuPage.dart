@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:solveMathApp/screen/firstModePage.dart';
+import 'package:solveMathApp/screen/GiaiPTBac2.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -17,18 +17,19 @@ class _MenuPageState extends State<MenuPage> {
           child: Column(
             children: <Widget>[
               ListTile(
-                title: Text("Những dạng có thể giải"),
+                title: Text("Những dạng toán có thể giải:"),
               ),
               RaisedButton(
-                child: Text("Mode 1"),
+                child: Text("Giải Phương Trình Bậc 2"),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FirstModePage()),
+                    MaterialPageRoute(builder: (context) => GiaiPTBac2()),
                   );
                 },
               ),
               RaisedButton(
+                color: Colors.blueAccent,
                 child: Text("Mode 2"),
                 onPressed: () {
                   showDialog(

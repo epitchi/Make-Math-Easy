@@ -1,16 +1,46 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class FirstModePage extends StatefulWidget {
+class GiaiPTBac2 extends StatefulWidget {
   @override
-  _FirstModePageState createState() => _FirstModePageState();
+  _GiaiPTBac2State createState() => _GiaiPTBac2State();
 }
 
-class _FirstModePageState extends State<FirstModePage> {
-  TextEditingController xTextEditingController = new TextEditingController();
-  TextEditingController yTextEditingController = new TextEditingController();
-  TextEditingController zTextEditingController = new TextEditingController();
+class _GiaiPTBac2State extends State<GiaiPTBac2> {
+  TextEditingController aTextEditingController = new TextEditingController();
+  TextEditingController bTextEditingController = new TextEditingController();
+  TextEditingController cTextEditingController = new TextEditingController();
+
+  double x1Result, x2Result;
+  int typeFunction = -1;
+
   final formKey = GlobalKey<FormState>();
+
+  GiaiPT() {
+    if (formKey.currentState.validate()) {
+      double a = double.parse(aTextEditingController.text);
+      double b = double.parse(bTextEditingController.text);
+      double c = double.parse(cTextEditingController.text);
+      double x1, x2;
+      double delta = b * b - 4 * a * c;
+      if (delta < 0) {
+        x1 = x2 = 0.0;
+        typeFunction = 0;
+      } else if (delta == 0) {
+        x1 = x2 = -b / (2 * a);
+        typeFunction = 1;
+      } else {
+        delta = sqrt(delta);
+        x1 = (-b + delta) / (2 * a);
+        x2 = (-b - delta) / (2 * a);
+        x1Result = x1;
+        x2Result = x2;
+        typeFunction = 2;
+      }
+    }
+  }
 
   String validateMobile(String value) {
     String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
@@ -31,7 +61,7 @@ class _FirstModePageState extends State<FirstModePage> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height -5,
+            height: MediaQuery.of(context).size.height - 5,
             // alignment: Alignment.bottomCenter,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 24),
@@ -43,15 +73,17 @@ class _FirstModePageState extends State<FirstModePage> {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          controller: xTextEditingController,
-                          decoration: textFieldInputDecoration("Điền X"),
+                          keyboardType: TextInputType.number,
+                          controller: aTextEditingController,
+                          decoration: textFieldInputDecoration("Điền A"),
                           validator: (val) {
                             validateMobile(val);
                           },
                         ),
                         TextFormField(
-                          controller: yTextEditingController,
-                          decoration: textFieldInputDecoration("Điền Y"),
+                          keyboardType: TextInputType.number,
+                          controller: bTextEditingController,
+                          decoration: textFieldInputDecoration("Điền B"),
                           validator: (val) {
                             validateMobile(val);
                           },
@@ -62,8 +94,9 @@ class _FirstModePageState extends State<FirstModePage> {
                           },
                         ),
                         TextFormField(
-                          controller: zTextEditingController,
-                          decoration: textFieldInputDecoration("Điền Z"),
+                          keyboardType: TextInputType.number,
+                          controller: cTextEditingController,
+                          decoration: textFieldInputDecoration("Điền C"),
                           validator: (val) {
                             validateMobile(val);
                           },
@@ -80,20 +113,27 @@ class _FirstModePageState extends State<FirstModePage> {
                     children: <Widget>[
                       RaisedButton(
                         onPressed: () {
-                          //solve, wait ML nqu
+                          setState(() {
+                            GiaiPT();
+                          });
                         },
                         child: Text("Solve"),
                       ),
                       RaisedButton(
                         onPressed: () {
-                          xTextEditingController.text = "";
-                          yTextEditingController.text = "";
-                          zTextEditingController.text = "";
+                          aTextEditingController.text = "";
+                          bTextEditingController.text = "";
+                          cTextEditingController.text = "";
                         },
-                        child: Text("Delete"),
+                        child: Text("Delete!"),
                       ),
                     ],
-                  )
+                  ),
+                  Text(typeFunction == 2
+                      ? "Phương trình có 2 nghiệm: \n x1 =${x1Result} \n x2 = ${x2Result}"
+                      : typeFunction == 1 ? "Phương trình có nghiệm kép: \n x1 = x2 = ${x1Result}"
+                      : typeFunction == 0 ? "Phương trình vô nghiệm" : "Không giải được!" 
+                      ),
                 ],
               ),
             ),

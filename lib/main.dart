@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: <Widget>[
               ListTile(
-                title: Text("Giải toán :v"),
+                title: Text("Giải toán"),
                 onTap: () {
                   Navigator.push(
                     context,
