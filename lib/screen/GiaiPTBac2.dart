@@ -13,7 +13,7 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
 
-  double x1Result, x2Result;
+  double x1Result, x2Result, deltaResult;
   int typeFunction = -1;
 
   final formKey = GlobalKey<FormState>();
@@ -25,6 +25,7 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
       double c = double.parse(cTextEditingController.text);
       double x1, x2;
       double delta = b * b - 4 * a * c;
+      deltaResult = delta;
       if (delta < 0) {
         x1 = x2 = 0.0;
         typeFunction = 0;
@@ -131,9 +132,12 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
                   ),
                   Text(typeFunction == 2
                       ? "Phương trình có 2 nghiệm: \n x1 =${x1Result} \n x2 = ${x2Result}"
-                      : typeFunction == 1 ? "Phương trình có nghiệm kép: \n x1 = x2 = ${x1Result}"
-                      : typeFunction == 0 ? "Phương trình vô nghiệm" : "Không giải được!" 
-                      ),
+                      : typeFunction == 1
+                          ? "Phương trình có nghiệm kép: \n x1 = x2 = ${x1Result}"
+                          : typeFunction == 0
+                              ? "Phương trình vô nghiệm"
+                              : "Không giải được!"),
+                  Text(typeFunction != 0 && typeFunction != 1 ? "Delta = $deltaResult": ""),
                 ],
               ),
             ),
