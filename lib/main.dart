@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solveMathApp/screen/IntroducePage.dart';
 import 'package:solveMathApp/screen/MenuPage.dart';
 
 void main() {
@@ -50,6 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
+              ListTile(
+                title: Text("Giới thiệu"),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => IntroducePage()));
+                },
+              )
             ],
           ),
         ),

@@ -21,6 +21,7 @@ class _MenuPageState extends State<MenuPage> {
               ),
               RaisedButton(
                 child: Text("Giải Phương Trình Bậc 2"),
+                color: Colors.lightBlue,
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -29,7 +30,6 @@ class _MenuPageState extends State<MenuPage> {
                 },
               ),
               RaisedButton(
-                color: Colors.blueAccent,
                 child: Text("Mode 2"),
                 onPressed: () {
                   showDialog(
