@@ -126,7 +126,7 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
                         },
-                        child: Text("Delete!"),
+                        child: Text("Delete"),
                       ),
                     ],
                   ),
