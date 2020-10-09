@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/screen/GiaiPTBac2.dart';
+import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoPage.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -30,23 +31,11 @@ class _MenuPageState extends State<MenuPage> {
                 },
               ),
               RaisedButton(
-                child: Text("Mode 2"),
+                child: Text("Xet tinh don dieu cua ham so"),
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => AlertDialog(
-                      title: Text("Tính năng đang được phát triển"),
-                      content: Text("Đội ngũ phát triển đang chết đói"),
-                      actions: [
-                        FlatButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text("Donate")),
-                      ],
-                      elevation: 24.0,
-                    ),
-                    barrierDismissible: false,
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => XTDDCHSPage()),
                   );
                 },
               ),
