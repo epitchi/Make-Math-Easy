@@ -31,7 +31,7 @@ class _MenuPageState extends State<MenuPage> {
                 },
               ),
               RaisedButton(
-                child: Text("Xet tinh don dieu cua ham so"),
+                child: Text("Xét tính đơn điệu hàm số"),
                 onPressed: () {
                   Navigator.push(
                     context,
