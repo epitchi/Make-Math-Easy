@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/screen/GiaiPTBac2.dart';
-import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoPage.dart';
+import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoBac3Page.dart';
+import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoBac4Page.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -31,32 +32,20 @@ class _MenuPageState extends State<MenuPage> {
                 },
               ),
               RaisedButton(
-                child: Text("Xét tính đơn điệu hàm số"),
+                child: Text("Xét tính đơn điệu hàm số bậc 3"),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => XTDDCHSPage()),
+                    MaterialPageRoute(builder: (context) => XTDDCHS3Page()),
                   );
                 },
               ),
               RaisedButton(
-                child: Text("Mode 3"),
+                child: Text("Hàm trùng phương"),
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => AlertDialog(
-                      title: Text("Tính năng đang được phát triển"),
-                      content: Text("Đội ngũ phát triển đang chết đói"),
-                      actions: [
-                        FlatButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text("Donate")),
-                      ],
-                      elevation: 24.0,
-                    ),
-                    barrierDismissible: false,
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => XTDDCHS4Page()),
                   );
                 },
               ),

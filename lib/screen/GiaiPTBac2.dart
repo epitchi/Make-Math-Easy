@@ -58,7 +58,7 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Mode 1"),
+          title: Text("Giải phương trình bậc 2"),
         ),
         body: SingleChildScrollView(
           child: Container(
