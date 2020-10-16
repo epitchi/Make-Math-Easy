@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/screen/GiaiPTBac2.dart';
+import 'package:solveMathApp/screen/HamTrungPhuongPage.dart';
 import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoBac3Page.dart';
-import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoBac4Page.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class _MenuPageState extends State<MenuPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => XTDDCHS4Page()),
+                    MaterialPageRoute(builder: (context) => HamTrungPhuongPage()),
                   );
                 },
               ),
