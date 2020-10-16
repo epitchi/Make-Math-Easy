@@ -60,15 +60,16 @@ class _XTDDCHS4PageState extends State<XTDDCHS4Page> {
       //    x2 = (-b+sqrt(delta'))/3a
       if (a > 0) {
         result3 =
-            "Y Đồng Biến trên (${(-sqrt(-8 * a * b))}/${4 * a});0) U ${(sqrt(-8 * a * c))}/${4 * a}; +oo)";
+            "Y Đồng Biến trên (${(-sqrt(-8 * a * b))}/${4 * a}) ; 0) U ( ${(sqrt(-8 * a * c)) / (4 * a)} ; +oo )";
         // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
         result4 =
             "Y Nghịch Biến trên (-oo ; ${(-sqrt(-8 * a * b)) / (4 * a)}) U ( 0 ;${(sqrt(-8 * a * b)) / (4 * a)} )";
       } else if (a < 0) {
         result3 =
-            "Y Đồng Biến trên (-oo ; ${(-sqrt(-8 * a * b)) / (4 * a)}) U ( 0 ;${(sqrt(-8 * a * b)) / (4 * a)} )";
-        result4 =
-            "Y Nghịch Biến trên (${(-sqrt(-8 * a * b))}/${4 * a});0) U (${(sqrt(-8 * a * c))}/${4 * a}; +oo)";
+            "Y Đồng Biến trên (-oo ; ${(sqrt(-8 * a * b)) / (4 * a)}) U ( 0 ;${(-sqrt(-8 * a * b)) / (4 * a)} )";
+        result4 = 
+            "Y Nghịch Biến trên (${(sqrt(-8 * a * b))}/${4 * a});0) U (${(-sqrt(-8 * a * c))}/${4 * a}; +oo)";
+
         // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
         
       }
