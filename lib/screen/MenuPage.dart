@@ -47,7 +47,7 @@ class _MenuPageState extends State<MenuPage> {
                     context,
                     MaterialPageRoute(builder: (context) => HamTrungPhuongPage()),
                   );
-                },
+                }, 
               ),
             ],
           ),

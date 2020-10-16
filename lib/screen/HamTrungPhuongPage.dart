@@ -49,7 +49,7 @@ class _HamTrungPhuongPageState extends State<HamTrungPhuongPage> {
       } else if (a < 0) {
         // y NB tren |R
         result3 = "Y Nghịch Biến trên (-oo;0)U(0;+oo)";
-      }
+      }   
     } else if (delta_phay > 0) {
       result1 = "∆' > 0";
       result2 =
@@ -73,8 +73,9 @@ class _HamTrungPhuongPageState extends State<HamTrungPhuongPage> {
         // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
         
       }
-    }
+    }                   
   }
+  
 
   String validateMobile(String value) {
     String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
