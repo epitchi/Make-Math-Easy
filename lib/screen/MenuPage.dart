@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/screen/GiaiPTBac2.dart';
+import 'package:solveMathApp/screen/HamPhuongThucBac2TrenBac1.dart';
 import 'package:solveMathApp/screen/HamTrungPhuongPage.dart';
 import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoBac3Page.dart';
 
@@ -31,6 +32,7 @@ class _MenuPageState extends State<MenuPage> {
                   );
                 },
               ),
+              SizedBox(height: 20),
               RaisedButton(
                 child: Text("Xét tính đơn điệu hàm số bậc 3"),
                 onPressed: () {
@@ -40,15 +42,29 @@ class _MenuPageState extends State<MenuPage> {
                   );
                 },
               ),
+              SizedBox(height: 20),
               RaisedButton(
                 child: Text("Hàm trùng phương"),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HamTrungPhuongPage()),
+                    MaterialPageRoute(
+                        builder: (context) => HamTrungPhuongPage()),
                   );
-                }, 
+                },
               ),
+              SizedBox(
+                height: 20,
+              ),
+              RaisedButton(
+                child: Text("Hàm phân thức bậc 2 trên bậc 1"),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HamPhanThucBac2TrenBac1()));
+                },
+              )
             ],
           ),
         )));

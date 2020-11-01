@@ -22,3 +22,4 @@ TextStyle simpleTextStyle() {
 TextStyle mediumTextStyle() {
   return TextStyle(color: Colors.white, fontSize: 17);
 }
+  
