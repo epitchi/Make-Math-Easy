@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/screen/HamCucTriBac3.dart';
 import 'package:solveMathApp/screen/GiaiPTBac2.dart';
+import 'package:solveMathApp/screen/HamCucTriBac4.dart';
 import 'package:solveMathApp/screen/HamPhanThucBac2TrenBac1.dart';
 import 'package:solveMathApp/screen/HamTrungPhuongPage.dart';
 import 'package:solveMathApp/screen/XetTinhDonDieuCuaHamSoBac3Page.dart';
@@ -66,16 +67,24 @@ class _MenuPageState extends State<MenuPage> {
                           builder: (context) => HamPhanThucBac2TrenBac1()));
                 },
               ),
-               SizedBox(
+              SizedBox(
                 height: 20,
               ),
               RaisedButton(
                 child: Text("Hàm cực trị bậc 3"),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HamCucTriBac3()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HamCucTriBac3()));
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              RaisedButton(
+                child: Text("Hàm cực trị bậc 4"),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HamCucTriBac4()));
                 },
               )
             ],
