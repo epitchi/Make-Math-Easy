@@ -51,25 +51,33 @@ class _HamCucTriBac4State extends State<HamCucTriBac4> {
       double y1 = a * pow(x1, 4) + b * pow(x1, 2) + c;
       double y2 = a * pow(x2, 4) + b * pow(x2, 2) + c;
       if ((a > 0) && (b < 0)) {
-        if (0 < x1)
+        if (0 < x1) {
           result1 =
-              "Hàm số có cực tiểu 1 tại x=0, giá trị cực tiểu là $c; cực tiểu 2 tại $x2, giá trị cực tiểu 2 là $y2 và cực đại tại $x1, giá trị cực đại là $y1";
-        else if ((x1 < 0) && (0 < x2))
+              "Hàm số có cực tiểu 1 tại x=0, giá trị cực tiểu là $c; cực tiểu 2 tại $x2, giá trị cực tiểu 2 là $y2";
+          result2 = "Và cực đại tại $x1, giá trị cực đại là $y1";
+        } else if ((x1 < 0) && (0 < x2)) {
           result1 =
-              "Hàm số có cực tiểu 1 tại x=1, giá trị cực tiểu là $y1; cực tiểu 2 tại $x2, giá trị cực tiểu 2 là $y2 và cực đại tại 0, giá trị cực đại là $c";
-        else if (0 > x2)
+              "Hàm số có cực tiểu 1 tại x=1, giá trị cực tiểu là $y1; cực tiểu 2 tại $x2, giá trị cực tiểu 2 là $y2";
+          result2 = "Và cực đại tại 0, giá trị cực đại là $c";
+        } else if (0 > x2) {
           result1 =
-              "Hàm số có cực tiểu 1 tại 0, giá trị cực tiểu là $c; cực tiểu 2 tại $x1, giá trị cực tiểu 2 là $y1 và cực đại tại $x2, giá trị cực đại là $y2";
+              "Hàm số có cực tiểu 1 tại 0, giá trị cực tiểu là $c; cực tiểu 2 tại $x1, giá trị cực tiểu 2 là $y1";
+          result2 = "Và cực đại tại $x2, giá trị cực đại là $y2";
+        }
       } else if ((a < 0) && (b > 0)) {
-        if (0 < x1)
+        if (0 < x1) {
           result1 =
-              "Hàm số có cực đại 1 tại x=0, giá trị cực đại là $c; cực đại 2 tại $x2, giá trị cực đại 2 là $y2 và cực tiểu tại $x1, giá trị cực tiểu là $y1";
-        else if ((x1 < 0) && (0 < x2))
+              "Hàm số có cực đại 1 tại x=0, giá trị cực đại là $c; cực đại 2 tại $x2, giá trị cực đại 2 là $y2";
+          result2 = "Và cực tiểu tại $x1, giá trị cực tiểu là $y1";
+        } else if ((x1 < 0) && (0 < x2)) {
           result1 =
-              "Hàm số có cực đại 1 tại $x1, giá trị cực đại là $y1; cực đại 2 tại $x2, giá trị cực đại 2 là $y2 và cực tiểu tại 0, giá trị cực tiểu là $c";
-        else if (0 > x2)
+              "Hàm số có cực đại 1 tại $x1, giá trị cực đại là $y1; cực đại 2 tại $x2, giá trị cực đại 2 là $y2";
+          result2 = "và cực tiểu tại 0, giá trị cực tiểu là $c";
+        } else if (0 > x2) {
           result1 =
-              "Hàm số có cực đại 1 tại x=0, giá trị cực đại là c; cực đại 2 tại $x1, giá trị cực đại 2 là $y2 và cực tiểu tại $x2, giá trị cực tiểu là $y2";
+              "Hàm số có cực đại 1 tại x=0, giá trị cực đại là c; cực đại 2 tại $x1, giá trị cực đại 2 là $y2";
+          result2 = "Và cực tiểu tại $x2, giá trị cực tiểu là $y2";
+        }
       }
     }
   }
@@ -176,6 +184,7 @@ class _HamCucTriBac4State extends State<HamCucTriBac4> {
                           children: [
                             Text("Delta' $answerDelta_phay"),
                             Text("$result1"),
+                            Text("$result2"),
                           ],
                         )
                       : Text("Không giải được")
