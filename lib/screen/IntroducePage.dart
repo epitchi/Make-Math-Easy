@@ -94,6 +94,20 @@ class _IntroducePageState extends State<IntroducePage> {
                     leading: Text("Database/Hosting:"),
                     title: Text("Firebase"),
                   ),
+                  ListTile(
+                      title: Text(
+                    "Thông tin về dự án",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                  )),
+                  ListTile(
+                    leading: Text("Phiên bản:"),
+                    title: Text(
+                      "1.0",
+                    ),
+                  ),
                 ],
               ))),
     );
