@@ -3,19 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class GiaiPTBac2 extends StatefulWidget {
+class TestPage extends StatefulWidget {
   @override
-  _GiaiPTBac2State createState() => _GiaiPTBac2State();
+  _TestPageState createState() => _TestPageState();
 }
 
-class _GiaiPTBac2State extends State<GiaiPTBac2> {
+class _TestPageState extends State<TestPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
+  TextEditingController dTextEditingController = new TextEditingController();
 
   double x1Result, x2Result, deltaResult;
   int typeFunction = -1;
-
+  String result1 = "";
+  double _delta;
   final formKey = GlobalKey<FormState>();
 
   GiaiPT() {
@@ -23,22 +25,23 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
       double a = double.parse(aTextEditingController.text);
       double b = double.parse(bTextEditingController.text);
       double c = double.parse(cTextEditingController.text);
+      double d = double.parse(dTextEditingController.text);
+
       double x1, x2;
       double delta = b * b - 4 * a * c;
-      deltaResult = delta;
+      _delta = delta;
+
       if (delta < 0) {
         x1 = x2 = 0.0;
-        typeFunction = 0;
+        result1 = "X1 X2 == 0";
       } else if (delta == 0) {
         x1 = x2 = -b / (2 * a);
-        typeFunction = 1;
       } else {
         delta = sqrt(delta);
         x1 = (-b + delta) / (2 * a);
         x2 = (-b - delta) / (2 * a);
         x1Result = x1;
         x2Result = x2;
-        typeFunction = 2;
       }
     }
   }
@@ -58,7 +61,7 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Giải phương trình bậc 2"),
+          title: Text("Giải phương trình bậc 3 test"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -107,6 +110,19 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
                             });
                           },
                         ),
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          controller: dTextEditingController,
+                          decoration: textFieldInputDecoration("Điền D"),
+                          validator: (val) {
+                            validateMobile(val);
+                          },
+                          onChanged: (value) {
+                            setState(() {
+                              //num1 == num parse .
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -125,23 +141,26 @@ class _GiaiPTBac2State extends State<GiaiPTBac2> {
                           aTextEditingController.text = "";
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
+                          dTextEditingController.text = "";
                         },
                         child: Text("Delete"),
                       ),
                     ],
                   ),
-                  Text(
-                      "Phương trình bậc 2 có dạng: y = $aTextEditingController.text*b^2"),
-                  Text(typeFunction == 2
-                      ? "Phương trình có 2 nghiệm: \n x1 =${x1Result} \n x2 = ${x2Result}"
-                      : typeFunction == 1
-                          ? "Phương trình có nghiệm kép: \n x1 = x2 = ${x1Result}"
-                          : typeFunction == 0
-                              ? "Phương trình vô nghiệm"
-                              : "Không giải được!"),
-                  Text(typeFunction != 0 && typeFunction != 1
-                      ? "Delta = $deltaResult"
-                      : ""),
+                  Text("$_delta"),
+                  Text("$result1"),
+                  // Text(
+                  //     "Phương trình bậc 2 có dạng: y = $aTextEditingController.text*b^2"),
+                  // Text(typeFunction == 2
+                  //     ? "Phương trình có 2 nghiệm: \n x1 =${x1Result} \n x2 = ${x2Result}"
+                  //     : typeFunction == 1
+                  //         ? "Phương trình có nghiệm kép: \n x1 = x2 = ${x1Result}"
+                  //         : typeFunction == 0
+                  //             ? "Phương trình vô nghiệm"
+                  //             : "Không giải được!"),
+                  // Text(typeFunction != 0 && typeFunction != 1
+                  //     ? "Delta = $deltaResult"
+                  //     : ""),
                 ],
               ),
             ),

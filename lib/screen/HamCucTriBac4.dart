@@ -42,9 +42,9 @@ class _HamCucTriBac4State extends State<HamCucTriBac4> {
 
     if (a * b > 0) {
       if ((a > 0) && (b > 0))
-        result1 = " Hàm số có cực tiểu tại x=0 và giá trị cực tiểu là c";
+        result1 = " Hàm số có cực tiểu tại x=0 và giá trị cực tiểu là $c";
       else if ((a < 0) && (b < 0))
-        result1 = " Hàm số có cực đại tại x=0 và giá trị cực đại là c";
+        result1 = " Hàm số có cực đại tại x=0 và giá trị cực đại là $c";
     } else {
       double x1 = -sqrt(-2 * a * b) / 2 * a;
       double x2 = sqrt(-2 * a * b) / 2 * a;
@@ -97,7 +97,7 @@ class _HamCucTriBac4State extends State<HamCucTriBac4> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm cực trị bậc 3"),
+          title: Text("Hàm trùng phương y = ax^4 + bx^2 + c"),
         ),
         body: SingleChildScrollView(
           child: Container(

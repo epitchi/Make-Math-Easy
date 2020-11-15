@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+// import 'dart:html' as html;
 
 class IntroducePage extends StatefulWidget {
   @override
@@ -50,9 +50,9 @@ class _IntroducePageState extends State<IntroducePage> {
                     title: Text("Trần Mai Linh",
                         style: TextStyle(color: Colors.black, fontSize: 20.0)),
                     onTap: () {
-                      html.window.open(
-                          "https://www.facebook.com/profile.php?id=100035813623344",
-                          "Tran Mai Linh");
+                      // html.window.open(
+                      //     "https://www.facebook.com/profile.php?id=100035813623344",
+                      //     "Tran Mai Linh");
                     },
                   ),
 
@@ -66,9 +66,9 @@ class _IntroducePageState extends State<IntroducePage> {
                     title: Text("Nguyễn Mạnh Quyền",
                         style: TextStyle(color: Colors.black, fontSize: 20.0)),
                     onTap: () {
-                      html.window.open(
-                          "https://www.facebook.com/quyen.nguyenmanh.790",
-                          "Nguyen Manh Quyen");
+                      // html.window.open(
+                      //     "https://www.facebook.com/quyen.nguyenmanh.790",
+                      //     "Nguyen Manh Quyen");
                     },
                   ),
                   ListTile(

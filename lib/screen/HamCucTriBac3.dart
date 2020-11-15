@@ -37,6 +37,7 @@ class _HamCucTriBac3State extends State<HamCucTriBac3> {
 
     // y=ax^3 + bx^2 + cx + d
     // y_phay = 3ax^2 + 2bx + c
+
     double delta_yphay = pow(b, 2) - 3 * a * c;
     answerDelta_phay = delta_yphay;
 
@@ -49,10 +50,10 @@ class _HamCucTriBac3State extends State<HamCucTriBac3> {
       double y2 = a * pow(x2, 3) + b * pow(x2, 2) + c * x2 + d;
       if (a > 0)
         result1 =
-            "Hàm số có cực đại tại $x1 và giá trị cực đại là $y1 và cực tiểu tại $x2 và giá trị cực tiểu là $y2";
+            "Hàm số có cực đại tại $x1 \nGiá trị cực đại là $y1 \nHàm số đạt cực tiểu tại $x2 \nGiá trị cực tiểu là $y2\n";
       else if (a < 0)
         result1 =
-            " Hàm số có cực đại tại $x2 và giá trị cực đại là $y2 và cực tiểu tại$x1 và giá trị cực tiểu là $y1";
+            "Hàm số có cực đại tại $x2 \nGiá trị cực đại là $y2 \nHàm số đạt cực tiểu tại$x1 \nGiá trị cực tiểu là $y1";
     }
   }
 
@@ -71,7 +72,7 @@ class _HamCucTriBac3State extends State<HamCucTriBac3> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm cực trị bậc 3"),
+          title: Text("Tìm cực trị của hàm số bậc 3 y=ax^3 +bx^2 + cx + d "),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -173,7 +174,10 @@ class _HamCucTriBac3State extends State<HamCucTriBac3> {
                   typeFunction != -1
                       ? Column(
                           children: [
-                            Text("Delta' $answerDelta_phay"),
+                            Text(
+                                "Đề bài: Tìm cực trị của hàm số y = ${aTextEditingController.text}*x^3 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}*x + ${dTextEditingController.text}"),
+                            Text("Đáp số:"),
+                            // Text("Delta' $answerDelta_phay"),
                             Text("$result1"),
                           ],
                         )
