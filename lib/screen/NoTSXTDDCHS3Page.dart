@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class XTDDCHS3Page extends StatefulWidget {
+class NoTSXTDDCHS3Page extends StatefulWidget {
   @override
-  _XTDDCHS3PageState createState() => _XTDDCHS3PageState();
+  _NoTSXTDDCHS3PageState createState() => _NoTSXTDDCHS3PageState();
 }
 
 List listAnswer = new List<String>();
 
-class _XTDDCHS3PageState extends State<XTDDCHS3Page> {
+class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();

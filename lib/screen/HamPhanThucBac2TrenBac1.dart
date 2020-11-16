@@ -2,15 +2,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class HamPhanThucBac2TrenBac1 extends StatefulWidget {
+class NoTSXTDDHPTPage extends StatefulWidget {
   @override
-  _HamPhanThucBac2TrenBac1State createState() =>
-      _HamPhanThucBac2TrenBac1State();
+  _NoTSXTDDHPTPageState createState() =>
+      _NoTSXTDDHPTPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _HamPhanThucBac2TrenBac1State extends State<HamPhanThucBac2TrenBac1> {
+class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();

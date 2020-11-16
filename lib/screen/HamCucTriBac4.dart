@@ -2,14 +2,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class HamCucTriBac4 extends StatefulWidget {
+class NoTSTCTHTPPage extends StatefulWidget {
   @override
-  _HamCucTriBac4State createState() => _HamCucTriBac4State();
+  _NoTSTCTHTPPageState createState() => _NoTSTCTHTPPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _HamCucTriBac4State extends State<HamCucTriBac4> {
+class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();

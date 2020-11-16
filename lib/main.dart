@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ứng dụng giải toán"),
+        title: Text("Ứng dụng giải toán - MME"),
       ),
       body: Container(
         child: Padding(
