@@ -17,6 +17,8 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
   TextEditingController dTextEditingController = new TextEditingController();
   TextEditingController fTextEditingController = new TextEditingController();
   TextEditingController eTextEditingController = new TextEditingController();
+  TextEditingController gTextEditingController = new TextEditingController();
+  TextEditingController hTextEditingController = new TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
@@ -26,6 +28,8 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
 
   double answerDelta_phay;
   GiaiTDDHS() {
+    result1 = "";
+
     double a = double.parse(aTextEditingController.text);
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
@@ -33,6 +37,7 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
     double f = double.parse(fTextEditingController.text);
     double _e = double.parse(eTextEditingController.text);
 
+    typeFunction = 0;
     double delta;
     // double A, B, C;
     double x0, x1, x2;
@@ -71,17 +76,17 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
             result1 = "Không có giá trị của m thỏa yêu cầu bài toán";
         }
       }
-      if ((_A == 0) & (_B == 0)) if (_C == 0)
+      if ((_A == 0) && (_B == 0)) if (_C == 0)
         result1 = "Giá trị cua m thuộc ( ${(-b / a)} ; +oo)";
       else if (_C < 0)
         result1 = "Giá trị của m thuộc ( ${(-b / a)} ; +oo)";
       else
         result1 = "Không có giá trị của m thỏa yêu cầu bài toán";
-      if ((_A == 0) & (_B > 0)) if ((-b / a) < (-_C / _B))
+      if ((_A == 0) && (_B > 0)) if ((-b / a) < (-_C / _B))
         result1 = "Giá trị của m thuộc ( ${(-b / a)} ; ${(-_C / _B)} ]";
       else
         result1 = "Không có giá trị của m thỏa yêu cầu bài toán";
-      if ((_A == 0) & (_B < 0)) if ((-b / a) < (-_C / _B))
+      if ((_A == 0) && (_B < 0)) if ((-b / a) < (-_C / _B))
         result1 = "Giá trị của m thuộc [ ${(-_C / _B)} ; +oo)";
       else
         result1 = "Giá trị của m thuộc [ ${(-b / a)} ; +oo)";
@@ -118,17 +123,17 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
             result1 = "Không có giá trị của m thỏa yêu cầu bài toán";
         }
       }
-      if ((_A == 0) & (_B == 0)) if (_C == 0)
+      if ((_A == 0) && (_B == 0)) if (_C == 0)
         result1 = "Giá trị của m thuộc (-oo ; ${(-b / a)} )";
       else if (_C < 0)
         result1 = "Giá trị của m thuộc (-oo ;${(-b / a)} )";
       else
         result1 = "Không có giá trị của m thỏa yêu cầu bài toán";
-      if ((_A == 0) & (_B > 0)) if ((-b / a) > (-_C / _B))
+      if ((_A == 0) && (_B > 0)) if ((-b / a) > (-_C / _B))
         result1 = "Giá trị của m thuộc ( ${(-_C / _B)} ; ${(-b / a)} ]";
       else
         result1 = "Không có giá trị của m thỏa yêu cầu bài toán";
-      if ((_A == 0) & (_B < 0)) if ((-b / a) > (-_C / _B))
+      if ((_A == 0) && (_B < 0)) if ((-b / a) > (-_C / _B))
         result1 = "Giá trị của m thuộc (-oo ; ${(-_C / _B)} )";
       else
         result1 = "Giá trị của m thuộc (-oo ; ${(-b / a)} )";
@@ -158,13 +163,14 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
         else
           result1 = "Không có giá trị của m thỏa yêu cầu bài toán";
 
-        if ((_A == 0) & (_B > 0)) {
-          print("yo");
+        if ((_A == 0) && (_B > 0)) {
           result1 = "Giá trị của m thuộc ( -oo ; ${(-_C / _B)} ]";
         }
-        
-        if ((_A == 0) & (_B < 0))
+
+        if ((_A == 0) && (_B < 0)) {
+          print("yo");
           result1 = "Giá trị của m thuộc [ ${(-_C / _B)} ; +oo)";
+        }
       }
     }
   }
@@ -290,6 +296,38 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
                             },
                           ),
                         ),
+                        ListTile(
+                          leading: Text("G"),
+                          title: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: gTextEditingController,
+                            decoration: textFieldInputDecoration("Điền G"),
+                            validator: (val) {
+                              validateMobile(val);
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                //num1 == num parse .
+                              });
+                            },
+                          ),
+                        ),
+                        ListTile(
+                          leading: Text("H"),
+                          title: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: hTextEditingController,
+                            decoration: textFieldInputDecoration("Điền H"),
+                            validator: (val) {
+                              validateMobile(val);
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                //num1 == num parse .
+                              });
+                            },
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -317,14 +355,23 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
                     ],
                   ),
                   // type Function
-                  //(am+b)x^3 +(cm+d)x^2+(em+f)x+gm+h
-                  // Text(
-                  // "Hàm số bậc 3 có dạng là: y = ( ${aTextEditingController.text}*m+$bTextEditingController)*x^3 +($cTextEditingController.text *m+$TextEditingController.text)*x^2+(em+f)x+gm+h"),
+                  Text(
+                      "Tìm m để hàm số y = (am+b)x^3 +(cm+d)x^2+(em+f)x+gm+h đồng biến trên R"),
                   typeFunction != -1
                       ? Column(
                           children: [
                             // Text("Delta' $answerDelta_phay"),
-                            Text("$result1"),
+                            Text(
+                              "Đề bài",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                                "Tìm m để hàm số bậc 3: y = ( ${aTextEditingController.text}*m+${bTextEditingController.text})*x^3 +(${cTextEditingController.text} *m+${dTextEditingController.text})*x^2+(${eTextEditingController.text}*m+f)x+${gTextEditingController.text}*m+${hTextEditingController.text} có dạng đồng biến trên R"),
+
+                            Text(
+                              "Đáp án: $result1",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
                             Text("$result2"),
                             Text("$result3"),
                           ],

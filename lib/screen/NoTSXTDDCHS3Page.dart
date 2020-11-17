@@ -45,23 +45,24 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
         //y' > 0
         result2 = "Y' > 0";
         // y DB tren |R
-        result3 = "Y Đồng Biến trên |R";
+        result3 = "Hàm số đồng biến trên |R";
       } else if (a < 0) {
         // y' < 0
         result2 = "Y' < 0";
         // y NB tren |R
-        result3 = "Y Nghịch Biến trên |R";
+        result3 = "Hàm số nghịch biến trên |R";
       }
     } else if (delta_phay == 0) {
       result1 = "Phương trình có nghiệm kép \n x = ${-b / 3 * a}";
       // pt nghiem kep'
       // x = -b/3a
       if (a > 0) {
-        result2 = "Y Đồng Biến trên (-oo; ${-b / 3 * a})U(${-b}/${3 * a};+oo)";
+        result2 =
+            "Hàm số đồng biến trên (-oo; ${-b / 3 * a})U(${-b}/${3 * a};+oo)";
         // y db tren (-oo; -b/3a)U(-b/3a;+oo)
       } else if (a < 0) {
         //y nb tren -------------------------
-        result2 = "Y Nghịch Biến trên (-oo; -b/3a)U(-b/3a;+oo)";
+        result2 = "Hàm số nghịch biến trên (-oo; -b/3a)U(-b/3a;+oo)";
       }
     } else if (delta_phay > 0) {
       result1 =
@@ -72,17 +73,17 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
       //    x2 = (-b+sqrt(delta'))/3a
       if (a > 0) {
         result2 =
-            "Y Đồng Biến trên (-oo; ${(-b - sqrt(delta_phay))}/${3 * a}) U ${(-b + sqrt(delta_phay))}/${3 * a}; +oo)";
+            "Hàm số đồng biến trên (-oo; ${(-b - sqrt(delta_phay))}/${3 * a}) U (${(-b + sqrt(delta_phay))}/${3 * a}; +oo)";
         // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
         result3 =
-            "Y Nghịch Biến trên (${(-b - sqrt(delta_phay)) / (3 * a)} ; ${(-b + sqrt(delta_phay)) / (3 * a)} )";
+            "Hàm số nghịch biến trên (${(-b - sqrt(delta_phay)) / (3 * a)} ; ${(-b + sqrt(delta_phay)) / (3 * a)} )";
       } else if (a < 0) {
         result2 =
-            "Y Đồng Biến trên (${(-b - sqrt(delta_phay)) / (3 * a)} ; ${(-b + sqrt(delta_phay)) / (3 * a)} )";
+            "Hàm số đồng biến trên (${(-b - sqrt(delta_phay)) / (3 * a)} ; ${(-b + sqrt(delta_phay)) / (3 * a)} )";
         // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
 
         result3 =
-            "Y Nghịch Biến trên     (-oo; ${(-b - sqrt(delta_phay))}/${3 * a}) U ${(-b + sqrt(delta_phay))}/${3 * a}; +oo)";
+            "Hàm số nghịch biến trên     (-oo; ${(-b - sqrt(delta_phay))}/${3 * a}) U ${(-b + sqrt(delta_phay))}/${3 * a}; +oo)";
 
         // y NB tren ((-b-sqrt(A'))/3a); (-b+sqrt(A'))/3a)
 
@@ -203,13 +204,25 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                     ],
                   ),
                   // type Function
+                  Text(
+                      "Xét tính đơn điệu của hàm số y = a*x^3 + b*x^2 + c*x + d"),
                   typeFunction != -1
                       ? Column(
                           children: [
-                            Text("Delta' $answerDelta_phay"),
-                            Text("$result1"),
-                            Text("$result2"),
-                            Text("$result3"),
+                            Text("Đề bài",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                                "Xét tính đơn điệu của hàm số y = ${aTextEditingController.text}*x^3 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}*x + ${dTextEditingController.text}"),
+                            // Text("Delta' $answerDelta_phay"),
+                            // Text("$result1"),
+                            Text(
+                              "Đáp án: ",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$result3",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
                       : Text("Không giải được")
