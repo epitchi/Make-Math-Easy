@@ -2,14 +2,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSXTDDHTPPage extends StatefulWidget {
+class NoTSTCTHTPPage extends StatefulWidget {
   @override
-  _NoTSXTDDHTPPageState createState() => _NoTSXTDDHTPPageState();
+  _NoTSTCTHTPPageState createState() => _NoTSTCTHTPPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
+class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
@@ -26,56 +26,44 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
     double a = double.parse(aTextEditingController.text);
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
-    // y = ax^4 + bx^2 + c
-    // a
 
-    // double y' = 4*a*x^2 + 2b
-    double delta_phay = -8 * a * b;
-    // listAnswer = new List<String>();
-    answerDelta_phay = delta_phay;
     typeFunction = 0;
     result1 = "";
     result2 = "";
     result3 = "";
     result4 = "";
 
-    if (delta_phay < 0) {
-      //y' cung dau' voi' a
-      result1 = "∆' =< 0";
-      result2 = "Phương trình vô nghiệm \n Y' có 1 nghiệm x = 0";
-      if (a > 0) {
-        // y DB tren
-        result3 = "Y Đồng Biến trên (-oo;0)U(0;+oo)";
-      } else if (a < 0) {
-        // y NB tren |R
-        result3 = "Y Nghịch Biến trên (-oo;0)U(0;+oo)";
-      }   
-    } else if (delta_phay > 0) {
-      result1 = "∆' > 0";
-      result2 =
-          "Phương trình có 2 nghiệm phân biệt \n x1 = ${(-sqrt(-8 * a * b)) / 4 * a} \n x2 = ${(sqrt(-8 * a * b)) / 4 * a} \n x3 = 0";
+// y=ax^4 + bx^2 + c
+    // y_phay = 4ax^3 + 2bx
+    // y_phay= 2x(2ax^2 + b)
 
-      //  2 nghiem pb
-      //  x1 = (-b-sqrt(delta'))/3a
-      //    x2 = (-b+sqrt(delta'))/3a
-      if (a > 0) {
-        result3 =
-            "Y Đồng Biến trên (${(-sqrt(-8 * a * b))}/${4 * a}) ; 0) U ( ${(sqrt(-8 * a * c)) / (4 * a)} ; +oo )";
-        // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
-        result4 =
-            "Y Nghịch Biến trên (-oo ; ${(-sqrt(-8 * a * b)) / (4 * a)}) U ( 0 ;${(sqrt(-8 * a * b)) / (4 * a)} )";
-      } else if (a < 0) {
-        result3 =
-            "Y Đồng Biến trên (-oo ; ${(sqrt(-8 * a * b)) / (4 * a)}) U ( 0 ;${(-sqrt(-8 * a * b)) / (4 * a)} )";
-        result4 = 
-            "Y Nghịch Biến trên (${(sqrt(-8 * a * b))}/${4 * a});0) U (${(-sqrt(-8 * a * c))}/${4 * a}; +oo)";
+    double delta_trongngoac = -2 * a * b;
+    answerDelta_phay = delta_trongngoac;
 
-        // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
+    if (a * b > 0) {
+      if ((a > 0) && (b > 0))
+        result1 = " Hàm số có cực tiểu tại x=0 và giá trị cực tiểu là $c";
+      else if ((a < 0) && (b < 0))
+        result1 = " Hàm số có cực đại tại x=0 và giá trị cực đại là $c";
+    } else {
+      double x1 = -sqrt(-2 * a * b) / (2 * a);
+      double x2 = sqrt(-2 * a * b) / (2 * a);
+      double y1 = a * pow(x1, 4) + b * pow(x1, 2) + c;
+      double y2 = a * pow(x2, 4) + b * pow(x2, 2) + c;
+      if ((a > 0) && (b < 0)) {
         
+          result1 =
+              "Hàm số đạt cực tiểu  tại x = $x1 và x =$x2, giá trị cực tiểu là $y1";
+          result2 = "Hàm số đạt đại tại x = 0 và giá trị cực đại là $c";
+        
+        }
+       else if ((a < 0) && (b > 0)) {
+        result1 =
+              "Hàm số đạt cực đại  tại x = $x1 và x =$x2, giá trị cực đại là $y1";
+          result2 = "Hàm số đạt tiểu tại x = 0 và giá trị cực tiểu là $c";
       }
-    }                   
+    }
   }
-  
 
   String validateMobile(String value) {
     String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
@@ -92,7 +80,7 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm trùng phương"),
+          title: Text("Hàm trùng phương y = ax^4 + bx^2 + c"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -173,18 +161,31 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
                       ),
                     ],
                   ),
-                  // type Function
+                  // cho viet de`
+                  Text("Dang toán:",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(
+                      "Tìm điểm cực trị của hàm số y = a*x^4 + b*x^2 + c"),
                   typeFunction != -1
                       ? Column(
                           children: [
-                            Text("Delta' $answerDelta_phay"),
-                            Text("$result1"),
-                            Text("$result2"),
-                            Text("$result3"),
-                            Text("$result4"),
+                            Text("Đề bài",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                                "Tìm điểm cực trị của hàm số y = ${aTextEditingController.text}*x^4 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}"),
+                            // Text("Delta' $answerDelta_phay"),
+                            // Text("$result1"),
+                            Text(
+                              "Đáp án: ",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text("$result1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
-                      : Text("Không giải được")
+                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

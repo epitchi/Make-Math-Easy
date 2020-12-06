@@ -2,14 +2,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSTCTHTPPage extends StatefulWidget {
+class NoTSXTDDHTPPage extends StatefulWidget {
   @override
-  _NoTSTCTHTPPageState createState() => _NoTSTCTHTPPageState();
+  _NoTSXTDDHTPPageState createState() => _NoTSXTDDHTPPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
+class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
@@ -26,58 +26,46 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
     double a = double.parse(aTextEditingController.text);
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
+    // y = ax^4 + bx^2 + c
+    // a
 
+    // double y' = 4*a*x^2 + 2b
+    double delta_phay = -8 * a * b;
+    // listAnswer = new List<String>();
+    answerDelta_phay = delta_phay;
     typeFunction = 0;
     result1 = "";
     result2 = "";
     result3 = "";
     result4 = "";
 
-// y=ax^4 + bx^2 + c
-    // y_phay = 4ax^3 + 2bx
-    // y_phay= 2x(2ax^2 + b)
+    if (delta_phay <= 0) {
+      //y' cung dau' voi' a
 
-    double delta_trongngoac = -2 * a * b;
-    answerDelta_phay = delta_trongngoac;
+      if (a > 0) {
+        // y DB tren
+        result3 =
+            "Hàm số nghịc biến trên (-oo;0) và hàm số đồng biến trên (0;+oo)";
+      } else if (a < 0) {
+        // y NB tren |R
+        result3 =
+            "Hàm số nghịc biến trên (-oo;0) và hàm số đồng biến trên (0;+oo)";
+      }
+    } else if (delta_phay > 0) {
+      if (a > 0) {
+        result3 =
+            "Hàm số đồng biến trên (${(-sqrt(-8 * a * b)) / (4 * a)} ; 0) và ( ${(sqrt(-8 * a * b)) / (4 * a)} ; +oo )";
+        // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
+        result4 =
+            "Hàm số nghịch biến trên (-oo ; ${(-sqrt(-8 * a * b)) / (4 * a)}) và ( 0 ;${(sqrt(-8 * a * b)) / (4 * a)} )";
+      } else if (a < 0) {
+        result3 =
+            "Hàm đồng biến trên (-oo ; ${(sqrt(-8 * a * b)) / (4 * a)}) và ( 0 ;${(-sqrt(-8 * a * b)) / (4 * a)} )";
+        result4 =
+            "Hàm nghịch biến trên (${(sqrt(-8 * a * b))/(4 * a)});0) và (${(-sqrt(-8 * a * c))/(4 * a)}; +oo)";
 
-    if (a * b > 0) {
-      if ((a > 0) && (b > 0))
-        result1 = " Hàm số có cực tiểu tại x=0 và giá trị cực tiểu là $c";
-      else if ((a < 0) && (b < 0))
-        result1 = " Hàm số có cực đại tại x=0 và giá trị cực đại là $c";
-    } else {
-      double x1 = -sqrt(-2 * a * b) / 2 * a;
-      double x2 = sqrt(-2 * a * b) / 2 * a;
-      double y1 = a * pow(x1, 4) + b * pow(x1, 2) + c;
-      double y2 = a * pow(x2, 4) + b * pow(x2, 2) + c;
-      if ((a > 0) && (b < 0)) {
-        if (0 < x1) {
-          result1 =
-              "Hàm số có cực tiểu 1 tại x=0, giá trị cực tiểu là $c; cực tiểu 2 tại $x2, giá trị cực tiểu 2 là $y2";
-          result2 = "Và cực đại tại $x1, giá trị cực đại là $y1";
-        } else if ((x1 < 0) && (0 < x2)) {
-          result1 =
-              "Hàm số có cực tiểu 1 tại x=1, giá trị cực tiểu là $y1; cực tiểu 2 tại $x2, giá trị cực tiểu 2 là $y2";
-          result2 = "Và cực đại tại 0, giá trị cực đại là $c";
-        } else if (0 > x2) {
-          result1 =
-              "Hàm số có cực tiểu 1 tại 0, giá trị cực tiểu là $c; cực tiểu 2 tại $x1, giá trị cực tiểu 2 là $y1";
-          result2 = "Và cực đại tại $x2, giá trị cực đại là $y2";
-        }
-      } else if ((a < 0) && (b > 0)) {
-        if (0 < x1) {
-          result1 =
-              "Hàm số có cực đại 1 tại x=0, giá trị cực đại là $c; cực đại 2 tại $x2, giá trị cực đại 2 là $y2";
-          result2 = "Và cực tiểu tại $x1, giá trị cực tiểu là $y1";
-        } else if ((x1 < 0) && (0 < x2)) {
-          result1 =
-              "Hàm số có cực đại 1 tại $x1, giá trị cực đại là $y1; cực đại 2 tại $x2, giá trị cực đại 2 là $y2";
-          result2 = "và cực tiểu tại 0, giá trị cực tiểu là $c";
-        } else if (0 > x2) {
-          result1 =
-              "Hàm số có cực đại 1 tại x=0, giá trị cực đại là c; cực đại 2 tại $x1, giá trị cực đại 2 là $y2";
-          result2 = "Và cực tiểu tại $x2, giá trị cực tiểu là $y2";
-        }
+        // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
+
       }
     }
   }
@@ -97,7 +85,7 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm trùng phương y = ax^4 + bx^2 + c"),
+          title: Text("Hàm trùng phương"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -178,16 +166,30 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
                       ),
                     ],
                   ),
-                  // type Function
+                  //  cho viet de`
+                  Text("Dang toán:",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Xét tính đơn điệu của hàm số y = ax^4 + bx^2 + c  "),
                   typeFunction != -1
                       ? Column(
                           children: [
-                            Text("Delta' $answerDelta_phay"),
-                            Text("$result1"),
-                            Text("$result2"),
+                            Text("Đề bài",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                                Text(
+                                "Xét tính đơn điệu của hàm số y = ${aTextEditingController.text}*x^4 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}"),
+                            // Text("Delta' $answerDelta_phay"),
+                            // Text("$result1"),
+                           Text(
+                              "Đáp án: ",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text("$result3",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$result4",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
-                      : Text("Không giải được")
+                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

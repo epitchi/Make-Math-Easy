@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:solveMathApp/screen/HamCucTriBac3.dart';
-import 'package:solveMathApp/screen/HamCucTriBac4.dart';
-import 'package:solveMathApp/screen/HamPhanThucBac2TrenBac1.dart';
-import 'package:solveMathApp/screen/HamTrungPhuongPage.dart';
+import 'package:solveMathApp/screen/NoTSLNNNHB3Page.dart';
+import 'package:solveMathApp/screen/NoTSLNNNHPTPage.dart';
+import 'package:solveMathApp/screen/NoTSLNNNHTPPage.dart';
+import 'package:solveMathApp/screen/NoTSTCTHamB3Page.dart';
+import 'package:solveMathApp/screen/NoTSTCTHamPTPage.dart';
+import 'package:solveMathApp/screen/NoTSTCTHamTPPage.dart';
+import 'package:solveMathApp/screen/NoTSXTDDHPTPage.dart';
+import 'package:solveMathApp/screen/NoTSXTDDHTPPage.dart';
 import 'package:solveMathApp/screen/NoTSXTDDCHS3Page.dart';
 import 'package:solveMathApp/screen/TSHSB3_FoundMDBRPage.dart';
 
@@ -61,6 +65,7 @@ class _MenuPageState extends State<MenuPage> {
                       );
                     });
                   }),
+                  
             ],
           ),
         )));
@@ -118,10 +123,14 @@ class _BTCCTSState extends State<BTCCTS> {
                   ListTile(
                     title: Text("Tiệm cận"),
                     onTap: () {
-                      setState(() {});
-                      _showdialog(context);
-                    },
-                  )
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TSHSB3_FoundMDBRPage()),
+                          );
+                        });
+                      }),
                 ]))));
   }
 }
@@ -598,8 +607,12 @@ class _NoTSTCTState extends State<NoTSTCT> {
                 ListTile(
                     title: Text("Hàm phân thức"),
                     onTap: () {
-                      setState(() {});
-                      _showdialog(context);
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NoTSTCTHPTPage()));
+                      });
                     }),
               ],
             ),
@@ -626,23 +639,32 @@ class _NoTSFGTLNGTNNState extends State<NoTSFGTLNGTNN> {
                 ListTile(
                     title: Text("Hàm số bậc ba"),
                     onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NoTSLNNNHB3Page()));
+                      });
                     }),
                 ListTile(
                     title: Text("Hàm trùng phương"),
                     onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NoTSLNNNHTPPage()));
+                      });
                     }),
                 ListTile(
                     title: Text("Hàm phân thức"),
                     onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NoTSLNNNHPTPage()));
+                      });
                     }),
               ],
             ),

@@ -2,20 +2,18 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSXTDDHPTPage extends StatefulWidget {
+class NoTSTCTHCTB3Page extends StatefulWidget {
   @override
-  _NoTSXTDDHPTPageState createState() =>
-      _NoTSXTDDHPTPageState();
+  _NoTSTCTHCTB3PageState createState() => _NoTSTCTHCTB3PageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
+class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
   TextEditingController dTextEditingController = new TextEditingController();
-  TextEditingController eTextEditingController = new TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
@@ -24,74 +22,38 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
   String result3 = "";
   String result4 = "";
 
-  double ans_delta_cuatu;
+  double answerDelta_phay;
   GiaiTDDHS() {
     double a = double.parse(aTextEditingController.text);
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
     double d = double.parse(dTextEditingController.text);
-    double e = double.parse(eTextEditingController.text); 
 
-    ans_delta_cuatu = 0;
     typeFunction = 0;
     result1 = "";
+    result2 = "";
+    result3 = "";
+    result4 = "";
 
-    //y=(ax^2+bx+c)/(dx+e)
-    //đkxd x khac -e/d
-    //y_phay=((a*d)*pow(x,2) + 2*a*e*x + (b*e-c*d))/pow((d*x+e),2)
+    // y=ax^3 + bx^2 + cx + d
+    // y_phay = 3ax^2 + 2bx + c
 
-    double delta_cuatu = pow((a * e), 2) - a * d * (b * e - c * d);
-    ans_delta_cuatu = delta_cuatu;
-    if (delta_cuatu < 0) {
-      if (a * d > 0) {
-        result1 = "Y Đồng Biến trên (-oo; ${-e / d}) U (${-e / d}; +oo)";
-      } else if (a * d < 0) {
-        result1 = "y Nghịch Biến trên (-oo; ${-e / d}) U (${-e / d}; +oo)";
-      }
-    } else if (delta_cuatu == 0) {
-      if (a * d > 0) {
-        if (-a * e / a * d > -e / d)
-          result1 =
-              "Y Đồng Biến trên (-oo; ${-e / d}) U (${-e / d};${-a * e / a * d}) U (${-a * e / a * d}; +oo)";
-        else if (-a * e / a * d == -e / d)
-          result1 = "Y Đồng Biến trên (-oo; ${-e / d}) U (${-e / d}; +oo)";
-        else if (-a * e / a * d < -e / d)
-          result1 =
-              "Y Đồng Biến trên (-oo; ${-a * e / a * d}) U (${-a * e / a * d};${-e / d}) U (${-e / d}; +oo)";
-      } else if (a * d < 0) {
-        if (-a * e / a * d > -e / d)
-          result1 =
-              "Y Đồng Biến trên (-oo; ${-e / d}) U (${-e / d};${-a * e / a * d}) U (${-a * e / a * d}; +oo)";
-        else if (-a * e / a * d == -e / d)
-          result1 = "Y Đồng Biến trên (-oo; ${-e / d}) U (${-e / d}; +oo)";
-        else if (-a * e / a * d < -e / d)
-          result1 =
-              "Y Đồng Biến trên (-oo; ${-a * e / a * d}) U (${-a * e / a * d};${-e / d}) U (${-e / d}; +oo)";
-      }
-    } else if (delta_cuatu > 0) {
-      double x1 = (-a * e - sqrt(delta_cuatu)) / a * d;
-      double x2 = (-a * e + sqrt(delta_cuatu)) / a * d;
-      if (a * d > 0) {
-        if (-e / d < x1)
-          result1 =
-              "Y Đồng Biến trên (-oo; ${-e / d}) U (${-e / d};$x1) U ($x2; +oo) và Nghịch Biến trên ($x1;$x2)";
-        else if ((x1 < -e / d) && (-e / d < x2))
-          result1 =
-              "Y Đồng Biến trên (-oo; $x1) U ($x2; +oo) và Nghịch Biến trên ($x1;${-e / d}) U (${-e / d};$x2)";
-        else if (x2 < -e / d)
-          result1 =
-              "Y Đồng Biến trên (-oo;$x1) U (x2; ${-e / d}) U (${-e / d}; +oo) và Nghịch Biến trên ($x1;$x2)";
-      } else if (a * d < 0) {
-        if (-e / d < x1)
-          result1 =
-              "Y Nghịch Biến trên (-oo; ${-e / d}) U (${-e / d};$x1) U ($x2; +oo) và Đồng Biến trên ($x1;$x2)";
-        else if ((x1 < -e / d) && (-e / d < x2))
-          result1 =
-              "Y Nghịch Biến trên (-oo; $x1) U ($x2; +oo) và Đồng Biến trên ($x1;${-e / d}) U (${-e / d};$x2)";
-        else if (x2 < -e / d)
-          result1 =
-              "Y Nghịch Biến trên (-oo;$x1) U ($x2; ${-e / d}) U (${-e / d}; +oo) và Đồng Biến trên ($x1;$x2)";
-      }
+    double delta_yphay = pow(b, 2) - 3 * a * c;
+    answerDelta_phay = delta_yphay;
+
+    if (delta_yphay < 0 || delta_yphay == 0)
+      result1 = "Hàm số không có cực trị";
+    else if (delta_yphay > 0) {
+      double x1 = (-b - sqrt(delta_yphay)) / (3 * a);
+      double x2 = (-b + sqrt(delta_yphay)) / (3 * a);
+      double y1 = a * pow(x1, 3) + b * pow(x1, 2) + c * x1 + d;
+      double y2 = a * pow(x2, 3) + b * pow(x2, 2) + c * x2 + d;
+      if (a > 0)
+        result1 =
+            "Hàm số có cực đại tại $x1 và giá trị cực đại là $y1 \nHàm số đạt cực tiểu tại $x2 và giá trị cực tiểu là $y2\n";
+      else if (a < 0)
+        result1 =
+            "Hàm số có cực đại tại $x2 và giá trị cực đại là $y2 \nHàm số đạt cực tiểu tại$x1 và giá trị cực tiểu là $y1";
     }
   }
 
@@ -110,7 +72,7 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm phân thức bậc 2 trên bậc 1"),
+          title: Text("Tìm cực trị của hàm số bậc 3 y=ax^3 +bx^2 + cx + d "),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -173,23 +135,7 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
                           title: TextFormField(
                             keyboardType: TextInputType.number,
                             controller: dTextEditingController,
-                            decoration: textFieldInputDecoration("Điền B"),
-                            validator: (val) {
-                              validateMobile(val);
-                            },
-                            onChanged: (value) {
-                              setState(() {
-                                //num1 == num parse .
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          leading: Text("E"),
-                          title: TextFormField(
-                            keyboardType: TextInputType.number,
-                            controller: eTextEditingController,
-                            decoration: textFieldInputDecoration("Điền B"),
+                            decoration: textFieldInputDecoration("Điền D"),
                             validator: (val) {
                               validateMobile(val);
                             },
@@ -219,21 +165,31 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
                           dTextEditingController.text = "";
-                          eTextEditingController.text = "";
                         },
                         child: Text("Delete"),
                       ),
                     ],
                   ),
                   // type Function
+                  Text("Dang toán:",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                      "Tìm điểm cực trị của hàm số y = a*x^3 + b*x^2 + c*x + d"),
                   typeFunction != -1
                       ? Column(
                           children: [
-                            Text("Delta của tử $ans_delta_cuatu"),
-                            Text("$result1"),
+                            Text(
+                                "Đề bài: Tìm cực trị của hàm số y = ${aTextEditingController.text}*x^3 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}*x + ${dTextEditingController.text}"),
+                            Text(
+                              "Đáp án: ",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text("$result1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                           
                           ],
                         )
-                      : Text("Không giải được")
+                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

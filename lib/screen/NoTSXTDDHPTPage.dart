@@ -2,18 +2,20 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSTCTHCTB3Page extends StatefulWidget {
+class NoTSXTDDHPTPage extends StatefulWidget {
   @override
-  _NoTSTCTHCTB3PageState createState() => _NoTSTCTHCTB3PageState();
+  _NoTSXTDDHPTPageState createState() =>
+      _NoTSXTDDHPTPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
+class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
   TextEditingController dTextEditingController = new TextEditingController();
+  TextEditingController eTextEditingController = new TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
@@ -22,38 +24,54 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
   String result3 = "";
   String result4 = "";
 
-  double answerDelta_phay;
+  double ans_delta_cuatu;
   GiaiTDDHS() {
     double a = double.parse(aTextEditingController.text);
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
     double d = double.parse(dTextEditingController.text);
+    double e = double.parse(eTextEditingController.text); 
 
+    ans_delta_cuatu = 0;
     typeFunction = 0;
     result1 = "";
-    result2 = "";
-    result3 = "";
-    result4 = "";
 
-    // y=ax^3 + bx^2 + cx + d
-    // y_phay = 3ax^2 + 2bx + c
+    //y=(ax^2+bx+c)/(dx+e)
+    //đkxd x khac -e/d
+    //y_phay=((a*d)*pow(x,2) + 2*a*e*x + (b*e-c*d))/pow((d*x+e),2)
 
-    double delta_yphay = pow(b, 2) - 3 * a * c;
-    answerDelta_phay = delta_yphay;
-
-    if (delta_yphay < 0 || delta_yphay == 0)
-      result1 = "Hàm số không có cực trị";
-    else if (delta_yphay > 0) {
-      double x1 = (-b - sqrt(delta_yphay)) / 3 * a;
-      double x2 = (-b + sqrt(delta_yphay)) / 3 * a;
-      double y1 = a * pow(x1, 3) + b * pow(x1, 2) + c * x1 + d;
-      double y2 = a * pow(x2, 3) + b * pow(x2, 2) + c * x2 + d;
-      if (a > 0)
-        result1 =
-            "Hàm số có cực đại tại $x1 \nGiá trị cực đại là $y1 \nHàm số đạt cực tiểu tại $x2 \nGiá trị cực tiểu là $y2\n";
-      else if (a < 0)
-        result1 =
-            "Hàm số có cực đại tại $x2 \nGiá trị cực đại là $y2 \nHàm số đạt cực tiểu tại$x1 \nGiá trị cực tiểu là $y1";
+    double delta_cuatu = pow((a * e), 2) - a * d * (b * e - c * d);
+    ans_delta_cuatu = delta_cuatu;
+    if (delta_cuatu <= 0) {
+      if (a * d > 0) {
+        result1 = "Hàm số đồng biến trên (-oo; ${-e / d}) và (${-e / d}; +oo)";
+      } else if (a * d < 0) {
+        result1 = "Hàm số nghịch biến trên (-oo; ${-e / d}) và (${-e / d}; +oo)";
+      }
+    } else if (delta_cuatu > 0) {
+      double x1 = (-a * e - sqrt(delta_cuatu)) / (a * d);
+      double x2 = (-a * e + sqrt(delta_cuatu)) / (a * d);
+      if (a * d > 0) {
+        if (-e / d < x1)
+          result1 =
+              "Hàm số đồng biến trên (-oo; ${-e / d}) và (${-e / d};$x1) và ($x2; +oo) và hàm số nghịch biến trên ($x1;$x2)";
+        else if ((x1 < -e / d) && (-e / d < x2))
+          result1 =
+              "Hàm số đồng biến trên (-oo; $x1) và ($x2; +oo) và hàm số nghịch biến trên ($x1;${-e / d}) và (${-e / d};$x2)";
+        else if (x2 < -e / d)
+          result1 =
+              "Hàm số đồng biến trên (-oo;$x1) và (x2; ${-e / d}) và (${-e / d}; +oo) và hàm số nghịch biến trên ($x1;$x2)";
+      } else if (a * d < 0) {
+        if (-e / d < x1)
+          result1 =
+              "Hàm số nghịch biến trên (-oo; ${-e / d}) và (${-e / d};$x1) và ($x2; +oo) và hàm số đồng biến trên ($x1;$x2)";
+        else if ((x1 < -e / d) && (-e / d < x2))
+          result1 =
+              "Hàm số nghịch biến trên (-oo; $x1) và ($x2; +oo) và hàm số đồng biến trên ($x1;${-e / d}) và (${-e / d};$x2)";
+        else if (x2 < -e / d)
+          result1 =
+              "Hàm số nghịch biến trên (-oo;$x1) U ($x2; ${-e / d}) U (${-e / d}; +oo) và hàm số đồng điến trên ($x1;$x2)";
+      }
     }
   }
 
@@ -72,7 +90,7 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tìm cực trị của hàm số bậc 3 y=ax^3 +bx^2 + cx + d "),
+          title: Text("Hàm phân thức"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -146,6 +164,22 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
                             },
                           ),
                         ),
+                        ListTile(
+                          leading: Text("E"),
+                          title: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: eTextEditingController,
+                            decoration: textFieldInputDecoration("Điền E"),
+                            validator: (val) {
+                              validateMobile(val);
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                //num1 == num parse .
+                              });
+                            },
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -165,23 +199,34 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
                           dTextEditingController.text = "";
+                          eTextEditingController.text = "";
                         },
                         child: Text("Delete"),
                       ),
                     ],
                   ),
                   // type Function
+                  Text("Dang toán:",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Xét tính đơn điệu của hàm số y = (ax^2 + bx + c)/(dx + e) (a có thể bằng 0)"),
                   typeFunction != -1
                       ? Column(
                           children: [
-                            Text(
-                                "Đề bài: Tìm cực trị của hàm số y = ${aTextEditingController.text}*x^3 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}*x + ${dTextEditingController.text}"),
-                            Text("Đáp số:"),
+                            Text("Đề bài",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                                Text(
+                                "Xét tính đơn điệu của hàm số y = (${aTextEditingController.text}*x^2 + ${bTextEditingController.text}*x + ${cTextEditingController.text})/(${dTextEditingController.text}*x + ${eTextEditingController.text})"),
                             // Text("Delta' $answerDelta_phay"),
-                            Text("$result1"),
+                            // Text("$result1"),
+                           Text(
+                              "Đáp án: ",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text("$result1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
-                      : Text("Không giải được")
+                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),
