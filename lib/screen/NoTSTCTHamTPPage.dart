@@ -42,25 +42,22 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
 
     if (a * b > 0) {
       if ((a > 0) && (b > 0))
-        result1 = " Hàm số có cực tiểu tại x=0 và giá trị cực tiểu là $c";
+        result1 = " Hàm số đạt cực tiểu tại x=0 và giá trị cực tiểu là $c";
       else if ((a < 0) && (b < 0))
-        result1 = " Hàm số có cực đại tại x=0 và giá trị cực đại là $c";
+        result1 = " Hàm số đạt cực đại tại x=0 và giá trị cực đại là $c";
     } else {
       double x1 = -sqrt(-2 * a * b) / (2 * a);
       double x2 = sqrt(-2 * a * b) / (2 * a);
       double y1 = a * pow(x1, 4) + b * pow(x1, 2) + c;
       double y2 = a * pow(x2, 4) + b * pow(x2, 2) + c;
       if ((a > 0) && (b < 0)) {
-        
-          result1 =
-              "Hàm số đạt cực tiểu  tại x = $x1 và x =$x2, giá trị cực tiểu là $y1";
-          result2 = "Hàm số đạt đại tại x = 0 và giá trị cực đại là $c";
-        
-        }
-       else if ((a < 0) && (b > 0)) {
         result1 =
-              "Hàm số đạt cực đại  tại x = $x1 và x =$x2, giá trị cực đại là $y1";
-          result2 = "Hàm số đạt tiểu tại x = 0 và giá trị cực tiểu là $c";
+            "Hàm số đạt cực tiểu  tại x = $x1 và x =$x2 và giá trị cực tiểu là $y1";
+        result2 = "Hàm số đạt cực đại tại x = 0 và giá trị cực đại là $c";
+      } else if ((a < 0) && (b > 0)) {
+        result1 =
+            "Hàm số đạt cực đại  tại x = $x1 và x =$x2 và giá trị cực đại là $y1";
+        result2 = "Hàm số đạt cực tiểu tại x = 0 và giá trị cực tiểu là $c";
       }
     }
   }
@@ -80,7 +77,7 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm trùng phương y = ax^4 + bx^2 + c"),
+          title: Text("Tìm điểm cực trị hàm trùng phương y = ax^4 + bx^2 + c"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -163,16 +160,15 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
                   ),
                   // cho viet de`
                   Text("Dang toán:",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(
-                      "Tìm điểm cực trị của hàm số y = a*x^4 + b*x^2 + c"),
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Tìm điểm cực trị của hàm số y = a*x^4 + b*x^2 + c"),
                   typeFunction != -1
                       ? Column(
                           children: [
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                                "Tìm điểm cực trị của hàm số y = ${aTextEditingController.text}*x^4 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}"),
+                                "Tìm điểm cực trị của hàm số y = ${aTextEditingController.text}x^4 + ${bTextEditingController.text}x^2 + ${cTextEditingController.text}"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
                             Text(
@@ -185,7 +181,8 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
-                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
+                      : Text(
+                          "Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

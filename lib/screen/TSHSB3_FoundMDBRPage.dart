@@ -44,6 +44,7 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
     double _B = 2 * c * d - 3 * a * f - 3 * b * _e;
     double _A = c * c - 3 * a * _e;
     double _C = d * d - 3 * b * f;
+    delta = _B * _B - 4 * _A * _C;
     if (a > 0) {
       if (_A < 0) {
         x0 = -_B / (2 * _A);
@@ -190,7 +191,7 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Xét tính đơn điệu hàm số bậc 3"),
+          title: Text("Tìm m để hàm số bậc ba đồng biến trên R"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -355,6 +356,8 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
                     ],
                   ),
                   // type Function
+                  Text("Dang toán:",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(
                       "Tìm m để hàm số y = (am+b)x^3 +(cm+d)x^2+(em+f)x+gm+h đồng biến trên R"),
                   typeFunction != -1
@@ -366,17 +369,22 @@ class _TSHSB3_FoundMDBRPageState extends State<TSHSB3_FoundMDBRPage> {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Text(
-                                "Tìm m để hàm số bậc 3: y = ( ${aTextEditingController.text}*m+${bTextEditingController.text})*x^3 +(${cTextEditingController.text} *m+${dTextEditingController.text})*x^2+(${eTextEditingController.text}*m+f)x+${gTextEditingController.text}*m+${hTextEditingController.text} có dạng đồng biến trên R"),
+                                "Tìm m để hàm số bậc 3: y = ( ${aTextEditingController.text}m+${bTextEditingController.text})x^3 +(${cTextEditingController.text} m+${dTextEditingController.text})x^2+(${eTextEditingController.text}m+${fTextEditingController.text})x+${gTextEditingController.text}m+${hTextEditingController.text} đồng biến trên R"),
 
                             Text(
-                              "Đáp án: $result1",
+                              "Đáp án: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            Text("$result2"),
-                            Text("$result3"),
+                            Text("$result1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$result3",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
-                      : Text("Không giải được")
+                      : Text(
+                          "Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

@@ -4,8 +4,7 @@ import 'package:solveMathApp/widgets/widget.dart';
 
 class NoTSXTDDHPTPage extends StatefulWidget {
   @override
-  _NoTSXTDDHPTPageState createState() =>
-      _NoTSXTDDHPTPageState();
+  _NoTSXTDDHPTPageState createState() => _NoTSXTDDHPTPageState();
 }
 
 List listAnswer = new List<String>();
@@ -30,7 +29,7 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
     double d = double.parse(dTextEditingController.text);
-    double e = double.parse(eTextEditingController.text); 
+    double e = double.parse(eTextEditingController.text);
 
     ans_delta_cuatu = 0;
     typeFunction = 0;
@@ -46,7 +45,8 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
       if (a * d > 0) {
         result1 = "Hàm số đồng biến trên (-oo; ${-e / d}) và (${-e / d}; +oo)";
       } else if (a * d < 0) {
-        result1 = "Hàm số nghịch biến trên (-oo; ${-e / d}) và (${-e / d}; +oo)";
+        result1 =
+            "Hàm số nghịch biến trên (-oo; ${-e / d}) và (${-e / d}; +oo)";
       }
     } else if (delta_cuatu > 0) {
       double x1 = (-a * e - sqrt(delta_cuatu)) / (a * d);
@@ -90,7 +90,7 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm phân thức"),
+          title: Text("Xét tính đơn điệu hàm phân thức"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -207,18 +207,19 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
                   ),
                   // type Function
                   Text("Dang toán:",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text("Xét tính đơn điệu của hàm số y = (ax^2 + bx + c)/(dx + e) (a có thể bằng 0)"),
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                      "Xét tính đơn điệu của hàm số y = (ax^2 + bx + c)/(dx + e) (a có thể bằng 0)"),
                   typeFunction != -1
                       ? Column(
                           children: [
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                                Text(
-                                "Xét tính đơn điệu của hàm số y = (${aTextEditingController.text}*x^2 + ${bTextEditingController.text}*x + ${cTextEditingController.text})/(${dTextEditingController.text}*x + ${eTextEditingController.text})"),
+                            Text(
+                                "Xét tính đơn điệu của hàm số y = (${aTextEditingController.text}x^2 + ${bTextEditingController.text}x + ${cTextEditingController.text})/(${dTextEditingController.text}zx + ${eTextEditingController.text})"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
-                           Text(
+                            Text(
                               "Đáp án: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -226,7 +227,8 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
-                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
+                      : Text(
+                          "Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

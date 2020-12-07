@@ -41,18 +41,16 @@ class _NoTSTCTHPTPageState extends State<NoTSTCTHPTPage> {
 
     double delta_cuatu = pow((a * e), 2) - a * d * (b * e - c * d);
     ans_delta_cuatu = delta_cuatu;
-    
-    if ((delta_cuatu <= 0)||(a==0)) {
+
+    if ((delta_cuatu <= 0) || (a == 0)) {
       result1 = "Hàm số không có cực trị";
     } else if (delta_cuatu > 0) {
       double x1 = (-a * e - sqrt(delta_cuatu)) / (a * d);
       double x2 = (-a * e + sqrt(delta_cuatu)) / (a * d);
       double y1 = (a * pow(x1, 2) + b * x1 + c) / (d * x1 + e);
       double y2 = (a * pow(x2, 2) + b * x2 + c) / (d * x2 + e);
-        result1 =
-            "Hàm số đạt cực đại tại x = $x1 và giá trị cực đại là $y1 ";
-        result2= "Hàm số đạt cực tiểu tại x = $x2 và giá trị cực tiểu là $y2";
-  
+      result1 = "Hàm số đạt cực đại tại x = $x1 và giá trị cực đại là $y1 ";
+      result2 = "Hàm số đạt cực tiểu tại x = $x2 và giá trị cực tiểu là $y2";
     }
   }
 
@@ -71,7 +69,7 @@ class _NoTSTCTHPTPageState extends State<NoTSTCTHPTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm phân thức"),
+          title: Text("Tìm cực trị của hàm phân thức"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -197,7 +195,7 @@ class _NoTSTCTHPTPageState extends State<NoTSTCTHPTPage> {
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                                "Tìm điểm cực trị của hàm số y = (${aTextEditingController.text}*x^2 + ${bTextEditingController.text}*x + ${cTextEditingController.text})/(${dTextEditingController.text}*x + ${eTextEditingController.text})"),
+                                "Tìm điểm cực trị của hàm số y = (${aTextEditingController.text}x^2 + ${bTextEditingController.text}x + ${cTextEditingController.text})/(${dTextEditingController.text}x + ${eTextEditingController.text})"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
                             Text(

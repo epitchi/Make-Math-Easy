@@ -172,24 +172,24 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
                   ),
                   // type Function
                   Text("Dang toán:",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(
                       "Tìm điểm cực trị của hàm số y = a*x^3 + b*x^2 + c*x + d"),
                   typeFunction != -1
                       ? Column(
                           children: [
                             Text(
-                                "Đề bài: Tìm cực trị của hàm số y = ${aTextEditingController.text}*x^3 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}*x + ${dTextEditingController.text}"),
+                                "Đề bài: Tìm cực trị của hàm số y = ${aTextEditingController.text}x^3 + ${bTextEditingController.text}x^2 + ${cTextEditingController.text}x + ${dTextEditingController.text}"),
                             Text(
                               "Đáp án: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                           
                           ],
                         )
-                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
+                      : Text(
+                          "Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

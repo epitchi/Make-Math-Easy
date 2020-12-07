@@ -2,21 +2,20 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSLNNNHPTPage extends StatefulWidget {
+class TSHTPCO3DCTDTSPage extends StatefulWidget {
   @override
-  _NoTSLNNNHPTPage createState() => _NoTSLNNNHPTPage();
+  _TSHTPCO3DCTDTSPageState createState() => _TSHTPCO3DCTDTSPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
+class _TSHTPCO3DCTDTSPageState extends State<TSHTPCO3DCTDTSPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
   TextEditingController dTextEditingController = new TextEditingController();
   TextEditingController eTextEditingController = new TextEditingController();
-  TextEditingController mTextEditingController = new TextEditingController();
-  TextEditingController nTextEditingController = new TextEditingController();
+  TextEditingController fTextEditingController = new TextEditingController();
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
   String result1 = "";
@@ -31,8 +30,7 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
     double c = double.parse(cTextEditingController.text);
     double d = double.parse(dTextEditingController.text);
     double e = double.parse(eTextEditingController.text);
-    int m = int.parse(mTextEditingController.text);
-    int n = int.parse(nTextEditingController.text);
+    double f = double.parse(fTextEditingController.text);
     ans_delta_cuatu = 0;
     typeFunction = 0;
     result1 = "";
@@ -40,19 +38,75 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
     //y=(ax^2+bx+c)/(dx+e)
     //đkxd x khac -e/d
     //y_phay=((a*d)*pow(x,2) + 2*a*e*x + (b*e-c*d))/pow((d*x+e),2)
-
-    double max = -1000000;
-    double min = 1000000;
-    int k = (n - m) * 1000;
-    for (int i = k; i >= 0; i--) {
-      double f, x;
-      x = m + i / 1000;
-      f = (a * pow(x, 2) + b * pow(x, 1) + c) / (d * x + e);
-      if (max < f) max = f;
-      if (min > f) min = f;
+    double A, B, C, D;
+    double dt, k, x1, x2, x3, x, fk;
+    double PI = 3.14159265359;
+    A = pow(c, 3);
+    B = 3 * c * c * d;
+    C = 3 * c * d * d + 8 * a;
+    D = pow(d, 3) + 8 * b;
+    if (A == 0) {
+      if (a == 0) if ((b * d < 0) && (d * d * d + 8 * b == 0))
+        result1 = "Với mọi giá trị m ";
+      if (a != 0) {
+        double m = (pow(d, 3) + 8 * b) / (8 * a);
+        if ((a * m + b) * (c * m + d) < 0)
+          result1 = "Giá trị của m = $m";
+        else
+          result1 = " Không có giá trị m thỏa ";
+      }
+    } else {
+      dt = pow(B, 2) - 3 * A * C; //delta=b*b-3*a*c;
+      double fdt = dt;
+      if (dt < 0) fdt = (-1) * dt;
+      k = (9 * A * B * C - 2 * pow(B, 3) - 27 * pow(A, 2) * D) /
+          (2 * sqrt(pow(fdt, 3)));
+      if (dt > 0) {
+        if ((k <= 1) && (k >= -1)) {
+          x1 = (2 * sqrt(dt) * cos(acos(k) / 3) - B) / (3 * a);
+          x2 = (2 * sqrt(dt) * cos(acos(k) / 3 - (2 * PI / 3)) - B) / (3 * A);
+          x3 = (2 * sqrt(dt) * cos(acos(k) / 3 + (2 * PI / 3)) - B) / (3 * A);
+          if ((a * x1 + b) * (c * x1 + d) < 0) result1 = "Giá trị của m = $x1";
+          if ((a * x2 + b) * (c * x2 + d) < 0) result2 = "Giá trị của m = $x2";
+          if ((a * x3 + b) * (c * x3 + d) < 0) result3 = "Giá trị của m = $x3";
+          if (((a * x1 + b) * (c * x1 + d) >= 0) &&
+              ((a * x2 + b) * (c * x2 + d) >= 0) &&
+              ((a * x3 + b) * (c * x3 + d) >= 0))
+            result1 = " Không có giá trị m thỏa ";
+        }
+        if ((k > 1) && (k < -1)) {
+          if (k < 0)
+            fk = (-1) * k;
+          else
+            fk = k;
+          x = ((sqrt(dt) * fk) / (3 * A * k)) *
+                  (pow((fk + sqrt(pow(k, 2) - 1)), 1.0 / 3) +
+                      pow((fk - sqrt(pow(k, 2) - 1)), 1.0 / 3)) -
+              (b / (3 * a));
+          if ((a * x + b) * (c * x + d) < 0)
+            result1 = " Giá trị của m là $x";
+          else
+            result1 = " Không có giá trị m thỏa ";
+        }
+      } else if (dt == 0) {
+        x = (-B - pow(-(pow(B, 3) - 27 * A * A * D), 1.0 / 3)) /
+            (3 *
+                A); //do ham pow khong dung doi so am nen ta phai doi dau.Ct goc:x=(-b+pow(pow(b,3)-27*a*a*d),1.0/3))/(3*a)
+        if ((a * x + b) * (c * x + d) < 0)
+          result1 = " Giá trị của m là $x";
+        else
+          result1 = " Không có giá trị m thỏa ";
+      } else {
+        x = (sqrt(fdt) / (3 * A)) *
+                (pow((k + sqrt(k * k + 1)), 1.0 / 3) -
+                    pow(-(k - sqrt(k * k + 1)), 1.0 / 3)) -
+            (B / (3 * A));
+        if ((a * x + b) * (c * x + d) < 0)
+          result1 = " Giá trị của m là $x";
+        else
+          result1 = " Không có giá trị m thỏa ";
+      }
     }
-    result1 = " GTLN của hàm số là $max";
-    result2 = " GTNN của hàm số là $min";
   }
 
   String validateMobile(String value) {
@@ -70,7 +124,8 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tìm GTLN, GTNN của hàm phân thức"),
+          title: Text(
+              "Tìm m hàm số trùng phương có 3 điểm cực trị tạo thành tam giác có diện tích S"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -161,27 +216,11 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           ),
                         ),
                         ListTile(
-                          leading: Text("m"),
+                          leading: Text("F"),
                           title: TextFormField(
                             keyboardType: TextInputType.number,
-                            controller: mTextEditingController,
-                            decoration: textFieldInputDecoration("Điền m"),
-                            validator: (val) {
-                              validateMobile(val);
-                            },
-                            onChanged: (value) {
-                              setState(() {
-                                //num1 == num parse .
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          leading: Text("n"),
-                          title: TextFormField(
-                            keyboardType: TextInputType.number,
-                            controller: nTextEditingController,
-                            decoration: textFieldInputDecoration("Điền n"),
+                            controller: fTextEditingController,
+                            decoration: textFieldInputDecoration("Điền F"),
                             validator: (val) {
                               validateMobile(val);
                             },
@@ -212,8 +251,7 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           cTextEditingController.text = "";
                           dTextEditingController.text = "";
                           eTextEditingController.text = "";
-                          mTextEditingController.text = "";
-                          nTextEditingController.text = "";
+                          fTextEditingController.text = "";
                         },
                         child: Text("Delete"),
                       ),
@@ -223,14 +261,14 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                   Text("Dang toán:",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(
-                      "Tìm GTLN, GTNN của hàm số y = (ax^2 + bx + c)/(dx + e) (a có thể bằng 0) trên đoạn [m,n]"),
+                      "Tìm m để hàm số y = (am+b)x^4 + (cm+d)x^2 + em+f có ba điểm cực trị tạo thành tam giác có diện tích là S"),
                   typeFunction != -1
                       ? Column(
                           children: [
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                                "Tìm GTLN,GTNN của hàm số y = (${aTextEditingController.text}x^2 + ${bTextEditingController.text}x + ${cTextEditingController.text})/(${dTextEditingController.text}x + ${eTextEditingController.text}) trên [${mTextEditingController.text};${nTextEditingController.text}]"),
+                                "Tìm m để hàm số y = (${aTextEditingController.text}m+${bTextEditingController.text})x^4 + (${cTextEditingController.text}m+${dTextEditingController.text})x^2 + ${eTextEditingController.text}m+${fTextEditingController.text} có ba điểm cực trị tạo thành tam giác có diện tích là S"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
                             Text(
@@ -240,6 +278,8 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$result3",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

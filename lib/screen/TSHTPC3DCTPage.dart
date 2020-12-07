@@ -2,21 +2,20 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSLNNNHPTPage extends StatefulWidget {
+class TSHTPCO3DCTPage extends StatefulWidget {
   @override
-  _NoTSLNNNHPTPage createState() => _NoTSLNNNHPTPage();
+  _TSHTPCO3DCTPageState createState() => _TSHTPCO3DCTPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
+class _TSHTPCO3DCTPageState extends State<TSHTPCO3DCTPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
   TextEditingController dTextEditingController = new TextEditingController();
   TextEditingController eTextEditingController = new TextEditingController();
-  TextEditingController mTextEditingController = new TextEditingController();
-  TextEditingController nTextEditingController = new TextEditingController();
+  TextEditingController fTextEditingController = new TextEditingController();
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
   String result1 = "";
@@ -31,8 +30,7 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
     double c = double.parse(cTextEditingController.text);
     double d = double.parse(dTextEditingController.text);
     double e = double.parse(eTextEditingController.text);
-    int m = int.parse(mTextEditingController.text);
-    int n = int.parse(nTextEditingController.text);
+    double f = double.parse(fTextEditingController.text);
     ans_delta_cuatu = 0;
     typeFunction = 0;
     result1 = "";
@@ -41,18 +39,47 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
     //đkxd x khac -e/d
     //y_phay=((a*d)*pow(x,2) + 2*a*e*x + (b*e-c*d))/pow((d*x+e),2)
 
-    double max = -1000000;
-    double min = 1000000;
-    int k = (n - m) * 1000;
-    for (int i = k; i >= 0; i--) {
-      double f, x;
-      x = m + i / 1000;
-      f = (a * pow(x, 2) + b * pow(x, 1) + c) / (d * x + e);
-      if (max < f) max = f;
-      if (min > f) min = f;
+    double delta_cuatu = e * e - 4 * d * f;
+    ans_delta_cuatu = delta_cuatu;
+    if (a == 0) {
+      if (b == 0)
+        result1 = "Không có giá trị của m";
+      else {
+        if (b * c < 0) result1 = "Giá trị m thuộc (${-d / c};+oo )";
+        if (b * c > 0) result1 = " Giá trị của m thuộc (-oo;${-d / c}) ";
+        if (b * c == 0) if (b * d < 0)
+          result1 = " Với mọi giá trị của m";
+        else
+          result1 = " Không có giá trị m thỏa";
+      }
+    } else {
+      double delta = pow((a * d + b * c), 2) - 4 * (a * c * b * d);
+      if (a * c == 0) {
+        if (a * d < 0) result1 = "Giá trị m thuộc (${-b / a};+oo )";
+        if (a * d > 0) result1 = " Giá trị của m thuộc (-oo;${-b / a}) ";
+        if (a * d == 0) if (b * d < 0)
+          result1 = " Với mọi giá trị của m";
+        else
+          result1 = " Không có giá trị m thỏa";
+      } else {
+        if (delta < 0) {
+          if (a * c > 0) result1 = "Không có giá trị m thỏa ";
+          if (a * c < 0) result1 = "Với mọi giá trị của m";
+        }
+        if (delta == 0) {
+          if (a * c < 0)
+            result1 = "Với mọi giá trị khác ${-(a * d + b * c) / (2 * a * c)} ";
+          if (a * c > 0) result1 = "Không có giá trị m thỏa ";
+        }
+        if (delta > 0) {
+          double x1 = (-(a * d + b * c) - sqrt(delta)) / (2 * a * c);
+          double x2 = (-(a * d + b * c) + sqrt(delta)) / (2 * a * c);
+          if (a * c > 0) result1 = "Giá trị của m thuộc ($x1 ; $x2 ) ";
+          if (a * c < 0)
+            result1 = "Giá trị của m thuộc (-oo;$x1) U ($x2 ; +oo) ";
+        }
+      }
     }
-    result1 = " GTLN của hàm số là $max";
-    result2 = " GTNN của hàm số là $min";
   }
 
   String validateMobile(String value) {
@@ -70,7 +97,7 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tìm GTLN, GTNN của hàm phân thức"),
+          title: Text("Tìm m hàm số trùng phương có 3 điểm cực trị"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -161,27 +188,11 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           ),
                         ),
                         ListTile(
-                          leading: Text("m"),
+                          leading: Text("F"),
                           title: TextFormField(
                             keyboardType: TextInputType.number,
-                            controller: mTextEditingController,
-                            decoration: textFieldInputDecoration("Điền m"),
-                            validator: (val) {
-                              validateMobile(val);
-                            },
-                            onChanged: (value) {
-                              setState(() {
-                                //num1 == num parse .
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          leading: Text("n"),
-                          title: TextFormField(
-                            keyboardType: TextInputType.number,
-                            controller: nTextEditingController,
-                            decoration: textFieldInputDecoration("Điền n"),
+                            controller: fTextEditingController,
+                            decoration: textFieldInputDecoration("Điền F"),
                             validator: (val) {
                               validateMobile(val);
                             },
@@ -212,8 +223,7 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           cTextEditingController.text = "";
                           dTextEditingController.text = "";
                           eTextEditingController.text = "";
-                          mTextEditingController.text = "";
-                          nTextEditingController.text = "";
+                          fTextEditingController.text = "";
                         },
                         child: Text("Delete"),
                       ),
@@ -223,14 +233,14 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                   Text("Dang toán:",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(
-                      "Tìm GTLN, GTNN của hàm số y = (ax^2 + bx + c)/(dx + e) (a có thể bằng 0) trên đoạn [m,n]"),
+                      "Tìm m để hàm số y = (am+b)x^4 + (cm+d)x^2 + em+f có ba điểm cực trị"),
                   typeFunction != -1
                       ? Column(
                           children: [
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                                "Tìm GTLN,GTNN của hàm số y = (${aTextEditingController.text}x^2 + ${bTextEditingController.text}x + ${cTextEditingController.text})/(${dTextEditingController.text}x + ${eTextEditingController.text}) trên [${mTextEditingController.text};${nTextEditingController.text}]"),
+                                "Tìm m để hàm số y = (${aTextEditingController.text}m+${bTextEditingController.text})x^4 + (${cTextEditingController.text}m+${dTextEditingController.text})x^2 + ${eTextEditingController.text}m+${fTextEditingController.text} có ba điểm cực trị"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
                             Text(
@@ -238,8 +248,6 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Text("$result1",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result2",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

@@ -2,21 +2,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSLNNNHPTPage extends StatefulWidget {
+class NoTSPTDTQ2DCTPage extends StatefulWidget {
   @override
-  _NoTSLNNNHPTPage createState() => _NoTSLNNNHPTPage();
+  _NoTSPTDTQ2DCTPageState createState() => _NoTSPTDTQ2DCTPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
+class _NoTSPTDTQ2DCTPageState extends State<NoTSPTDTQ2DCTPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
   TextEditingController dTextEditingController = new TextEditingController();
-  TextEditingController eTextEditingController = new TextEditingController();
   TextEditingController mTextEditingController = new TextEditingController();
   TextEditingController nTextEditingController = new TextEditingController();
+
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
   String result1 = "";
@@ -30,9 +30,7 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
     double d = double.parse(dTextEditingController.text);
-    double e = double.parse(eTextEditingController.text);
-    int m = int.parse(mTextEditingController.text);
-    int n = int.parse(nTextEditingController.text);
+
     ans_delta_cuatu = 0;
     typeFunction = 0;
     result1 = "";
@@ -41,18 +39,10 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
     //đkxd x khac -e/d
     //y_phay=((a*d)*pow(x,2) + 2*a*e*x + (b*e-c*d))/pow((d*x+e),2)
 
-    double max = -1000000;
-    double min = 1000000;
-    int k = (n - m) * 1000;
-    for (int i = k; i >= 0; i--) {
-      double f, x;
-      x = m + i / 1000;
-      f = (a * pow(x, 2) + b * pow(x, 1) + c) / (d * x + e);
-      if (max < f) max = f;
-      if (min > f) min = f;
-    }
-    result1 = " GTLN của hàm số là $max";
-    result2 = " GTNN của hàm số là $min";
+    double A, B;
+    A = (6 * a * c - 2 * b * b) / (9 * a);
+    B = (18 * a * d - 2 * b * c) / (18 * a);
+    result1 = " Phương trình đường thẳng qua hai điểm cực trị là y = $A x + $B";
   }
 
   String validateMobile(String value) {
@@ -70,7 +60,7 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tìm GTLN, GTNN của hàm phân thức"),
+          title: Text("Phương trình đường thẳng qua hai điểm cực trị"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -144,54 +134,6 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                             },
                           ),
                         ),
-                        ListTile(
-                          leading: Text("E"),
-                          title: TextFormField(
-                            keyboardType: TextInputType.number,
-                            controller: eTextEditingController,
-                            decoration: textFieldInputDecoration("Điền E"),
-                            validator: (val) {
-                              validateMobile(val);
-                            },
-                            onChanged: (value) {
-                              setState(() {
-                                //num1 == num parse .
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          leading: Text("m"),
-                          title: TextFormField(
-                            keyboardType: TextInputType.number,
-                            controller: mTextEditingController,
-                            decoration: textFieldInputDecoration("Điền m"),
-                            validator: (val) {
-                              validateMobile(val);
-                            },
-                            onChanged: (value) {
-                              setState(() {
-                                //num1 == num parse .
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          leading: Text("n"),
-                          title: TextFormField(
-                            keyboardType: TextInputType.number,
-                            controller: nTextEditingController,
-                            decoration: textFieldInputDecoration("Điền n"),
-                            validator: (val) {
-                              validateMobile(val);
-                            },
-                            onChanged: (value) {
-                              setState(() {
-                                //num1 == num parse .
-                              });
-                            },
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -211,7 +153,6 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
                           dTextEditingController.text = "";
-                          eTextEditingController.text = "";
                           mTextEditingController.text = "";
                           nTextEditingController.text = "";
                         },
@@ -223,14 +164,14 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                   Text("Dang toán:",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(
-                      "Tìm GTLN, GTNN của hàm số y = (ax^2 + bx + c)/(dx + e) (a có thể bằng 0) trên đoạn [m,n]"),
+                      "Viết phương trình đường thẳng qua 2 điểm cực trị của hàm số y = ax^3 + bx^2 + cx + d"),
                   typeFunction != -1
                       ? Column(
                           children: [
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                                "Tìm GTLN,GTNN của hàm số y = (${aTextEditingController.text}x^2 + ${bTextEditingController.text}x + ${cTextEditingController.text})/(${dTextEditingController.text}x + ${eTextEditingController.text}) trên [${mTextEditingController.text};${nTextEditingController.text}]"),
+                                "Viết phương trình đường thẳng qua 2 điểm cực trị của hàm số y = ${aTextEditingController.text}x^3 + ${bTextEditingController.text}x^2 + ${cTextEditingController.text}x + ${dTextEditingController.text}"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
                             Text(

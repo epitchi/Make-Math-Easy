@@ -5,10 +5,22 @@ import 'package:solveMathApp/screen/NoTSLNNNHTPPage.dart';
 import 'package:solveMathApp/screen/NoTSTCTHamB3Page.dart';
 import 'package:solveMathApp/screen/NoTSTCTHamPTPage.dart';
 import 'package:solveMathApp/screen/NoTSTCTHamTPPage.dart';
+import 'package:solveMathApp/screen/NoTSTTChamPage.dart';
 import 'package:solveMathApp/screen/NoTSXTDDHPTPage.dart';
 import 'package:solveMathApp/screen/NoTSXTDDHTPPage.dart';
 import 'package:solveMathApp/screen/NoTSXTDDCHS3Page.dart';
 import 'package:solveMathApp/screen/TSHSB3_FoundMDBRPage.dart';
+import 'package:solveMathApp/screen/TSHTPC1DCTPage.dart';
+import 'package:solveMathApp/screen/TSHTPC3DCTPage.dart';
+import 'package:solveMathApp/screen/TSHTPC3DCTTGVPage.dart';
+import 'package:solveMathApp/screen/TSHTPC3DCTTGDPage.dart';
+import 'package:solveMathApp/screen/TSHTPC3DCTDTSPage.dart';
+import 'package:solveMathApp/screen/TSHB3_TimMNBTRPage.dart';
+import 'package:solveMathApp/screen/TSHB3_TimMHSC2CTPage.dart';
+import 'package:solveMathApp/screen/TSHB3_TimMHSkoCTPage.dart';
+import 'package:solveMathApp/screen/NoTSDTQ2DCTPage.dart';
+import 'package:solveMathApp/screen/TSHPT_DBtrenTXDPage.dart';
+import 'package:solveMathApp/screen/TSHPT_NBtrenTXDPage.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -65,7 +77,6 @@ class _MenuPageState extends State<MenuPage> {
                       );
                     });
                   }),
-                  
             ],
           ),
         )));
@@ -98,7 +109,7 @@ class _BTCCTSState extends State<BTCCTS> {
                     },
                   ),
                   ListTile(
-                    title: Text("Hàm cực trị"),
+                    title: Text("Cực trị hàm số"),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -109,7 +120,7 @@ class _BTCCTSState extends State<BTCCTS> {
                     },
                   ),
                   ListTile(
-                    title: Text("Tìm GTLN, GTNN"),
+                    title: Text("GTLN, GTNN hàm số"),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -121,8 +132,8 @@ class _BTCCTSState extends State<BTCCTS> {
                     },
                   ),
                   ListTile(
-                    title: Text("Tiệm cận"),
-                    onTap: () {
+                      title: Text("Tiệm cận của đồ thị hàm số"),
+                      onTap: () {
                         setState(() {
                           Navigator.push(
                             context,
@@ -230,47 +241,58 @@ class _TSHCTHTPState extends State<TSHCTHTP> {
                 padding: const EdgeInsets.all(20),
                 child: Column(children: <Widget>[
                   ListTile(
-                    title: Text("Tìm m để hàm số có 1 điểm cực trị"),
-                    onTap: () {
-                      setState(() {});
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text("Tìm m để hàm số có 1 điểm cực trị"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TSHTPCO3CTPage()));
+                        });
+                      }),
                   ListTile(
-                    title: Text("Tìm m để hàm số có 3 điểm cực trị"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text("Tìm m để hàm số có 3 điểm cực trị"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TSHTPCO3DCTPage()));
+                        });
+                      }),
                   ListTile(
-                    title: Text(
-                        "Tìm m để hàm số có 3 cực trị tạo thành tam giác vuông"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text(
+                          "Tìm m để hàm số có 3 cực trị tạo thành tam giác vuông"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TSHTPCO3DCTTGVPage()));
+                        });
+                      }),
                   ListTile(
-                    title: Text(
-                        "Tìm m để hàm số có 3 cực trị tạo thành tam giác đều"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text(
+                          "Tìm m để hàm số có 3 cực trị tạo thành tam giác đều"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TSHTPCO3DCTTGDPage()));
+                        });
+                      }),
                   ListTile(
-                    title: Text(
-                        "Tìm m để hàm số có 3 cực trị tạo thành tam giác có diện tích là S"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text(
+                          "Tìm m để hàm số có 3 cực trị tạo thành tam giác có diện tích là S"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TSHTPCO3DCTDTSPage()));
+                        });
+                      }),
                 ]))));
   }
 }
@@ -290,30 +312,27 @@ class _TSHCTHSB3State extends State<TSHCTHSB3> {
                 padding: const EdgeInsets.all(20),
                 child: Column(children: <Widget>[
                   ListTile(
-                    title: Text("Tìm m để hàm số có hai điểm cực trị"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text("Tìm m để hàm số có hai điểm cực trị"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      TSHSB3_FoundMC2CTPage()));
+                        });
+                      }),
                   ListTile(
-                    title: Text("Tìm m để hàm số không có điểm cực trị"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  ),
-                  ListTile(
-                    title:
-                        Text("Phương trình đường thẳng qua hai điểm cực trị"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text("Tìm m để hàm số không có điểm cực trị"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      TSHSB3_FoundMCkoCTPage()));
+                        });
+                      }),
                 ]))));
   }
 }
@@ -376,16 +395,25 @@ class _TSHPTState extends State<TSHPT> {
                       title: Text(
                           'Tìm m để hàm số đồng biến trên từng khoảng xác định'),
                       onTap: () {
-                        setState(() {});
-                        _showdialog(context);
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TSHPT_DBTTXDPage()),
+                          );
+                        });
                       }),
                   ListTile(
                       title: Text(
                           'Tìm m để hàm số nghịch biến trên từng khoảng xác định'),
                       onTap: () {
-                        setState(() {});
-
-                        _showdialog(context);
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TSHPT_NBTTXDPage()),
+                          );
+                        });
                       }),
                   ListTile(
                       title:
@@ -435,9 +463,13 @@ class _TSHSB3State extends State<TSHSB3> {
                   ListTile(
                       title: Text('Tìm m để hàm số nghịch biến trên R'),
                       onTap: () {
-                        setState(() {});
-
-                        _showdialog(context);
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TSHSB3_FoundMNBRPage()),
+                          );
+                        });
                       }),
                   ListTile(
                       title:
@@ -495,16 +527,22 @@ class _BTKCTSState extends State<BTKCTS> {
                   onTap: () {
                     setState(() {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NoTSFGTLNGTNN()));
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NoTSFGTLNGTNN()),
+                      );
                     });
                   }),
               ListTile(
                   title: Text('Tìm tiệm cận'),
                   onTap: () {
-                    setState(() {});
-                    _showdialog(context);
+                    setState(() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NoTSTTCHSPage()),
+                      );
+                    });
                   }),
             ],
           ),
@@ -612,6 +650,17 @@ class _NoTSTCTState extends State<NoTSTCT> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => NoTSTCTHPTPage()));
+                      });
+                    }),
+                ListTile(
+                    title:
+                        Text("Phương trình đường thẳng qua hai điểm cực trị"),
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NoTSPTDTQ2DCTPage()));
                       });
                     }),
               ],

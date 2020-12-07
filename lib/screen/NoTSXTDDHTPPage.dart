@@ -62,7 +62,7 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
         result3 =
             "Hàm đồng biến trên (-oo ; ${(sqrt(-8 * a * b)) / (4 * a)}) và ( 0 ;${(-sqrt(-8 * a * b)) / (4 * a)} )";
         result4 =
-            "Hàm nghịch biến trên (${(sqrt(-8 * a * b))/(4 * a)});0) và (${(-sqrt(-8 * a * c))/(4 * a)}; +oo)";
+            "Hàm nghịch biến trên (${(sqrt(-8 * a * b)) / (4 * a)});0) và (${(-sqrt(-8 * a * c)) / (4 * a)}; +oo)";
 
         // y DB tren (-oo; (-b-sqrt(A'))/3a)U((-b+sqrt(A'))/3a; +oo)
 
@@ -85,7 +85,7 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hàm trùng phương"),
+          title: Text("Xét tính đơn điệu hàm trùng phương"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -168,18 +168,18 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
                   ),
                   //  cho viet de`
                   Text("Dang toán:",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   Text("Xét tính đơn điệu của hàm số y = ax^4 + bx^2 + c  "),
                   typeFunction != -1
                       ? Column(
                           children: [
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                                Text(
-                                "Xét tính đơn điệu của hàm số y = ${aTextEditingController.text}*x^4 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}"),
+                            Text(
+                                "Xét tính đơn điệu của hàm số y = ${aTextEditingController.text}x^4 + ${bTextEditingController.text}x^2 + ${cTextEditingController.text}"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
-                           Text(
+                            Text(
                               "Đáp án: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -189,7 +189,8 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
-                      : Text("Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
+                      : Text(
+                          "Bạn chưa nhập đề bài hoặc đề bài của bạn không đúng cấu trúc! Bạn hãy nhập đề bài vào theo đúng dạng nha")
                 ],
               ),
             ),

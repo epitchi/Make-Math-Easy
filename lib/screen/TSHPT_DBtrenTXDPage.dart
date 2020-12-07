@@ -1,58 +1,77 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
-class NoTSLNNNHPTPage extends StatefulWidget {
+class TSHPT_DBTTXDPage extends StatefulWidget {
   @override
-  _NoTSLNNNHPTPage createState() => _NoTSLNNNHPTPage();
+  _TSHPT_DBTTXDPageState createState() => _TSHPT_DBTTXDPageState();
 }
 
 List listAnswer = new List<String>();
 
-class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
+class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
   TextEditingController aTextEditingController = new TextEditingController();
   TextEditingController bTextEditingController = new TextEditingController();
   TextEditingController cTextEditingController = new TextEditingController();
   TextEditingController dTextEditingController = new TextEditingController();
+  TextEditingController fTextEditingController = new TextEditingController();
   TextEditingController eTextEditingController = new TextEditingController();
-  TextEditingController mTextEditingController = new TextEditingController();
-  TextEditingController nTextEditingController = new TextEditingController();
+  TextEditingController gTextEditingController = new TextEditingController();
+  TextEditingController hTextEditingController = new TextEditingController();
+
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
   String result1 = "";
   String result2 = "";
   String result3 = "";
-  String result4 = "";
 
-  double ans_delta_cuatu;
   GiaiTDDHS() {
+    result1 = "";
+
     double a = double.parse(aTextEditingController.text);
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
     double d = double.parse(dTextEditingController.text);
+    double f = double.parse(fTextEditingController.text);
     double e = double.parse(eTextEditingController.text);
-    int m = int.parse(mTextEditingController.text);
-    int n = int.parse(nTextEditingController.text);
-    ans_delta_cuatu = 0;
+    double g = double.parse(gTextEditingController.text);
+    double h = double.parse(hTextEditingController.text);
+
     typeFunction = 0;
-    result1 = "";
-
-    //y=(ax^2+bx+c)/(dx+e)
-    //đkxd x khac -e/d
-    //y_phay=((a*d)*pow(x,2) + 2*a*e*x + (b*e-c*d))/pow((d*x+e),2)
-
-    double max = -1000000;
-    double min = 1000000;
-    int k = (n - m) * 1000;
-    for (int i = k; i >= 0; i--) {
-      double f, x;
-      x = m + i / 1000;
-      f = (a * pow(x, 2) + b * pow(x, 1) + c) / (d * x + e);
-      if (max < f) max = f;
-      if (min > f) min = f;
+    double A = a * g - e * c;
+    double B = a * h + b * g - e * d - f * c;
+    double C = b * h - f * d;
+    if (A == 0) {
+      if (B == 0) if (C <= 0)
+        result1 = "Không có giá trị m thoả";
+      else
+        result1 = "Với mọi giá trị m";
+      if (B > 0)
+        result1 = "Gía trị m thuộc (${-C / B} ; +oo).";
+      else
+        result1 = "Giá trị của m thuộc (-oo; ${-C / B})";
+    } else {
+      double delta = B * B - 4 * A * C;
+      if (A < 0) {
+        if (delta <= 0) result1 = "Không có giá trị m thoả";
+        if (delta > 0) {
+          double x1 = (-B - sqrt(delta)) / (2 * A);
+          double x2 = (-B + sqrt(delta)) / (2 * A);
+          result1 = "Giá trị của m thuộc ($x1 ; $x2 )";
+        }
+      }
+      if (A > 0) {
+        double x0 = -B / (2 * A);
+        if (delta < 0) result1 = "Mọi giá trị m thuộc R";
+        if (delta == 0) result1 = "Mọi giá trị m khác $x0 ";
+        if (delta > 0) {
+          double x1 = (-B + sqrt(delta)) / (2 * A);
+          double x2 = (-B - sqrt(delta)) / (2 * A);
+          result1 = "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
+        }
+      }
     }
-    result1 = " GTLN của hàm số là $max";
-    result2 = " GTNN của hàm số là $min";
   }
 
   String validateMobile(String value) {
@@ -70,7 +89,8 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tìm GTLN, GTNN của hàm phân thức"),
+          title: Text(
+              "Tìm m để hàm số phân thức đồng biến trên từng khoảng xác định"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -161,11 +181,11 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           ),
                         ),
                         ListTile(
-                          leading: Text("m"),
+                          leading: Text("F"),
                           title: TextFormField(
                             keyboardType: TextInputType.number,
-                            controller: mTextEditingController,
-                            decoration: textFieldInputDecoration("Điền m"),
+                            controller: fTextEditingController,
+                            decoration: textFieldInputDecoration("Điền F"),
                             validator: (val) {
                               validateMobile(val);
                             },
@@ -177,11 +197,27 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           ),
                         ),
                         ListTile(
-                          leading: Text("n"),
+                          leading: Text("G"),
                           title: TextFormField(
                             keyboardType: TextInputType.number,
-                            controller: nTextEditingController,
-                            decoration: textFieldInputDecoration("Điền n"),
+                            controller: gTextEditingController,
+                            decoration: textFieldInputDecoration("Điền G"),
+                            validator: (val) {
+                              validateMobile(val);
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                //num1 == num parse .
+                              });
+                            },
+                          ),
+                        ),
+                        ListTile(
+                          leading: Text("H"),
+                          title: TextFormField(
+                            keyboardType: TextInputType.number,
+                            controller: hTextEditingController,
+                            decoration: textFieldInputDecoration("Điền H"),
                             validator: (val) {
                               validateMobile(val);
                             },
@@ -211,9 +247,8 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
                           dTextEditingController.text = "";
+                          fTextEditingController.text = "";
                           eTextEditingController.text = "";
-                          mTextEditingController.text = "";
-                          nTextEditingController.text = "";
                         },
                         child: Text("Delete"),
                       ),
@@ -223,16 +258,18 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                   Text("Dang toán:",
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(
-                      "Tìm GTLN, GTNN của hàm số y = (ax^2 + bx + c)/(dx + e) (a có thể bằng 0) trên đoạn [m,n]"),
+                      "Tìm m để hàm số y = ((am+b)x +(cm+d))/((em+f)x+gm+h) đồng biến trên từng khoảng xác định"),
                   typeFunction != -1
                       ? Column(
                           children: [
-                            Text("Đề bài",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                                "Tìm GTLN,GTNN của hàm số y = (${aTextEditingController.text}x^2 + ${bTextEditingController.text}x + ${cTextEditingController.text})/(${dTextEditingController.text}x + ${eTextEditingController.text}) trên [${mTextEditingController.text};${nTextEditingController.text}]"),
                             // Text("Delta' $answerDelta_phay"),
-                            // Text("$result1"),
+                            Text(
+                              "Đề bài",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                                "Tìm m để hàm số: y = (( ${aTextEditingController.text}m+${bTextEditingController.text})x +${cTextEditingController.text} m+${dTextEditingController.text})/((${eTextEditingController.text}m+${fTextEditingController.text})x+${gTextEditingController.text}m+${hTextEditingController.text}) đồng biến trên từng khoảng xác định"),
+
                             Text(
                               "Đáp án: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
@@ -240,6 +277,8 @@ class _NoTSLNNNHPTPage extends State<NoTSLNNNHPTPage> {
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$result3",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
