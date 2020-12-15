@@ -74,14 +74,16 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
-    db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
-    db3 =
-        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
-    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
+    db1 = "Bài 1: Tìm cực trị của hàm số y = 1.x^4 + 2.x^2 - 3";
+    da1 =
+        "Hàm số không có điểm cực đại, Hàm số đạt cực tiểu tại x=0 và giá trị cực tiểu là -3";
+    db2 = "Bài 2: Tìm cực trị của hàm số y = -2.x^4 + 4.x^2 + 6";
+    da2 =
+        "Hàm số đạt cực đại tại x=1 và x=-1 và giá trị cực đại là 8, Hàm số đạt cực tiểu tại x=0 và giá trị cực tiểu là 6";
+    db3 = "Bài 3: Tìm cực trị của hàm số y = 1.x^4 - 2.x^2 + 1";
+    da3 =
+        "Hàm số đạt cực đại tại x=0 và giá trị cực đại là 1, Hàm số đạt cực tiểu tại x=1 và x=-1 và giá trị cực tiểu là 0";
+
     db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
     da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
     db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
@@ -229,16 +231,6 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
                               "$db3",
                             ),
                             Text("$da3",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db4",
-                            ),
-                            Text("$da4",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db5",
-                            ),
-                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

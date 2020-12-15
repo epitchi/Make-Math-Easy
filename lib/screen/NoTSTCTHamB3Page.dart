@@ -69,14 +69,15 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
-    db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
-    db3 =
-        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
-    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
+    db1 = "Bài 1: Tìm cực trị của hàm số y = -1.x^3 + 3.x^2 + 2";
+    da1 =
+        "Hàm số đạt cực đại tại 2 và giá trị cực đại là 6, Hàm số đạt cực tiểu tại 0 và giá trị cực tiểu là 2";
+    db2 = "Bài 2: Tìm cực trị của hàm số y = 1.x^3 - 3.x^2 + 3.x";
+    da2 = "Hàm số không có cực trị";
+    db3 = "Bài 3: Tìm cực trị của hàm số y = 2.x^3 + 3.x^2 – 36.x - 10";
+    da3 =
+        "Hàm số đạt cực đại tại -3 và giá trị cực đại là 71, Hàm số đạt cực tiểu tại 2 và giá trị cực tiểu là -54";
+
     db4 = "Bài 4: Tìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
     da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
     db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
@@ -235,16 +236,6 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
                               "$db3",
                             ),
                             Text("$da3",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db4",
-                            ),
-                            Text("$da4",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db5",
-                            ),
-                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

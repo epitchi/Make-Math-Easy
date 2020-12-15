@@ -82,11 +82,13 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
-    db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+    db1 = "Bài 1: Xét tính đơn điệu của hàm số y = x^4 – 2.x^2";
+    da1 =
+        "Hàm số đồng biến trên khoảng (-1;0) và (1;+oo), Hàm số nghịch biến trên khoảng (-oo;-1) và (0;1)";
+    db2 = "Bài 2: Xét tính đơn điệu của hàm số y = x^4 – 8.x^2";
+    da2 =
+        "Hàm số đồng biến trên khoảng (-2;0) và (2;+oo), Hàm số nghịch biến trên khoảng (-oo;-2) và (0;2)";
+
     db3 =
         "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
     da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
@@ -232,21 +234,6 @@ class _NoTSXTDDHTPPageState extends State<NoTSXTDDHTPPage> {
                               "$db2",
                             ),
                             Text("$da2",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db3",
-                            ),
-                            Text("$da3",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db4",
-                            ),
-                            Text("$da4",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db5",
-                            ),
-                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

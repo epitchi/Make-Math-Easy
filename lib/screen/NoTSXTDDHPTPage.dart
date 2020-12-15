@@ -59,9 +59,9 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
             "Hàm số nghịch biến trên (-oo; ${-e / d}) và (${-e / d}; +oo)";
       }
     } else if (delta_cuatu > 0) {
-      double x1 = (-a * e - sqrt(delta_cuatu)) / (a * d);
-      double x2 = (-a * e + sqrt(delta_cuatu)) / (a * d);
       if (a * d > 0) {
+        double x1 = (-a * e - sqrt(delta_cuatu)) / (a * d);
+        double x2 = (-a * e + sqrt(delta_cuatu)) / (a * d);
         if (-e / d < x1)
           result1 =
               "Hàm số đồng biến trên (-oo; ${-e / d}) và (${-e / d};$x1) và ($x2; +oo) và hàm số nghịch biến trên ($x1;$x2)";
@@ -72,6 +72,8 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
           result1 =
               "Hàm số đồng biến trên (-oo;$x1) và (x2; ${-e / d}) và (${-e / d}; +oo) và hàm số nghịch biến trên ($x1;$x2)";
       } else if (a * d < 0) {
+        double x1 = (-a * e + sqrt(delta_cuatu)) / (a * d);
+        double x2 = (-a * e - sqrt(delta_cuatu)) / (a * d);
         if (-e / d < x1)
           result1 =
               "Hàm số nghịch biến trên (-oo; ${-e / d}) và (${-e / d};$x1) và ($x2; +oo) và hàm số đồng biến trên ($x1;$x2)";
@@ -87,16 +89,18 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
-    db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
-    db3 =
-        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
-    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
-    db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
-    da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
+    db1 = "Bài 1: Xét tính đơn điệu của hàm số y = (2.x + 1)/(x+1)";
+    da1 = "Hàm số đồng biến trên khoảng (-oo;-1) và (-1;+oo)";
+    db2 = "Bài 2: Xét tính đơn điệu của hàm số y = (-1.x^2 + 2.x - 1)/(x+2)";
+    da2 =
+        "Hàm số đồng biến trên khoảng (-5;-2) và (-2;1), nghịch biến trên khoảng (-oo;-5) và (1;+oo)";
+    db3 = "Bài 3: Xét tính đơn điệu của hàm số y = (x^2 - x + 1)/(x – 1)";
+    da3 =
+        "Hàm số đồng biến trên khoảng (-oo;0) và (2;+oo), nghịch biến trên khoảng (0;1) và (1;2)";
+    db4 = "Bài 4: Xét tính đơn điệu của hàm số y = (-1.x^2 + 2.x - 4)/(x – 2)";
+    da4 =
+        "Hàm số đồng biến trên khoảng(0;2) và (2;4), nghịch biến trên khoảng (-oo;0) và (4;+oo)";
+
     db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
     da5 = "GTNN của hàm số là 6 và GTLN của hàm số là 6.5";
   }
@@ -280,11 +284,6 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
                               "$db4",
                             ),
                             Text("$da4",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$db5",
-                            ),
-                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
