@@ -21,6 +21,10 @@ import 'package:solveMathApp/screen/TSHB3_TimMHSkoCTPage.dart';
 import 'package:solveMathApp/screen/NoTSDTQ2DCTPage.dart';
 import 'package:solveMathApp/screen/TSHPT_DBtrenTXDPage.dart';
 import 'package:solveMathApp/screen/TSHPT_NBtrenTXDPage.dart';
+import 'package:solveMathApp/screen/TSHB3_TimMDBTrenabPage.dart';
+import 'package:solveMathApp/screen/TSHB3_TimMNBTrenabPage.dart';
+import 'package:solveMathApp/screen/TSHB3_TimGTLNbangKPage.dart';
+import 'package:solveMathApp/screen/TSHTP_TimMGTLNbangKPage.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -131,17 +135,6 @@ class _BTCCTSState extends State<BTCCTS> {
                       });
                     },
                   ),
-                  ListTile(
-                      title: Text("Tiệm cận của đồ thị hàm số"),
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => TSHSB3_FoundMDBRPage()),
-                          );
-                        });
-                      }),
                 ]))));
   }
 }
@@ -161,27 +154,29 @@ class _TSFGTLNGTNNState extends State<TSFGTLNGTNN> {
                 padding: const EdgeInsets.all(20),
                 child: Column(children: <Widget>[
                   ListTile(
-                    title: Text("Hàm số bậc 3"),
-                    onTap: () {
-                      setState(() {});
-                      _showdialog(context);
-                    },
-                  ),
+                      title: Text("Hàm số bậc 3"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    TSHSB3_TimMGTLNbangkPage()),
+                          );
+                        });
+                      }),
                   ListTile(
-                    title: Text("Hàm trùng phương"),
-                    onTap: () {
-                      setState(() {});
-                      _showdialog(context);
-                    },
-                  ),
-                  ListTile(
-                    title: Text("Hàm phân thức"),
-                    onTap: () {
-                      setState(() {});
-
-                      _showdialog(context);
-                    },
-                  )
+                      title: Text("Hàm trùng phương"),
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    TSHTP_TimMGTLNbangkPage()),
+                          );
+                        });
+                      }),
                 ]))));
   }
 }
@@ -415,22 +410,6 @@ class _TSHPTState extends State<TSHPT> {
                           );
                         });
                       }),
-                  ListTile(
-                      title:
-                          Text('Tìm m để hàm số đồng biến trên khoảng (a,b)'),
-                      onTap: () {
-                        setState(() {});
-
-                        _showdialog(context);
-                      }),
-                  ListTile(
-                      title:
-                          Text('Tìm m để hàm số nghịch biến trên khoảng (a,b)'),
-                      onTap: () {
-                        setState(() {});
-
-                        _showdialog(context);
-                      }),
                 ]))));
   }
 }
@@ -475,17 +454,27 @@ class _TSHSB3State extends State<TSHSB3> {
                       title:
                           Text('Tìm m để hàm số đồng biến trên khoảng (a,b)'),
                       onTap: () {
-                        setState(() {});
-
-                        _showdialog(context);
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    TSHSB3_TimMDBtrenabPage()),
+                          );
+                        });
                       }),
                   ListTile(
                       title:
                           Text('Tìm m để hàm số nghịch biến trên khoảng (a,b)'),
                       onTap: () {
-                        setState(() {});
-
-                        _showdialog(context);
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    TSHSB3_TimMNBtrenabPage()),
+                          );
+                        });
                       }),
                 ]))));
   }
