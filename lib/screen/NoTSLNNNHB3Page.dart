@@ -22,7 +22,17 @@ class _NoTSLNNNHB3PageState extends State<NoTSLNNNHB3Page> {
   String result1 = "";
   String result2 = "";
   String result3 = "";
-  String result4 = "";
+  String db1 = "";
+  String db2 = "";
+  String db3 = "";
+  String db4 = "";
+  String db5 = "";
+  String da1 = "";
+  String da2 = "";
+  String da3 = "";
+  String da4 = "";
+  String da5 = "";
+  String td = "";
 
   double ans_delta_cuatu;
   GiaiTDDHS() {
@@ -53,6 +63,20 @@ class _NoTSLNNNHB3PageState extends State<NoTSLNNNHB3Page> {
     }
     result1 = " GTLN của hàm số là $max";
     result2 = " GTNN của hàm số là $min";
+  }
+
+  GiaiTDDHS1() {
+    td = "Một số bài tập tương tự bài toán của bạn!!!!!";
+    db1 = "Bài 1: Tìm GTNN của hàm số y = 1.x^3 - 3.x^2 -9.x + 3 trên [-4;4]";
+    da1 = "GTNN của hàm số là -41 và GTLN của hàm số là 40";
+    db2 = "Bài 2: Tìm GTNN của hàm số y = 1.x^3 - 3.x + 5 trên [0;2]";
+    da2 = "GTNN của hàm số là 3 và GTLN của hàm số là 7";
+    db3 = "Bài 3: Tìm GTNN của hàm số y = 1.x^3 - 3.x + 2 trên [-3;3]";
+    da3 = "GTNN của hàm số là -16 và GTLN của hàm số là 20";
+    db4 = "Bài 4: Tìm GTNN của hàm số y = -2.x^3 + 3.x^2 -5.x + 5 trên [0;5]";
+    da4 = "GTNN của hàm số là -195 và GTLN của hàm số là 5";
+    db5 = "Bài 5: Tìm GTNN của hàm số y = 1.x^3 - 7.x^2 + 11.x - 2 trên [0;2]";
+    da5 = "GTNN của hàm số là -2 và GTLN của hàm số là 3";
   }
 
   String validateMobile(String value) {
@@ -187,7 +211,15 @@ class _NoTSLNNNHB3PageState extends State<NoTSLNNNHB3Page> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
+                        child: Text("Kết quả"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            GiaiTDDHS1();
+                          });
+                        },
+                        child: Text("Bài tập tương tự"),
                       ),
                       RaisedButton(
                         onPressed: () {
@@ -198,7 +230,7 @@ class _NoTSLNNNHB3PageState extends State<NoTSLNNNHB3Page> {
                           mTextEditingController.text = "";
                           nTextEditingController.text = "";
                         },
-                        child: Text("Delete"),
+                        child: Text("Nhập lại"),
                       ),
                     ],
                   ),
@@ -223,6 +255,33 @@ class _NoTSLNNNHB3PageState extends State<NoTSLNNNHB3Page> {
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$td",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db3",
+                            ),
+                            Text("$da3",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db4",
+                            ),
+                            Text("$da4",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db5",
+                            ),
+                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

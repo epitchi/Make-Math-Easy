@@ -22,7 +22,17 @@ class _NoTSTCTHPTPageState extends State<NoTSTCTHPTPage> {
   String result2 = "";
   String result3 = "";
   String result4 = "";
-
+  String db1 = "";
+  String db2 = "";
+  String db3 = "";
+  String db4 = "";
+  String db5 = "";
+  String da1 = "";
+  String da2 = "";
+  String da3 = "";
+  String da4 = "";
+  String da5 = "";
+  String td = "";
   double ans_delta_cuatu;
   GiaiTDDHS() {
     double a = double.parse(aTextEditingController.text);
@@ -52,6 +62,22 @@ class _NoTSTCTHPTPageState extends State<NoTSTCTHPTPage> {
       result1 = "Hàm số đạt cực đại tại x = $x1 và giá trị cực đại là $y1 ";
       result2 = "Hàm số đạt cực tiểu tại x = $x2 và giá trị cực tiểu là $y2";
     }
+  }
+
+  GiaiTDDHS1() {
+    td = "Một số bài tập tương tự bài toán của bạn!!!!!";
+    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
+    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db2 =
+        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
+    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+    db3 =
+        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
+    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
+    db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
+    da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
+    db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
+    da5 = "GTNN của hàm số là 6 và GTLN của hàm số là 6.5";
   }
 
   String validateMobile(String value) {
@@ -170,17 +196,23 @@ class _NoTSTCTHPTPageState extends State<NoTSTCTHPTPage> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
+                        child: Text("Kết quả"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            GiaiTDDHS1();
+                          });
+                        },
+                        child: Text("Bài tập tương tự"),
                       ),
                       RaisedButton(
                         onPressed: () {
                           aTextEditingController.text = "";
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
-                          dTextEditingController.text = "";
-                          eTextEditingController.text = "";
                         },
-                        child: Text("Delete"),
+                        child: Text("Nhập lại"),
                       ),
                     ],
                   ),
@@ -205,6 +237,33 @@ class _NoTSTCTHPTPageState extends State<NoTSTCTHPTPage> {
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$td",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db3",
+                            ),
+                            Text("$da3",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db4",
+                            ),
+                            Text("$da4",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db5",
+                            ),
+                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

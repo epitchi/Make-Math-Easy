@@ -24,7 +24,7 @@ import 'package:solveMathApp/screen/TSHPT_NBtrenTXDPage.dart';
 import 'package:solveMathApp/screen/TSHB3_TimMDBTrenabPage.dart';
 import 'package:solveMathApp/screen/TSHB3_TimMNBTrenabPage.dart';
 import 'package:solveMathApp/screen/TSHB3_TimGTLNbangKPage.dart';
-import 'package:solveMathApp/screen/TSHTP_TimMGTLNbangKPage.dart';
+import 'package:solveMathApp/screen/TSHBTP_TimGTLNbangKPage.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -173,7 +173,7 @@ class _TSFGTLNGTNNState extends State<TSFGTLNGTNN> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    TSHTP_TimMGTLNbangkPage()),
+                                    TSHSTP_TimMGTLNbangkPage()),
                           );
                         });
                       }),
@@ -304,7 +304,7 @@ class _TSHCTHSB3State extends State<TSHCTHSB3> {
         appBar: AppBar(title: Text("Hàm số bậc 3")),
         body: Container(
             child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(50),
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text("Tìm m để hàm số có hai điểm cực trị"),
@@ -384,7 +384,7 @@ class _TSHPTState extends State<TSHPT> {
         appBar: AppBar(title: Text("Hàm phân thức")),
         body: Container(
             child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(50),
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text(
@@ -410,6 +410,22 @@ class _TSHPTState extends State<TSHPT> {
                           );
                         });
                       }),
+                  ListTile(
+                      title:
+                          Text('Tìm m để hàm số đồng biến trên khoảng (a,b)'),
+                      onTap: () {
+                        setState(() {});
+
+                        _showdialog(context);
+                      }),
+                  ListTile(
+                      title:
+                          Text('Tìm m để hàm số nghịch biến trên khoảng (a,b)'),
+                      onTap: () {
+                        setState(() {});
+
+                        _showdialog(context);
+                      }),
                 ]))));
   }
 }
@@ -426,7 +442,7 @@ class _TSHSB3State extends State<TSHSB3> {
         appBar: AppBar(title: Text("Hàm số bậc 3")),
         body: Container(
             child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(50),
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text('Tìm m để hàm số đồng biến trên R'),
@@ -492,7 +508,7 @@ class _BTKCTSState extends State<BTKCTS> {
       appBar: AppBar(title: Text("Bài toán không có tham số")),
       body: Container(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(50),
           child: Column(
             children: <Widget>[
               ListTile(
@@ -553,7 +569,7 @@ class _NoTSXTDDState extends State<NoTSXTDD> {
       appBar: AppBar(title: Text("Xét tính đơn điệu")),
       body: Container(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(50),
           child: Column(
             children: <Widget>[
               ListTile(
@@ -608,7 +624,7 @@ class _NoTSTCTState extends State<NoTSTCT> {
         appBar: AppBar(title: Text("Tìm cực trị")),
         body: Container(
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(50),
             child: Column(
               children: <Widget>[
                 ListTile(
@@ -671,7 +687,7 @@ class _NoTSFGTLNGTNNState extends State<NoTSFGTLNGTNN> {
         appBar: AppBar(title: Text("Tìm GTLN, GTNN")),
         body: Container(
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(50),
             child: Column(
               children: <Widget>[
                 ListTile(

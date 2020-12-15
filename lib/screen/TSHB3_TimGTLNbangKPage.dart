@@ -29,7 +29,17 @@ class _TSHSB3_TimMGTLNbangkPageState extends State<TSHSB3_TimMGTLNbangkPage> {
   String result3 = "";
   String result4 = "";
   String result5 = "";
-
+  String db1 = "";
+  String db2 = "";
+  String db3 = "";
+  String db4 = "";
+  String db5 = "";
+  String da1 = "";
+  String da2 = "";
+  String da3 = "";
+  String da4 = "";
+  String da5 = "";
+  String td = "";
   double answerDelta_phay;
   GiaiTDDHS() {
     result1 = "";
@@ -100,6 +110,25 @@ class _TSHSB3_TimMGTLNbangkPageState extends State<TSHSB3_TimMGTLNbangkPage> {
     else
       th2 = -(e * kq2 + max);
     if (th1 >= th2) result4 = " $kq2 ";
+  }
+
+  GiaiTDDHS1() {
+    td = "Một số bài tập tương tự bài toán của bạn!!!!!";
+    db1 =
+        " Bài 1: Tìm giá trị của m để hàm số y= -x^3-3x^2 +m có giá trị nhỏ nhất trên đoạn [-1;1] bằng 0";
+    da1 = "m=4";
+    db2 =
+        " Bài 2: Tìm m sao cho giá trịlớn nhất của hàm số y=|x^3-3x+m| trên đoạn [0;2] bằng 3.";
+    da2 = "m=±1.";
+    db3 =
+        "Bài 3: Tìm m sao cho giá trị nhỏ nhất của hàm số y= 2x^3-3x^2-m trên [-1;1] bằng -1.";
+    da3 = "m=-4.";
+    db4 =
+        "Bài 4: Tìm m sao cho giá trị nhỏ nhất của hàm số y=-x^3-3X^2+m trên [-1;1] bẳng 0.";
+    da4 = "m=-4.";
+    db5 =
+        "Bài 5: Tìm m sao cho giá trị lớn nhất của hàm số y=|x^3-3x+m| trên [0;3] bằng 16";
+    da5 = "m=-2 và m=-14.";
   }
 
   String validateMobile(String value) {
@@ -266,7 +295,15 @@ class _TSHSB3_TimMGTLNbangkPageState extends State<TSHSB3_TimMGTLNbangkPage> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
+                        child: Text("Kết quả"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            GiaiTDDHS1();
+                          });
+                        },
+                        child: Text("Bài tập tương tự"),
                       ),
                       RaisedButton(
                         onPressed: () {
@@ -279,7 +316,7 @@ class _TSHSB3_TimMGTLNbangkPageState extends State<TSHSB3_TimMGTLNbangkPage> {
                           pTextEditingController.text = "";
                           qTextEditingController.text = "";
                         },
-                        child: Text("Delete"),
+                        child: Text("Nhập lại"),
                       ),
                     ],
                   ),
@@ -297,7 +334,7 @@ class _TSHSB3_TimMGTLNbangkPageState extends State<TSHSB3_TimMGTLNbangkPage> {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Text(
-                                "Tìm m để hàm số bậc 3: y =  |${aTextEditingController.text}.x^3 + ${bTextEditingController.text}.x^2 + ${cTextEditingController.text}.x + ${dTextEditingController.text} + ${eTextEditingController.text}.m| có GTLN là ${kTextEditingController.text} trên [${pTextEditingController.text};${qTextEditingController.text}]"),
+                                "Tìm m để hàm số bậc 3: y =  |${aTextEditingController.text}.x^3 + ${bTextEditingController.text}.x^2 + ${cTextEditingController.text}.x + ${dTextEditingController.text} + ${eTextEditingController.text}.m| có GTLN là K trên [${pTextEditingController.text};${qTextEditingController.text}]"),
 
                             Text(
                               "Đáp án: ",
@@ -305,6 +342,16 @@ class _TSHSB3_TimMGTLNbangkPageState extends State<TSHSB3_TimMGTLNbangkPage> {
                             ),
                             Text(
                                 "$result1 : $result2  $result3  $result4  $result5",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

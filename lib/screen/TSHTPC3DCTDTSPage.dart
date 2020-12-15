@@ -22,7 +22,17 @@ class _TSHTPCO3DCTDTSPageState extends State<TSHTPCO3DCTDTSPage> {
   String result2 = "";
   String result3 = "";
   String result4 = "";
-
+  String db1 = "";
+  String db2 = "";
+  String db3 = "";
+  String db4 = "";
+  String db5 = "";
+  String da1 = "";
+  String da2 = "";
+  String da3 = "";
+  String da4 = "";
+  String da5 = "";
+  String td = "";
   double ans_delta_cuatu;
   GiaiTDDHS() {
     double a = double.parse(aTextEditingController.text);
@@ -107,6 +117,22 @@ class _TSHTPCO3DCTDTSPageState extends State<TSHTPCO3DCTDTSPage> {
           result1 = " Không có giá trị m thỏa ";
       }
     }
+  }
+
+  GiaiTDDHS1() {
+    td = "Một số bài tập tương tự bài toán của bạn!!!!!";
+    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
+    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db2 =
+        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
+    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+    db3 =
+        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
+    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
+    db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
+    da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
+    db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
+    da5 = "GTNN của hàm số là 6 và GTLN của hàm số là 6.5";
   }
 
   String validateMobile(String value) {
@@ -242,7 +268,15 @@ class _TSHTPCO3DCTDTSPageState extends State<TSHTPCO3DCTDTSPage> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
+                        child: Text("Kết quả"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            GiaiTDDHS1();
+                          });
+                        },
+                        child: Text("Bài tập tương tự"),
                       ),
                       RaisedButton(
                         onPressed: () {

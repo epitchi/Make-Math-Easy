@@ -55,7 +55,9 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
     // listAnswer = new List<String>();
     answerDelta_phay = delta_phay;
     typeFunction = 0;
-
+    result1 = "";
+    result2 = "";
+    result3 = "";
     if (delta_phay <= 0) {
       if (a > 0) {
         _result1 = "Hàm số đồng biến trên |R";
@@ -85,12 +87,18 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
 
   GiaiTDDHS1() {
     typeFunction = 0;
-    _result3 = "Một số bài toán tương tự";
+    int a = int.parse(aTextEditingController.text);
+    int b = int.parse(bTextEditingController.text);
+    int c = int.parse(cTextEditingController.text);
+    double d = double.parse(dTextEditingController.text);
+
+    _result3 = "Một số bài tập tương tự bài toán của bạn!!!!!";
+
     int dem = 0;
-    for (int h = -10; h <= 10; h++)
-      for (int j = -10; j <= 10; j++)
-        for (int k = -10; k <= 10; k++)
-          for (int i = 1; i <= 10; i++)
+    for (int h = 1; h <= 10; h++)
+      for (int j = b; j <= 50; j++)
+        for (int k = c; k <= 50; k++)
+          for (int i = a; i <= 50; i++)
             if (j * j - 3 * i * k > 0) {
               double x1, x2;
               x1 = (-j - sqrt(j * j - 3 * i * k)) / (3 * i);
@@ -250,16 +258,7 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
-                      ),
-                      RaisedButton(
-                        onPressed: () {
-                          aTextEditingController.text = "";
-                          bTextEditingController.text = "";
-                          cTextEditingController.text = "";
-                          dTextEditingController.text = "";
-                        },
-                        child: Text("Delete"),
+                        child: Text("Kết quả"),
                       ),
                       RaisedButton(
                         onPressed: () {
@@ -268,6 +267,15 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                           });
                         },
                         child: Text("Bài tập tương tự"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          aTextEditingController.text = "";
+                          bTextEditingController.text = "";
+                          cTextEditingController.text = "";
+                          dTextEditingController.text = "";
+                        },
+                        child: Text("Nhập lại"),
                       ),
                     ],
                   ),
@@ -282,7 +290,7 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                             Text("Đề bài",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(
-                                "Xét tính đơn điệu của hàm số y = ${aTextEditingController.text}x^3 + ${bTextEditingController.text}x^2 + ${cTextEditingController.text}x + ${dTextEditingController.text}"),
+                                "Xét tính đơn điệu của hàm số y = ${aTextEditingController.text}*x^3 + ${bTextEditingController.text}*x^2 + ${cTextEditingController.text}*x + ${dTextEditingController.text}"),
                             // Text("Delta' $answerDelta_phay"),
                             // Text("$result1"),
                             Text(

@@ -22,7 +22,17 @@ class _NoTSTTCHSPageState extends State<NoTSTTCHSPage> {
   String result2 = "";
   String result3 = "";
   String result4 = "";
-
+  String db1 = "";
+  String db2 = "";
+  String db3 = "";
+  String db4 = "";
+  String db5 = "";
+  String da1 = "";
+  String da2 = "";
+  String da3 = "";
+  String da4 = "";
+  String da5 = "";
+  String td = "";
   double ans_delta_cuatu;
   GiaiTDDHS() {
     double a = double.parse(aTextEditingController.text);
@@ -77,6 +87,20 @@ class _NoTSTTCHSPageState extends State<NoTSTTCHSPage> {
       if ((b == 0) && (e != 0)) result2 = "Hàm số có tiệm cận ngang là y = 0. ";
       if ((b != 0) && (e == 0)) result2 = "Hàm số không có tiệm cận ngang. ";
     }
+  }
+
+  GiaiTDDHS1() {
+    td = "Một số bài tập tương tự bài toán của bạn!!!!!";
+    db1 = "Bài 1: Tìm tiệm cận của hàm số y = (2x + 2)/(x - 1)";
+    da1 = "TCĐ của hàm số là x = 1 và TCN của hàm số là y = 2";
+    db2 = "Bài 2: Tìm tiệm cận của hàm số y = (2x^2 + 5x + 1)/(x^2 - 5x + 4) ";
+    da2 = "TCĐ của hàm số là x = -1; x = 4 và TCN của hàm số là y = 2";
+    db3 = "Bài 3: Tìm tiệm cận của hàm số y = (x^2 - 5x + 4)/(x^2 - 16)  ";
+    da3 = "TCĐ của hàm số là  x = 4 và TCN của hàm số là y = 1";
+    db4 = "Bài 4: Tìm tiệm cận của hàm số y = (x - 2)/(x^2 - 1) ";
+    da4 = "TCĐ của hàm số là x = -1; x = 1 và TCN của hàm số là y = 0";
+    db5 = "Bài 5: Tìm tiệm cận của hàm số y = (2x^2 - 3x + 2)/(x^2 - 2x - 3) ";
+    da5 = "TCĐ của hàm số là x = -1; x = 3 và TCN của hàm số là y = 2";
   }
 
   String validateMobile(String value) {
@@ -211,18 +235,23 @@ class _NoTSTTCHSPageState extends State<NoTSTTCHSPage> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
+                        child: Text("Kết quả"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            GiaiTDDHS1();
+                          });
+                        },
+                        child: Text("Bài tập tương tự"),
                       ),
                       RaisedButton(
                         onPressed: () {
                           aTextEditingController.text = "";
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
-                          dTextEditingController.text = "";
-                          eTextEditingController.text = "";
-                          fTextEditingController.text = "";
                         },
-                        child: Text("Delete"),
+                        child: Text("Nhập lại"),
                       ),
                     ],
                   ),
@@ -247,6 +276,33 @@ class _NoTSTTCHSPageState extends State<NoTSTTCHSPage> {
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$td",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db3",
+                            ),
+                            Text("$da3",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db4",
+                            ),
+                            Text("$da4",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db5",
+                            ),
+                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

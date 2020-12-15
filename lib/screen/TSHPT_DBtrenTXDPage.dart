@@ -22,30 +22,23 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
 
   final formKey = GlobalKey<FormState>();
   int typeFunction = -1;
-  String _result1 = "";
-  String _result2 = "";
   String result1 = "";
   String result2 = "";
   String result3 = "";
-  String result4 = "";
-  String result5 = "";
-  String result6 = "";
-  String result7 = "";
-  String result8 = "";
-  String result9 = "";
-  String result10 = "";
-  String result111 = "";
-  String result112 = "";
-  String result113 = "";
-  String result114 = "";
-  String result115 = "";
-  String result116 = "";
-  String result117 = "";
-  String result118 = "";
-  String result119 = "";
-  String result1110 = "";
-
+  String db1 = "";
+  String db2 = "";
+  String db3 = "";
+  String db4 = "";
+  String db5 = "";
+  String da1 = "";
+  String da2 = "";
+  String da3 = "";
+  String da4 = "";
+  String da5 = "";
+  String td = "";
   GiaiTDDHS() {
+    result1 = "";
+
     double a = double.parse(aTextEditingController.text);
     double b = double.parse(bTextEditingController.text);
     double c = double.parse(cTextEditingController.text);
@@ -61,13 +54,13 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
     double C = b * h - f * d;
     if (A == 0) {
       if (B == 0) if (C <= 0)
-        _result1 = "Không có giá trị m thoả";
+        result1 = "Không có giá trị m thoả";
       else
-        _result1 = "Với mọi giá trị m";
+        result1 = "Với mọi giá trị m";
       if (B > 0)
-        _result1 = "Gía trị m thuộc (${-C / B} ; +oo).";
+        result1 = "Gía trị m thuộc (${-C / B} ; +oo).";
       else
-        _result1 = "Giá trị của m thuộc (-oo; ${-C / B})";
+        result1 = "Giá trị của m thuộc (-oo; ${-C / B})";
     } else {
       double delta = B * B - 4 * A * C;
       if (A < 0) {
@@ -75,105 +68,36 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
         if (delta > 0) {
           double x1 = (-B - sqrt(delta)) / (2 * A);
           double x2 = (-B + sqrt(delta)) / (2 * A);
-          _result1 = "Giá trị của m thuộc ($x1 ; $x2 )";
+          result1 = "Giá trị của m thuộc ($x1 ; $x2 )";
         }
       }
       if (A > 0) {
         double x0 = -B / (2 * A);
-        if (delta < 0) _result1 = "Mọi giá trị m thuộc R";
-        if (delta == 0) _result1 = "Mọi giá trị m khác $x0 ";
+        if (delta < 0) result1 = "Mọi giá trị m thuộc R";
+        if (delta == 0) result1 = "Mọi giá trị m khác $x0 ";
         if (delta > 0) {
           double x1 = (-B + sqrt(delta)) / (2 * A);
           double x2 = (-B - sqrt(delta)) / (2 * A);
-          _result1 = "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
+          result1 = "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
         }
       }
     }
   }
 
   GiaiTDDHS1() {
-    typeFunction = 0;
-    _result2 = "Một số bài toán tương tự";
-    int dem = 0;
-    for (int a = 1; a <= 10; a++)
-      for (int b = 1; b <= 10; b++)
-        for (int c = -10; c <= 10; c++)
-          for (int d = -10; d <= 10; d++)
-            for (int e = 1; e <= 10; e++)
-              for (int f = 1; f <= 10; f++)
-                for (int g = 1; g <= 10; g++)
-                  for (int h = 1; h <= 10; h++) {
-                    int A = a * g - e * c;
-                    int B = a * h + b * g - e * d - f * c;
-                    int C = b * h - f * d;
-                    int delta = B * B - 4 * A * C;
-                    if (delta > 0) {
-                      double x1 = (-B + sqrt(delta)) / (2 * A);
-                      double x2 = (-B - sqrt(delta)) / (2 * A);
-                      int kta = 0;
-                      int ktb = 0;
-                      for (int x = -100; x <= 100; x++)
-                        if (x1 == x) {
-                          kta = 1;
-                          break;
-                        }
-                      for (int x = -100; x <= 100; x++)
-                        if (x2 == x) {
-                          ktb = 1;
-                          break;
-                        }
-                      if ((kta == 1) && (ktb == 1)) {
-                        dem = dem + 1;
-                        switch (dem) {
-                          case 1:
-                            result111 =
-                                "Bài 1: Tìm m để hàm số y = (($a.m + $b)x + $c.m + $d)/(($e.m + $f)x +$g.m +$h) đồng biến trên từng khoảng xác định";
-                            if (A < 0)
-                              result1 = "Giá trị của m thuộc ( $x1 ; $x2 )";
-                            else if (A > 0)
-                              result1 =
-                                  "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
-                            break;
-                          case 2:
-                            result112 =
-                                "Bài 1: Tìm m để hàm số y = (($a.m + $b)x + $c.m + $d)/(($e.m + $f)x +$g.m +$h) đồng biến trên từng khoảng xác định";
-                            if (A < 0)
-                              result2 = "Giá trị của m thuộc ( $x1 ; $x2 )";
-                            else if (A > 0)
-                              result2 =
-                                  "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
-                            break;
-                          case 3:
-                            result113 =
-                                "Bài 1: Tìm m để hàm số y = (($a.m + $b)x + $c.m + $d)/(($e.m + $f)x +$g.m +$h) đồng biến trên từng khoảng xác định";
-                            if (A < 0)
-                              result3 = "Giá trị của m thuộc ( $x1 ; $x2 )";
-                            else if (A > 0)
-                              result3 =
-                                  "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
-                            break;
-                          case 4:
-                            result114 =
-                                "Bài 1: Tìm m để hàm số y = (($a.m + $b)x + $c.m + $d)/(($e.m + $f)x +$g.m +$h) đồng biến trên từng khoảng xác định";
-                            if (A < 0)
-                              result4 = "Giá trị của m thuộc ( $x1 ; $x2 )";
-                            else if (A > 0)
-                              result4 =
-                                  "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
-                            break;
-                          case 5:
-                            result115 =
-                                "Bài 1: Tìm m để hàm số y = (($a.m + $b)x + $c.m + $d)/(($e.m + $f)x +$g.m +$h) đồng biến trên từng khoảng xác định";
-                            if (A < 0)
-                              result5 = "Giá trị của m thuộc ( $x1 ; $x2 )";
-                            else if (A > 0)
-                              result5 =
-                                  "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
-                            break;
-                        }
-                      }
-                    }
-                  }
+    td = "Một số bài tập tương tự bài toán của bạn!!!!!";
+    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
+    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db2 =
+        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
+    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+    db3 =
+        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
+    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
+    db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
+    da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
+    db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
+    da5 = "GTNN của hàm số là 6 và GTLN của hàm số là 6.5";
   }
 
   String validateMobile(String value) {
@@ -341,7 +265,15 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
+                        child: Text("Kết quả"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            GiaiTDDHS1();
+                          });
+                        },
+                        child: Text("Bài tập tương tự"),
                       ),
                       RaisedButton(
                         onPressed: () {
@@ -352,7 +284,7 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
                           fTextEditingController.text = "";
                           eTextEditingController.text = "";
                         },
-                        child: Text("Delete"),
+                        child: Text("Nhập lại"),
                       ),
                     ],
                   ),
@@ -376,34 +308,11 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
                               "Đáp án: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            Text("$_result1",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$_result2",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$result111",
-                            ),
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$result112",
-                            ),
                             Text("$result2",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$result113",
-                            ),
                             Text("$result3",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$result114",
-                            ),
-                            Text("$result4",
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(
-                              "$result115",
-                            ),
-                            Text("$result5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

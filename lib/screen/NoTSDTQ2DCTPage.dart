@@ -75,7 +75,7 @@ class _NoTSPTDTQ2DCTPageState extends State<NoTSPTDTQ2DCTPage> {
     //y=(ax^2+bx+c)/(dx+e)
     //đkxd x khac -e/d
     //y_phay=((a*d)*pow(x,2) + 2*a*e*x + (b*e-c*d))/pow((d*x+e),2)
-    _result2 = "Một số bài toán tương tự";
+    _result2 = "Một số bài tập tương tự bài toán của bạn!!!!!";
     int dem = 0;
     for (int h = 1; h <= 10; h++)
       for (int j = 1; j <= 10; j++) {

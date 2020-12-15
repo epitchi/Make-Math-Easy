@@ -23,7 +23,17 @@ class _NoTSLNNNHTPPageState extends State<NoTSLNNNHTPPage> {
   String result2 = "";
   String result3 = "";
   String result4 = "";
-
+  String db1 = "";
+  String db2 = "";
+  String db3 = "";
+  String db4 = "";
+  String db5 = "";
+  String da1 = "";
+  String da2 = "";
+  String da3 = "";
+  String da4 = "";
+  String da5 = "";
+  String td = "";
   double ans_delta_cuatu;
   GiaiTDDHS() {
     double a = double.parse(aTextEditingController.text);
@@ -53,6 +63,20 @@ class _NoTSLNNNHTPPageState extends State<NoTSLNNNHTPPage> {
     }
     result1 = " GTLN của hàm số là $max";
     result2 = " GTNN của hàm số là $min";
+  }
+
+  GiaiTDDHS1() {
+    td = "Một số bài tập tương tự bài toán của bạn!!!!!";
+    db1 = "Bài 1: Tìm GTNN của hàm số y = x^4 - 4.x^2 + 9 trên [-2;3]";
+    da1 = "GTNN của hàm số là 6 và GTLN của hàm số là 54";
+    db2 = "Bài 2: Tìm GTNN của hàm số y = x^4 - x^2 + 13 trên [-2;3]";
+    da2 = "GTNN của hàm số là 13 và GTLN của hàm số là 85";
+    db3 = "Bài 3: Tìm GTNN của hàm số y = x^4 - 2x^2 + 3 trên [0;3]";
+    da3 = "GTNN của hàm số là 2 và GTLN của hàm số là 66";
+    db4 = "Bài 4: Tìm GTNN của hàm số y = x^4 - 4x^2 + 5 trên [-2;3]";
+    da4 = "GTNN của hàm số là 2 và GTLN của hàm số là 50";
+    db5 = "Bài 5: Tìm GTNN của hàm số y =  x^4 - 2x^2 + 1 trên [0;2]";
+    da5 = "GTNN của hàm số là 0 và GTLN của hàm số là 9";
   }
 
   String validateMobile(String value) {
@@ -171,18 +195,25 @@ class _NoTSLNNNHTPPageState extends State<NoTSLNNNHTPPage> {
                             GiaiTDDHS();
                           });
                         },
-                        child: Text("Solve"),
+                        child: Text("Kết quả"),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            GiaiTDDHS1();
+                          });
+                        },
+                        child: Text("Bài tập tương tự"),
                       ),
                       RaisedButton(
                         onPressed: () {
                           aTextEditingController.text = "";
                           bTextEditingController.text = "";
                           cTextEditingController.text = "";
-
                           mTextEditingController.text = "";
                           nTextEditingController.text = "";
                         },
-                        child: Text("Delete"),
+                        child: Text("Nhập lại"),
                       ),
                     ],
                   ),
@@ -207,6 +238,33 @@ class _NoTSLNNNHTPPageState extends State<NoTSLNNNHTPPage> {
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text("$result2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$td",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db3",
+                            ),
+                            Text("$da3",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db4",
+                            ),
+                            Text("$da4",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db5",
+                            ),
+                            Text("$da5",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
