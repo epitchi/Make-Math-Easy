@@ -63,7 +63,7 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
             "Hàm số có cực đại tại $x1 và giá trị cực đại là $y1 \nHàm số đạt cực tiểu tại $x2 và giá trị cực tiểu là $y2\n";
       else if (a < 0)
         result1 =
-            "Hàm số có cực đại tại $x2 và giá trị cực đại là $y2 \nHàm số đạt cực tiểu tại$x1 và giá trị cực tiểu là $y1";
+            "Hàm số có cực đại tại $x1 và giá trị cực đại là $y1 \nHàm số đạt cực tiểu tại$x2 và giá trị cực tiểu là $y2";
     }
   }
 
@@ -77,7 +77,7 @@ class _NoTSTCTHCTB3PageState extends State<NoTSTCTHCTB3Page> {
     db3 =
         "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
     da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
-    db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
+    db4 = "Bài 4: Tìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
     da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
     db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
     da5 = "GTNN của hàm số là 6 và GTLN của hàm số là 6.5";

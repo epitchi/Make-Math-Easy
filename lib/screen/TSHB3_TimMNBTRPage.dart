@@ -187,11 +187,13 @@ class _TSHSB3_FoundMNBRPageState extends State<TSHSB3_FoundMNBRPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db1 =
+        "Bài 1: Tìm m để hàm số y = m.x^3 – m.x^2 – (m + 4).x + 2 nghịch biến trên R";
+    da1 = "Với m thuộc đoạn [-3;0) thì hàm số đã cho nghịch biến trên R";
     db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+        "Bài 2: Tìm m để hàm số y = m.x^3 + 3.m.x^2 – 3.x + 1 nghịch biến trên R";
+    da2 = "Với m thuộc khoảng [-1;0) thì hàm số đã cho nghịch biến trên R";
+
     db3 =
         "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
     da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
@@ -410,9 +412,18 @@ class _TSHSB3_FoundMNBRPageState extends State<TSHSB3_FoundMNBRPage> {
                             ),
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result2",
+
+                            Text("$td",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result3",
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

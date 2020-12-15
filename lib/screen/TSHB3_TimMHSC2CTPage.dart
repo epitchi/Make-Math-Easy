@@ -73,8 +73,8 @@ class _TSHSB3_FoundMC2CTPageState extends State<TSHSB3_FoundMC2CTPage> {
         if (delta < 0) result1 = "Mọi giá trị m thuộc R";
         if (delta == 0) result1 = "Mọi giá trị m khác $x0 ";
         if (delta > 0) {
-          x1 = (-_B + sqrt(delta)) / (2 * _A);
-          x2 = (-_B - sqrt(delta)) / (2 * _A);
+          x1 = (-_B - sqrt(delta)) / (2 * _A);
+          x2 = (-_B + sqrt(delta)) / (2 * _A);
           result1 = "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
         }
       }

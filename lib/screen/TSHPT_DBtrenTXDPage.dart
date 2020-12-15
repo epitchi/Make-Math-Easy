@@ -86,14 +86,17 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db1 = "Bài 1: Tìm m để hàm số y = (m.x – 2)/(x + m – 3) luôn đồng biến";
+    da1 = "Với m = (-oo;1] U [2;+oo) thì hàm số đã cho luôn đồng biến";
     db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+        "Bài 2: Tìm m để hàm số y = x/(x - m) luôn đồng biến trên từng khoảng xác định";
+    da2 =
+        "Với m thuộc (-oo;0] thì hàm số đã cho luôn đồng biến trên từng khoảng xác định";
     db3 =
-        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
-    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
+        "Bài 3: Tìm m để hàm số y = (m.x – 2.m – 3)/(x - m) luôn đồng biến trên từng khoảng xác định";
+    da3 =
+        "Với m thuộc đoạn(-1;3) thì hàm số đã cho luôn đồng biến trên từng khoảng xác định";
+
     db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
     da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
     db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
@@ -310,9 +313,23 @@ class _TSHPT_DBTTXDPageState extends State<TSHPT_DBTTXDPage> {
                             ),
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result2",
+
+                            Text("$td",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result3",
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db3",
+                            ),
+                            Text("$da3",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

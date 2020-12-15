@@ -62,9 +62,9 @@ class _TSHSB3_FoundMCkoCTPageState extends State<TSHSB3_FoundMCkoCTPage> {
       if (delta < 0) result1 = "Không có giá trị m thỏa mãn ";
       if (delta == 0) result1 = "Giá trị của m là $x0 ";
       if (delta > 0) {
-        x1 = (-_B + sqrt(delta)) / (2 * _A);
-        x2 = (-_B - sqrt(delta)) / (2 * _A);
-        result1 = "Giá trị của m thuộc ($x1 ; $x2 )";
+        x1 = (-_B - sqrt(delta)) / (2 * _A);
+        x2 = (-_B + sqrt(delta)) / (2 * _A);
+        result1 = "Giá trị của m thuộc [$x1 ; $x2 ]";
       }
     }
     if (_A < 0) {
@@ -74,7 +74,7 @@ class _TSHSB3_FoundMCkoCTPageState extends State<TSHSB3_FoundMCkoCTPage> {
       if (delta > 0) {
         x1 = (-_B + sqrt(delta)) / (2 * _A);
         x2 = (-_B - sqrt(delta)) / (2 * _A);
-        result1 = "Giá trị của m thuộc (-oo ; $x1) U ($x2 ; +oo )";
+        result1 = "Giá trị của m thuộc (-oo ; $x1] U [$x2 ; +oo )";
       }
     }
     if ((_A == 0) && (_B == 0)) if (_C == 0)
@@ -91,14 +91,16 @@ class _TSHSB3_FoundMCkoCTPageState extends State<TSHSB3_FoundMCkoCTPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db1 =
+        "Bài 1: Tìm m để hàm số y = m.x^3 + 3m.x^2 - (m - 1).x - 1 không có cực trị";
+    da1 = "Với m thuộc khoảng [0;0.25] thì hàm số đã cho không có cực trị";
     db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+        "Bài 2: Tìm m để hàm số y = 1.x^3 – 3.m.x^2 + 12.x + 1 không có cực trị";
+    da2 = "Với m thuộc khoảng [-2;2] thì hàm số đã cho không có cực trị";
     db3 =
-        "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
-    da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
+        "Bài 3: Tìm m để hàm số y = (m – 3).x^3 – 2.m.x^2 + 3 không có cực trị";
+    da3 = "Với m = 0 thì hàm số đã cho không có cực trị";
+
     db4 = "Bài 4: TTìm GTLN, GTNN của hàm số y = (x - 1)/(x + 2) trên [0;2]";
     da4 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 0.25";
     db5 = "Bài 5: Tìm GTLN, GTNN của hàm số y = (x^2 -3)/(x - 2) trên [3;4]";
@@ -306,7 +308,7 @@ class _TSHSB3_FoundMCkoCTPageState extends State<TSHSB3_FoundMCkoCTPage> {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Text(
-                                "Tìm m để hàm số bậc 3: y = ( ${aTextEditingController.text}m+${bTextEditingController.text})x^3 +(${cTextEditingController.text} m+${dTextEditingController.text})x^2+(${eTextEditingController.text}m+f)x+${gTextEditingController.text}m+${hTextEditingController.text} không có cực trị "),
+                                "Tìm m để hàm số bậc 3: y = ( ${aTextEditingController.text}m+${bTextEditingController.text})x^3 +(${cTextEditingController.text} m+${dTextEditingController.text})x^2+(${eTextEditingController.text}m+${fTextEditingController.text})x+${gTextEditingController.text}m+${hTextEditingController.text} không có cực trị "),
 
                             Text(
                               "Đáp án: ",
@@ -314,9 +316,22 @@ class _TSHSB3_FoundMCkoCTPageState extends State<TSHSB3_FoundMCkoCTPage> {
                             ),
                             Text("$result1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result2",
+                            Text("$td",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result3",
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db3",
+                            ),
+                            Text("$da3",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

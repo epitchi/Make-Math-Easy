@@ -98,11 +98,15 @@ class _TSHTPCO3CTPageState extends State<TSHTPCO3CTPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db1 =
+        "Bài 1: Tìm m để hàm số y = -2.x^4 + (3.m – 6).x^2 + 3.m - 5 có duy nhất 1 điểm cực trị";
+    da1 =
+        "Với m thuộc nửa đoạn (-oo;2] thì hàm số đã cho có duy nhất 1 điểm cực trị";
     db2 =
-        "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
-    da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
+        "Bài 2: Tìm m để hàm số y = (m – 1).x^4 + 2.x^2 + 3 có duy nhất 1 điểm cực trị";
+    da2 =
+        "Với m thuộc nửa đoạn [1;+oo) thì hàm số đã cho có duy nhất 1 điểm cực trị";
+
     db3 =
         "Bài 3: Tìm GTLN, GTNN của hàm số y = (x^2 - 8x + 7)/(x^2 + 1)  trên [-3;5]";
     da3 = "GTNN của hàm số là -1 và GTLN của hàm số là 8";
@@ -286,6 +290,18 @@ class _TSHTPCO3CTPageState extends State<TSHTPCO3CTPage> {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Text("$result1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text("$td",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db2",
+                            ),
+                            Text("$da2",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )

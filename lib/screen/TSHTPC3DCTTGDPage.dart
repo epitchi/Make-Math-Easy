@@ -112,8 +112,11 @@ class _TSHTPCO3DCTTGDPageState extends State<TSHTPCO3DCTTGDPage> {
 
   GiaiTDDHS1() {
     td = "Một số bài tập tương tự bài toán của bạn!!!!!";
-    db1 = "Bài 1: Tìm GTLN, GTNN của hàm số y = (x-1)/(x+1) trên [0;3]";
-    da1 = "GTNN của hàm số là -1 và GTLN của hàm số là 0.5";
+    db1 =
+        "Bài 1: Tìm m để hàm số y = x^4 + (2m – 3).x^2 - m - 1 có 3 điểm cực trị tạo thành một tam giác đều";
+    da1 =
+        "Với m = 0.5 thì hàm số đã cho có 3 điểm cực trị tạo thành một tam giác đều";
+
     db2 =
         "Bài 2: Tìm GTLN, GTNN của hàm số y = (x^2 - x -1)/(x + 1) trên [1;6]";
     da2 = "GTNN của hàm số là -0.5 và GTLN của hàm số là 33/7";
@@ -304,7 +307,12 @@ class _TSHTPCO3DCTTGDPageState extends State<TSHTPCO3DCTTGDPage> {
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             Text("$result2",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text("$result3",
+                            Text("$td",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              "$db1",
+                            ),
+                            Text("$da1",
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         )
