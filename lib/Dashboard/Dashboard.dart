@@ -6,6 +6,8 @@ import 'package:solveMathApp/Dashboard/src/ProjectSatisticsCards.dart';
 import 'package:solveMathApp/Dashboard/src/SharedFilesItem.dart';
 import 'package:solveMathApp/Dashboard/src/SubHeader.dart';
 import 'package:solveMathApp/Dashboard/src/Tabs.dart';
+import 'package:solveMathApp/screen/IntroducePage.dart';
+import 'package:solveMathApp/screen/MenuPage.dart';
 
 class Dashboard extends StatelessWidget {
   @override
@@ -34,23 +36,38 @@ class Dashboard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ProjectProgressCard(
-                    color: Color(0xffFF4C60),
-                    projectName: 'Giải Toán',
-                    percentComplete: '38%',
-                    progressIndicatorColor: Colors.redAccent,
-                    icon: Feather.plus,
-                    member: '3 members',
-                    date: '10 Nov 2020'
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MenuPage()),
+                      );
+                    },
+                    child: ProjectProgressCard(
+                        color: Color(0xffFF4C60),
+                        projectName: 'Giải Toán',
+                        percentComplete: '38%',
+                        progressIndicatorColor: Colors.redAccent,
+                        icon: Feather.plus,
+                        member: '3 members',
+                        date: '10 Nov 2020'),
                   ),
-                  ProjectProgressCard(
-                    color: Color(0xff6C6CE5),
-                    projectName: 'Giới thiệu',
-                    percentComplete: '78%',
-                    progressIndicatorColor: Colors.blue[200],
-                    icon: Feather.info,
-                    member: '3 members',                    
-                    date: '11 Nov 2020',
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => IntroducePage()));
+                    },
+                    child: ProjectProgressCard(
+                      color: Color(0xff6C6CE5),
+                      projectName: 'Giới thiệu',
+                      percentComplete: '78%',
+                      progressIndicatorColor: Colors.blue[200],
+                      icon: Feather.info,
+                      member: '3 members',
+                      date: '11 Nov 2020',
+                    ),
                   ),
                   ProjectProgressCard(
                     color: Color(0xffFAAA1E),
