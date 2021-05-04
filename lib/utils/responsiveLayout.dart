@@ -7,7 +7,7 @@ class ResponsiveLayout extends StatelessWidget {
 
   const ResponsiveLayout({
     Key key,
-    @required this.largeScreen,
+     this.largeScreen,
     this.mediumScreen,
     this.smallScreen,
   }) : super(key: key);
