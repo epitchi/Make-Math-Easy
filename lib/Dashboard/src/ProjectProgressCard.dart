@@ -112,15 +112,21 @@ class _ProjectProgressCardState extends State<ProjectProgressCard> {
                     width: 8.0,
                   ),
                   Container(
-                    child: Text(
-                      widget.member,
-                      style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 10.0,
-                        color: hovered ? Colors.white : Colors.black,
+                      child: Row(
+                    children: [
+                      Text(
+                        widget.member + " ",
+                        style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 10.0,
+                          color: hovered ? Colors.white : Colors.black,
+                        ),
                       ),
-                    ),
-                  ),
+                      Icon(
+                        Icons.group,
+                      )
+                    ],
+                  )),
                 ],
               ),
               SizedBox(

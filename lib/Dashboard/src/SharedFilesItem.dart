@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../responsive_layout.dart';
+
 class SharedFilesItem extends StatefulWidget {
   final String sharedFileName;
   final Color color;
@@ -37,7 +39,7 @@ class _SharedFilesItemState extends State<SharedFilesItem> {
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 275),
-        margin: EdgeInsets.only(bottom: 10.0, left: 40.0, right: 15.0),
+        margin: EdgeInsets.only(bottom: 10.0, left: 5.0, right: 5.0),
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -60,7 +62,7 @@ class _SharedFilesItemState extends State<SharedFilesItem> {
                   Row(
                     children: [
                       SizedBox(
-                        width: 15.0,
+                        width: ResponsiveLayout.isMacbook(context) ? 15.0 : 0,
                       ),
                       Container(
                         height: 28.0,
@@ -78,7 +80,7 @@ class _SharedFilesItemState extends State<SharedFilesItem> {
                         ),
                       ),
                       SizedBox(
-                        width: 15.0,
+                        width: ResponsiveLayout.isMacbook(context) ? 15.0 : 5.0,
                       ),
                       Text(
                         widget.sharedFileName,
@@ -93,18 +95,28 @@ class _SharedFilesItemState extends State<SharedFilesItem> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30.0),
-                        child: Text(
-                          widget.members,
+                        padding: EdgeInsets.symmetric(horizontal:  ResponsiveLayout.isMacbook(context) ? 30.0: 2.0),
+                        child: 
+                        
+                        Row(
+                          children: [
+                            Text(
+                          widget.members + " ",
                           style: GoogleFonts.quicksand(
                             fontWeight: FontWeight.bold,
                             fontSize: 11.0,
                             color: Colors.black45,
                           ),
                         ),
+                            Icon(
+                              Icons.group,
+                            ),
+                          ],
+                        )
+                        
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30.0),
+                        padding: EdgeInsets.symmetric(horizontal:  ResponsiveLayout.isMacbook(context) ? 30.0: 2.0),
                         child: Text(
                           widget.et,
                           style: GoogleFonts.quicksand(
@@ -115,7 +127,7 @@ class _SharedFilesItemState extends State<SharedFilesItem> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30.0),
+                        padding: EdgeInsets.symmetric(horizontal:  ResponsiveLayout.isMacbook(context) ? 30.0: 2.0 ),
                         child: Text(
                           widget.fileSize,
                           style: GoogleFonts.quicksand(
