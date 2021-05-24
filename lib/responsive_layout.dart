@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ResponsiveLayout extends StatelessWidget {
-  final Widget iphone;
-  final Widget ipad;
-  final Widget macbook;
-  const ResponsiveLayout({Key key, this.ipad, this.iphone, this.macbook})
+  final Widget moble;
+  final Widget tablelet;
+  final Widget computer;
+  const ResponsiveLayout({Key key, this.tablelet, this.moble, this.computer})
       : super(key: key);
 
   static int iphoneLimit = 600;
@@ -25,12 +25,12 @@ class ResponsiveLayout extends StatelessWidget {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth < iphoneLimit) {
-        return iphone;
+        return moble;
       }
       if (constraints.maxWidth < ipadLimit) {
-        return ipad;
+        return tablelet;
       } else {
-        return macbook;
+        return computer;
       }
     });
   }

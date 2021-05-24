@@ -11,7 +11,8 @@ class _IntroducePageState extends State<IntroducePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Giới thiệu về đội ngũ phát triển"),
+        title: Text("Giới thiệu"),
+        shadowColor: Colors.greenAccent,
       ),
       body: Container(
           child: Padding(
@@ -20,17 +21,17 @@ class _IntroducePageState extends State<IntroducePage> {
                 children: [
                   ListTile(
                       title: Text(
-                    "Giới thiệu về dự án",
+                    "Về dự án",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold),
                   )),
                   ListTile(
-                    title: Text("Với web này có thể giúp các bạn học ...."),
+                    title: Text("Với web này bạn có thể giải nhanh các dạng toán không thể bấm bằng máy tính tay, cụ thể là các dạng toán lớp 12... "),
                   ),
                   ListTile(
-                    title: Text("Đội ngũ phát triển",
+                    title: Text("Về đội ngũ phát triển",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 24.0,

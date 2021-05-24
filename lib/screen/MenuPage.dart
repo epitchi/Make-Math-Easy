@@ -63,6 +63,8 @@ class _MenuPageState extends State<MenuPage> {
             children: <Widget>[
               ListTile(
                   title: Text("Bài toán không có tham số"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  // leading: Image.asset("assets/images/letter-m.png"),
                   onTap: () {
                     setState(() {
                       Navigator.push(
@@ -71,8 +73,10 @@ class _MenuPageState extends State<MenuPage> {
                       );
                     });
                   }),
+              SizedBox(height: 5.0),
               ListTile(
                   title: Text("Bài toán có chứa tham số"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
                   onTap: () {
                     setState(() {
                       Navigator.push(
@@ -97,45 +101,44 @@ class _BTCCTSState extends State<BTCCTS> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("Bài toán có chứa tham số")),
-        body: Container(
-            child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(children: <Widget>[
-                  ListTile(
-                    title: Text("Tính đơn điệu"),
-                    onTap: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TSTDD()),
-                        );
-                      });
-                    },
-                  ),
-                  ListTile(
-                    title: Text("Cực trị hàm số"),
-                    onTap: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TSHCT()),
-                        );
-                      });
-                    },
-                  ),
-                  ListTile(
-                    title: Text("GTLN, GTNN hàm số"),
-                    onTap: () {
-                      setState(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TSFGTLNGTNN()),
-                        );
-                      });
-                    },
-                  ),
-                ]))));
+        body: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Column(children: <Widget>[
+            ListTile(
+              title: Text("Tính đơn điệu"),
+              onTap: () {
+                setState(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TSTDD()),
+                  );
+                });
+              },
+            ),
+            ListTile(
+              title: Text("Cực trị hàm số"),
+              onTap: () {
+                setState(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TSHCT()),
+                  );
+                });
+              },
+            ),
+            ListTile(
+              title: Text("GTLN, GTNN hàm số"),
+              onTap: () {
+                setState(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TSFGTLNGTNN()),
+                  );
+                });
+              },
+            ),
+          ]),
+        ));
   }
 }
 
@@ -304,7 +307,7 @@ class _TSHCTHSB3State extends State<TSHCTHSB3> {
         appBar: AppBar(title: Text("Hàm số bậc 3")),
         body: Container(
             child: Padding(
-                padding: const EdgeInsets.all(50),
+                padding: const EdgeInsets.all(20),
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text("Tìm m để hàm số có hai điểm cực trị"),
@@ -442,7 +445,7 @@ class _TSHSB3State extends State<TSHSB3> {
         appBar: AppBar(title: Text("Hàm số bậc 3")),
         body: Container(
             child: Padding(
-                padding: const EdgeInsets.all(50),
+                padding: const EdgeInsets.all(20),
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text('Tìm m để hàm số đồng biến trên R'),
@@ -506,51 +509,47 @@ class _BTKCTSState extends State<BTKCTS> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Bài toán không có tham số")),
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(50),
-          child: Column(
-            children: <Widget>[
-              ListTile(
-                  title: Text('Xét tính đơn điệu'),
-                  onTap: () {
-                    setState(() {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => NoTSXTDD()));
-                    });
-                  }),
-              ListTile(
-                  title: Text('Tìm cực trị'),
-                  onTap: () {
-                    setState(() {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => NoTSTCT()));
-                    });
-                  }),
-              ListTile(
-                  title: Text('Tìm GTLN, GTNN'),
-                  onTap: () {
-                    setState(() {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NoTSFGTLNGTNN()),
-                      );
-                    });
-                  }),
-              ListTile(
-                  title: Text('Tìm tiệm cận'),
-                  onTap: () {
-                    setState(() {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NoTSTTCHSPage()),
-                      );
-                    });
-                  }),
-            ],
-          ),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+              child: Column(
+          children: <Widget>[
+            ListTile(
+                title: Text('Xét tính đơn điệu'),
+                onTap: () {
+                  setState(() {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NoTSXTDD()));
+                  });
+                }),
+            ListTile(
+                title: Text('Tìm cực trị'),
+                onTap: () {
+                  setState(() {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NoTSTCT()));
+                  });
+                }),
+            ListTile(
+                title: Text('Tìm GTLN, GTNN'),
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NoTSFGTLNGTNN()),
+                    );
+                  });
+                }),
+            ListTile(
+                title: Text('Tìm tiệm cận'),
+                onTap: () {
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NoTSTTCHSPage()),
+                    );
+                  });
+                }),
+          ],
         ),
       ),
     );
@@ -569,7 +568,7 @@ class _NoTSXTDDState extends State<NoTSXTDD> {
       appBar: AppBar(title: Text("Xét tính đơn điệu")),
       body: Container(
         child: Padding(
-          padding: const EdgeInsets.all(50),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
               ListTile(
@@ -624,7 +623,7 @@ class _NoTSTCTState extends State<NoTSTCT> {
         appBar: AppBar(title: Text("Tìm cực trị")),
         body: Container(
           child: Padding(
-            padding: const EdgeInsets.all(50),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: <Widget>[
                 ListTile(
@@ -687,7 +686,7 @@ class _NoTSFGTLNGTNNState extends State<NoTSFGTLNGTNN> {
         appBar: AppBar(title: Text("Tìm GTLN, GTNN")),
         body: Container(
           child: Padding(
-            padding: const EdgeInsets.all(50),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: <Widget>[
                 ListTile(

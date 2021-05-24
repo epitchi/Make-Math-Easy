@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
+import 'package:catex/catex.dart';
 
 class NoTSXTDDCHS3Page extends StatefulWidget {
   @override
@@ -188,6 +189,15 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                     key: formKey,
                     child: Column(
                       children: <Widget>[
+                        Container(
+                          margin: const EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(3.0),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black54)),
+                          child: CaTeX(r'\ y = a.x^3 + b.x^2 + c.x + d'),
+                        ),
+                        SizedBox(height: 10.0),
+                        
                         ListTile(
                           leading: Text("A"),
                           title: TextFormField(
@@ -250,6 +260,7 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 10.0),
                   Row(
                     children: <Widget>[
                       RaisedButton(
@@ -260,6 +271,7 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                         },
                         child: Text("Kết quả"),
                       ),
+                      SizedBox(width: 10.0),
                       RaisedButton(
                         onPressed: () {
                           setState(() {
@@ -268,6 +280,7 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                         },
                         child: Text("Bài tập tương tự"),
                       ),
+                      SizedBox(width: 10.0),
                       RaisedButton(
                         onPressed: () {
                           aTextEditingController.text = "";
@@ -279,11 +292,9 @@ class _NoTSXTDDCHS3PageState extends State<NoTSXTDDCHS3Page> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 10.0),
                   // cho viet de`
-                  Text("Dang toán:",
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text(
-                      "Xét tính đơn điệu của hàm số y = a*x^3 + b*x^2 + c*x + d"),
+
                   typeFunction != -1
                       ? Column(
                           children: [
