@@ -51,7 +51,6 @@ class ProjectStatisticsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Expanded(
               child: Container(
           margin: EdgeInsets.only(left: 20.0, right: 10.0),
           padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -117,7 +116,6 @@ class ProjectStatisticsCard extends StatelessWidget {
             ],
           ),
         ),
-      ),
     );
   }
 }
