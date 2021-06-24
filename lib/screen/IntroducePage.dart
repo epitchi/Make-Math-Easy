@@ -117,7 +117,7 @@ class _IntroducePageState extends State<IntroducePage> {
                   ListTile(
                     leading: Text("Phiên bản:"),
                     title: Text(
-                      "1.0",
+                      "2.0",
                     ),
                   ),
                 ],
