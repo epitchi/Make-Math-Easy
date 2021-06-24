@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:catex/catex.dart';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
@@ -120,6 +121,17 @@ class _NoTSTCTHTPPageState extends State<NoTSTCTHTPPage> {
                     key: formKey,
                     child: Column(
                       children: <Widget>[
+                        Container(
+                          margin: const EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(3.0),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black54)),
+                          child: CaTeX(r'\ y = a.x^4 + b.x^2 + c'),
+                        ),
+                        SizedBox(height: 10.0),
+
+                        
+
                         ListTile(
                           leading: Text("A"),
                           title: TextFormField(
