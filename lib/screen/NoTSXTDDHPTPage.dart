@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:catex/catex.dart';
 import 'package:flutter/material.dart';
 import 'package:solveMathApp/widgets/widget.dart';
 
@@ -135,6 +136,16 @@ class _NoTSXTDDHPTPageState extends State<NoTSXTDDHPTPage> {
                     key: formKey,
                     child: Column(
                       children: <Widget>[
+                         Container(
+                          margin: const EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(3.0),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black54)),
+                          child: CaTeX(r'\ y = \frac{a.x^2 + b.x + c}{dx + e}'),
+                        ),
+                        SizedBox(height: 10.0),
+
+                        
                         ListTile(
                           leading: Text("A"),
                           title: TextFormField(
