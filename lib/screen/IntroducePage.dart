@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'dart:html' as html;
+import 'dart:html' as html;
 
 class IntroducePage extends StatefulWidget {
   @override
@@ -37,39 +37,50 @@ class _IntroducePageState extends State<IntroducePage> {
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold)),
                   ),
-                  // Image.asset(
-                  //     "assets/images/img_thayQuyen.png",
-                  //     width: 26,
-                  //     height: 26),
                   ListTile(
                     leading: Image.asset(
                       "assets/images/img_mailinh.png",
-                      height: 50,
-                      width: 50,
+                      height: 80,
+                      width: 80,
                     ),
                     subtitle: Text("Học sinh - Nghiên cứu khảo sát dự án"),
                     title: Text("Trần Mai Linh",
                         style: TextStyle(color: Colors.black, fontSize: 20.0)),
                     onTap: () {
-                      // html.window.open(
-                      //     "https://www.facebook.com/profile.php?id=100035813623344",
-                      //     "Tran Mai Linh");
+                      html.window.open(
+                          "https://www.facebook.com/profile.php?id=100035813623344",
+                          "Tran Mai Linh");
+                    },
+                  ),
+                  ListTile(
+                    leading: Image.asset(
+                      "assets/images/img_thjen.jpg",
+                      height: 80,
+                      width: 80,
+                    ),
+                    subtitle: Text("Học sinh - Lập trình viên"),
+                    title: Text("Lê Văn Thiện",
+                        style: TextStyle(color: Colors.black, fontSize: 20.0)),
+                    onTap: () {
+                      html.window.open(
+                          "https://www.facebook.com/epitchi",
+                          "Lê Văn Thiện");
                     },
                   ),
 
                   ListTile(
                     leading: Image.asset(
                       "assets/images/img_thayQuyen.png",
-                      height: 50,
-                      width: 50,
+                      height: 80,
+                      width: 80,
                     ),
                     subtitle: Text("Giáo viên hướng dẫn"),
                     title: Text("Nguyễn Mạnh Quyền",
                         style: TextStyle(color: Colors.black, fontSize: 20.0)),
                     onTap: () {
-                      // html.window.open(
-                      //     "https://www.facebook.com/quyen.nguyenmanh.790",
-                      //     "Nguyen Manh Quyen");
+                      html.window.open(
+                          "https://www.facebook.com/quyen.nguyenmanh.790",
+                          "Nguyen Manh Quyen");
                     },
                   ),
                   ListTile(
