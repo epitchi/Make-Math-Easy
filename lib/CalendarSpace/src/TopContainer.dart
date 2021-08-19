@@ -46,8 +46,8 @@ class TopContainer extends StatelessWidget {
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
-            child: Image.network(
-              'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80',
+            child: Image.asset(
+              'assets/images/img_math.png',
               height: 30.0,
               width: 30.0,
               fit: BoxFit.cover,

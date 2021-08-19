@@ -18,14 +18,13 @@ class CalenderSpace extends StatelessWidget {
           ),
           TopContainer(),
           CanlendarSection(),
-          MeetingsSection(),
-          ClipRRect(
-            child: Image.asset(
-              'assets/image.png',
-              height: 300.0,
-              width: 400.0,
-            ),
+          const Divider(
+            height: 20,
+            thickness: 5,
+            indent: 20,
+            endIndent: 20,
           ),
+          // Provide Info for Class
         ]),
       ),
     );

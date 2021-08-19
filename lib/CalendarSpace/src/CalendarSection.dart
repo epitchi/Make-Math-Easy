@@ -7,6 +7,7 @@ class CanlendarSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             margin: EdgeInsets.only(top: 30.0, left: 30.0, right: 30.0),
@@ -14,10 +15,9 @@ class CanlendarSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Oct 2019',
+                  'Bảng xếp hạng đóng góp',
                   style: GoogleFonts.quicksand(
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w900,
+                    fontSize: 18.0,
                   ),
                 ),
                 Row(
@@ -59,17 +59,16 @@ class CanlendarSection extends StatelessWidget {
             ),
           ),
           Container(
-              padding: EdgeInsets.only(
-            left: 25.0,
-            top: 15.0,
-            right: 25.0,
-            bottom: 25.0,
-          ),
-          child: Row(children: dates.map((e) => CalendarPellet(
-            date: e,
-            day: days[dates.indexOf(e)],
-          )
-          ).toList(),),
+            padding: EdgeInsets.only(top: 30.0, left: 30.0, right: 30.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: dates
+                  .map((e) => CalendarPellet(
+                        date: e,
+                        day: days[dates.indexOf(e)],
+                      ))
+                  .toList(),
+            ),
           ),
         ],
       ),

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-List<int> dates = [21, 22, 23, 24, 25, 26, 27];
-List<String> days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+List<int> dates = [1, 2, 3, 4, 5, 6, 7];
+List<String> days = [
+  'Nguyễn Mạnh Quyền',
+  'Trần Mai Linh',
+  'Trần Thị Mai Linh',
+  'Nguyễn Công Huy',
+  'Nguyễn Văn An',
+  'Tống Trường An',
+  'Phan Hữu Phước'
+];
 
 class CalendarPellet extends StatelessWidget {
   final int date;
@@ -12,11 +20,9 @@ class CalendarPellet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45.0,
-      width: 25.0,
-      margin: EdgeInsets.symmetric(horizontal: 5.0),
+      margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
       decoration: BoxDecoration(
-          color: (date == 24) ? Colors.amber : Colors.white,
+          color: (date == 1) ? Colors.amber : Colors.white,
           borderRadius: BorderRadius.circular(20.0),
           boxShadow: [
             BoxShadow(
@@ -25,26 +31,30 @@ class CalendarPellet extends StatelessWidget {
               color: Colors.black12,
             )
           ]),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Row(
+        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
-            date.toString(),
-            style: GoogleFonts.quicksand(
-              fontSize: 11.0,
-              fontWeight: FontWeight.w600,
-              color: (date == 24) ? Colors.white : Colors.black,
+          Container(
+            margin: EdgeInsets.only(left: 10.0),
+            child: Text(
+              date.toString(),
+              style: GoogleFonts.quicksand(
+                fontSize: 15.0,
+                fontWeight: FontWeight.w600,
+                color: (date == 24) ? Colors.white : Colors.black,
+              ),
             ),
           ),
-          SizedBox(height: 2.0),
+          SizedBox(width: 5.0, height: 5.0,),
           Text(
             day.toString(),
             style: GoogleFonts.quicksand(
-              fontSize: 11.0,
+              fontSize: 15.0,
               fontWeight: FontWeight.w600,
               color: (date == 24) ? Colors.white : Colors.black38,
             ),
           ),
+          SizedBox(height: 5.0,),
         ],
       ),
     );

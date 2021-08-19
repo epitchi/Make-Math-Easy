@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   NavigationBar(),
                   Dashboard(),
-                  // CalenderSpace(),
+                  CalenderSpace(),
                 ],
               ) 
               // : ListView(
