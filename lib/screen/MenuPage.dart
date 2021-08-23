@@ -37,7 +37,7 @@ void _showdialog(context) {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("Tính năng đang được phát triển"),
-          content: new Text("Sẽ có mặt tại bản 1.1"),
+          content: new Text("Sẽ có mặt tại bản 2.1"),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
@@ -160,24 +160,26 @@ class _TSFGTLNGTNNState extends State<TSFGTLNGTNN> {
                       title: Text("Hàm số bậc 3"),
                       onTap: () {
                         setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    TSHSB3_TimMGTLNbangkPage()),
-                          );
+                          _showdialog(context);
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) =>
+                          //           TSHSB3_TimMGTLNbangkPage()),
+                          // );
                         });
                       }),
                   ListTile(
                       title: Text("Hàm trùng phương"),
                       onTap: () {
                         setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    TSHSTP_TimMGTLNbangkPage()),
-                          );
+                          _showdialog(context);
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) =>
+                          //           TSHSTP_TimMGTLNbangkPage()),
+                          // );
                         });
                       }),
                 ]))));

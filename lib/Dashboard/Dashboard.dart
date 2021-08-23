@@ -9,6 +9,7 @@ import 'package:solveMathApp/Dashboard/src/Tabs.dart';
 import 'package:solveMathApp/screen/IntroducePage.dart';
 import 'package:solveMathApp/screen/MenuPage.dart';
 import 'package:solveMathApp/responsive_layout.dart';
+import 'dart:html' as html;
 
 class Dashboard extends StatefulWidget {
   @override
@@ -229,6 +230,64 @@ class _DashboardState extends State<Dashboard> {
                           // ),
                           SubHeader(title: 'Thống kê dự án'),
                           ProjectStatisticsCards(),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                            child: SubHeader(title: 'Bài toán được đóng góp'),
+                          ),
+                          Container(
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                ListTile(
+                                  leading: Image.asset(
+                                    "assets/images/img_thayQuyen.png",
+                                    height: 80,
+                                    width: 80,
+                                  ),
+                                  subtitle: Text("8:10 AM - 24/8/2021"),
+                                  title: Text("Nguyễn Mạnh Quyền",
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 20.0)),
+                                  onTap: () {
+                                    html.window.open(
+                                        "https://www.facebook.com/quyen.nguyenmanh.790",
+                                        "Nguyen Manh Quyen");
+                                  },
+                                ),
+                                SizedBox(height: 10.0),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 50.0, right: 50.0),
+                                  child: Text(
+                                    'djoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjdjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjeepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqje',
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 40, top: 20.0),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.favorite,
+                                        color: Colors.pink,
+                                        size: 24.0,
+                                      ),
+                                      SizedBox(width: 10.0,),
+                                      Text('12', style: TextStyle(fontSize: 20.0),),
+                                      SizedBox(width: 20.0,),
+                                       Icon(
+                                        Icons.comment,
+                                        color: Colors.black,
+                                        size: 24.0,
+                                      ),
+                                      SizedBox(width: 10.0,),
+                                      Text('5', style: TextStyle(fontSize: 20.0),)
+                                    ],
+                                  ),
+                                ),
+                              ]))
                         ],
                       ))
                   : Container(),
