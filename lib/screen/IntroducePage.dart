@@ -28,7 +28,7 @@ class _IntroducePageState extends State<IntroducePage> {
                         fontWeight: FontWeight.bold),
                   )),
                   ListTile(
-                    title: Text("Với web này bạn có thể giải nhanh các dạng toán không thể bấm bằng máy tính tay, cụ thể là các dạng toán lớp 12... "),
+                    title: Text("Với web này bạn có thể giải nhanh các dạng toán không thể bấm bằng máy tính tay, cụ thể là các dạng toán lớp 12 về những bài toán có thể hệ thống hoá. Đồng thời xây dựng sản phẩm không dừng lại ở môn toán, phát triển ra các môn học khác như Lý, Hoá, Sinh... Dự án cũng xây dựng một hệ thống liên hệ qua các thầy cô để giúp học sinh hỏi đáp. Đồng thời dự án cũng cho phép đăng tải các dạng toán, bài toán hay, câu hỏi góp phần xây dựng cộng đồng hỗ trợ học sinh, giáo viên trong việc học tập, làm việc."),
                   ),
                   ListTile(
                     title: Text("Về đội ngũ phát triển",
