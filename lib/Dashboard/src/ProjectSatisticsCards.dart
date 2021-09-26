@@ -20,9 +20,9 @@ class ProjectStatisticsCards extends StatelessWidget {
         ),
         ProjectStatisticsCard(
           color: Color(0xff6C6CE5),
-          count: '300',
+          count: '1100',
           name: 'Người sử dụng',
-          descriptions: '+ 200 new clients',
+          descriptions: '+ 200 người sử dụng',
           progress: 0.68,
           progressString: '70%',
         ),
