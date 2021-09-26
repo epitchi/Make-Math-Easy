@@ -11,6 +11,8 @@ import 'package:solveMathApp/screen/MenuPage.dart';
 import 'package:solveMathApp/responsive_layout.dart';
 import 'dart:html' as html;
 
+import 'package:solveMathApp/screen/OnlineTechingPage.dart';
+
 class Dashboard extends StatefulWidget {
   @override
   _DashboardState createState() => _DashboardState();
@@ -90,14 +92,25 @@ class _DashboardState extends State<Dashboard> {
                                 date: '11 Nov 2020',
                               ),
                             ),
-                            ProjectProgressCard(
-                              color: Color(0xffFAAA1E),
-                              projectName: 'Nền tảng hỗ trợ',
-                              percentComplete: '50%',
-                              progressIndicatorColor: Colors.amber[200],
-                              icon: Icons.local_airport,
-                              date: '30 Apr 2021',
-                              member: '3',
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              OnlineTeachingPage()));
+                                });
+                              },
+                              child: ProjectProgressCard(
+                                color: Color(0xffFAAA1E),
+                                projectName: 'Học trực tuyến',
+                                percentComplete: '50%',
+                                progressIndicatorColor: Colors.amber[200],
+                                icon: Icons.people,
+                                date: '25 July 2021',
+                                member: '15',
+                              ),
                             ),
                           ],
                         )
@@ -240,7 +253,7 @@ class _DashboardState extends State<Dashboard> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                ListTile(
+                                ListTile(   
                                   leading: Image.asset(
                                     "assets/images/img_thayQuyen.png",
                                     height: 80,
@@ -261,12 +274,13 @@ class _DashboardState extends State<Dashboard> {
                                   padding: const EdgeInsets.only(
                                       left: 50.0, right: 50.0),
                                   child: Text(
-                                    'djoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjdjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjeepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqjedjoqwjepoqjepowqjepoqwjepowqje',
+                                    '(THCS-THPT Nguyễn Khuyến Năm 2018-2019 Lần 01) Phương trình x^3 + -6mx + 5 = 3m^2 có 3 nghiệm phân biệt thành cấp số cộng khi \n A. m = 0    B. m = -1 và m = 1    C. m = 1    D. m thuộc tập rỗng \n Lời giải: \n Phương trình đã cho tương đương: x^3 - 6mx + 5 - 5m^2 = 0 \n Đặt y = f(x) = x^3 - 6mx + 5 - 5m^2 có f\'(x) = 3x^2 - 6m; f\'\' = 6x \n Phương trình đã cho có 3 nghiệm phân biệt <=> Hàm số y = f(x) cắt trục hoành tại 3 điểm phân biệt \n <=> f\'(x) = 0 có 2 nghiệm phân biệt x1, x2 thoả mãn f(x1).f(x2) < 0 \n 3 nghiệm đó thành lập cấp số cộng nên x2 - x1 = x3 - x2 \n Suy ra x2 là hoành độ của tâm đối xứng hay là nghiệm của f\'\'(x) = 0 \n Cho f\'\'(x) = 0 => 6x = 0 <=> x = 0 \n Với x = 0 ta có: 5 - 5m^2 = 0 <=> m = +- 1 \n Với m = 1 và m = -1 Ta được tập nghiệm: x = 0, x = +- sqrt(6).',
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 40, top: 20.0),
+                                  padding: const EdgeInsets.only(
+                                      left: 40, top: 20.0),
                                   child: Row(
                                     children: <Widget>[
                                       Icon(
@@ -274,19 +288,59 @@ class _DashboardState extends State<Dashboard> {
                                         color: Colors.pink,
                                         size: 24.0,
                                       ),
-                                      SizedBox(width: 10.0,),
-                                      Text('12', style: TextStyle(fontSize: 20.0),),
-                                      SizedBox(width: 20.0,),
-                                       Icon(
+                                      SizedBox(
+                                        width: 10.0,
+                                      ),
+                                      Text(
+                                        '12',
+                                        style: TextStyle(fontSize: 20.0),
+                                      ),
+                                      SizedBox(
+                                        width: 20.0,
+                                      ),
+                                      Icon(
                                         Icons.comment,
                                         color: Colors.black,
                                         size: 24.0,
                                       ),
-                                      SizedBox(width: 10.0,),
-                                      Text('5', style: TextStyle(fontSize: 20.0),)
+                                      SizedBox(
+                                        width: 10.0,
+                                      ),
+                                      Text(
+                                        '3',
+                                        style: TextStyle(fontSize: 20.0),
+                                      )
                                     ],
                                   ),
                                 ),
+                                ListTile(
+                                  leading: Image.asset(
+                                    "assets/images/user.png",
+                                    height: 32,
+                                    width: 32,
+                                  ),
+                                  title: Text("Bùi Công Danh"),
+                                  subtitle: Text("Hay quá thầy ơi."),
+                                ),
+                                ListTile(
+                                  leading: Image.asset(
+                                    "assets/images/user.png",
+                                    height: 32,
+                                    width: 32,
+                                  ),
+                                  title: Text("Phan Hữu Phước"),
+                                  subtitle: Text("Bài giảng rất hữu ích."),
+                                ),
+                                ListTile(
+                                  leading: Image.asset(
+                                    "assets/images/user.png",
+                                    height: 32,
+                                    width: 32,
+                                  ),
+                                  title: Text("Phạm Song Gia Bảo"),
+                                  subtitle: Text("Em cảm ơn thầy ạ."),
+                                ),
+
                               ]))
                         ],
                       ))
