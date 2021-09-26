@@ -79,7 +79,7 @@ class _IntroducePageState extends State<IntroducePage> {
                         style: TextStyle(color: Colors.black, fontSize: 20.0)),
                     onTap: () {
                       html.window.open(
-                          "https://www.facebook.com/quyen.nguyenmanh.790",
+                          "https://www.facebook.com/profile.php?id=100072904244121",
                           "Nguyen Manh Quyen");
                     },
                   ),
