@@ -62,6 +62,47 @@ class _MenuPageState extends State<MenuPage> {
           child: Column(
             children: <Widget>[
               ListTile(
+                  title: Text("Đại số"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  // leading: Image.asset("assets/images/letter-m.png"),
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CacDangToanPage()),
+                      );
+                    });
+                  }),
+              SizedBox(height: 5.0),
+              ListTile(
+                  title: Text("Hình học"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  onTap: () {
+                    _showdialog(context);
+                  }),
+            ],
+          ),
+        )));
+  }
+}
+
+class CacDangToanPage extends StatefulWidget {
+  @override
+  _CacDangToanPageState createState() => _CacDangToanPageState();
+}
+
+class _CacDangToanPageState extends State<CacDangToanPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text("Đại số")),
+        body: Container(
+            child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: <Widget>[
+              ListTile(
                   title: Text("Bài toán không có tham số"),
                   trailing: Icon(Icons.arrow_forward_ios_rounded),
                   // leading: Image.asset("assets/images/letter-m.png"),
@@ -106,6 +147,7 @@ class _BTCCTSState extends State<BTCCTS> {
           child: Column(children: <Widget>[
             ListTile(
               title: Text("Tính đơn điệu"),
+              trailing: Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 setState(() {
                   Navigator.push(
@@ -117,6 +159,7 @@ class _BTCCTSState extends State<BTCCTS> {
             ),
             ListTile(
               title: Text("Cực trị hàm số"),
+              trailing: Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 setState(() {
                   Navigator.push(
@@ -128,6 +171,7 @@ class _BTCCTSState extends State<BTCCTS> {
             ),
             ListTile(
               title: Text("GTLN, GTNN hàm số"),
+              trailing: Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 setState(() {
                   Navigator.push(
@@ -158,6 +202,7 @@ class _TSFGTLNGTNNState extends State<TSFGTLNGTNN> {
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text("Hàm số bậc 3"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           _showdialog(context);
@@ -171,6 +216,7 @@ class _TSFGTLNGTNNState extends State<TSFGTLNGTNN> {
                       }),
                   ListTile(
                       title: Text("Hàm trùng phương"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           _showdialog(context);
@@ -202,6 +248,7 @@ class _TSHCTState extends State<TSHCT> {
                 child: Column(children: <Widget>[
                   ListTile(
                     title: Text("Hàm số bậc 3"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -213,6 +260,7 @@ class _TSHCTState extends State<TSHCT> {
                   ),
                   ListTile(
                     title: Text("Hàm trùng phương"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -242,6 +290,7 @@ class _TSHCTHTPState extends State<TSHCTHTP> {
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text("Tìm m để hàm số có 1 điểm cực trị"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -252,6 +301,7 @@ class _TSHCTHTPState extends State<TSHCTHTP> {
                       }),
                   ListTile(
                       title: Text("Tìm m để hàm số có 3 điểm cực trị"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -263,6 +313,7 @@ class _TSHCTHTPState extends State<TSHCTHTP> {
                   ListTile(
                       title: Text(
                           "Tìm m để hàm số có 3 cực trị tạo thành tam giác vuông"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -274,6 +325,7 @@ class _TSHCTHTPState extends State<TSHCTHTP> {
                   ListTile(
                       title: Text(
                           "Tìm m để hàm số có 3 cực trị tạo thành tam giác đều"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -285,6 +337,7 @@ class _TSHCTHTPState extends State<TSHCTHTP> {
                   ListTile(
                       title: Text(
                           "Tìm m để hàm số có 3 cực trị tạo thành tam giác có diện tích là S"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -313,6 +366,7 @@ class _TSHCTHSB3State extends State<TSHCTHSB3> {
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text("Tìm m để hàm số có hai điểm cực trị"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -324,6 +378,7 @@ class _TSHCTHSB3State extends State<TSHCTHSB3> {
                       }),
                   ListTile(
                       title: Text("Tìm m để hàm số không có điểm cực trị"),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -353,6 +408,7 @@ class _TSTDDState extends State<TSTDD> {
                 child: Column(children: <Widget>[
                   ListTile(
                     title: Text("Hàm số bậc 3"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -364,6 +420,7 @@ class _TSTDDState extends State<TSTDD> {
                   ),
                   ListTile(
                     title: Text("Hàm phân thức"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -394,6 +451,7 @@ class _TSHPTState extends State<TSHPT> {
                   ListTile(
                       title: Text(
                           'Tìm m để hàm số đồng biến trên từng khoảng xác định'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -406,6 +464,7 @@ class _TSHPTState extends State<TSHPT> {
                   ListTile(
                       title: Text(
                           'Tìm m để hàm số nghịch biến trên từng khoảng xác định'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -418,6 +477,7 @@ class _TSHPTState extends State<TSHPT> {
                   ListTile(
                       title:
                           Text('Tìm m để hàm số đồng biến trên khoảng (a,b)'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {});
 
@@ -426,6 +486,7 @@ class _TSHPTState extends State<TSHPT> {
                   ListTile(
                       title:
                           Text('Tìm m để hàm số nghịch biến trên khoảng (a,b)'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {});
 
@@ -451,6 +512,7 @@ class _TSHSB3State extends State<TSHSB3> {
                 child: Column(children: <Widget>[
                   ListTile(
                       title: Text('Tìm m để hàm số đồng biến trên R'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -462,6 +524,7 @@ class _TSHSB3State extends State<TSHSB3> {
                       }),
                   ListTile(
                       title: Text('Tìm m để hàm số nghịch biến trên R'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -474,6 +537,7 @@ class _TSHSB3State extends State<TSHSB3> {
                   ListTile(
                       title:
                           Text('Tìm m để hàm số đồng biến trên khoảng (a,b)'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -487,6 +551,7 @@ class _TSHSB3State extends State<TSHSB3> {
                   ListTile(
                       title:
                           Text('Tìm m để hàm số nghịch biến trên khoảng (a,b)'),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -513,10 +578,11 @@ class _BTKCTSState extends State<BTKCTS> {
       appBar: AppBar(title: Text("Bài toán không có tham số")),
       body: Padding(
         padding: EdgeInsets.all(20.0),
-              child: Column(
+        child: Column(
           children: <Widget>[
             ListTile(
                 title: Text('Xét tính đơn điệu'),
+                trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
                     Navigator.push(context,
@@ -525,6 +591,7 @@ class _BTKCTSState extends State<BTKCTS> {
                 }),
             ListTile(
                 title: Text('Tìm cực trị'),
+                trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
                     Navigator.push(context,
@@ -533,6 +600,7 @@ class _BTKCTSState extends State<BTKCTS> {
                 }),
             ListTile(
                 title: Text('Tìm GTLN, GTNN'),
+                trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
                     Navigator.push(
@@ -543,6 +611,7 @@ class _BTKCTSState extends State<BTKCTS> {
                 }),
             ListTile(
                 title: Text('Tìm tiệm cận'),
+                trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
                     Navigator.push(
@@ -575,6 +644,7 @@ class _NoTSXTDDState extends State<NoTSXTDD> {
             children: <Widget>[
               ListTile(
                   title: Text('Hàm bậc 3'),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
                   onTap: () {
                     setState(() {
                       Navigator.push(
@@ -586,6 +656,7 @@ class _NoTSXTDDState extends State<NoTSXTDD> {
                   }),
               ListTile(
                   title: Text('Hàm trùng phương'),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
                   onTap: () {
                     setState(() {
                       Navigator.push(
@@ -597,6 +668,7 @@ class _NoTSXTDDState extends State<NoTSXTDD> {
                   }),
               ListTile(
                   title: Text('Hàm phân thức'),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
                   onTap: () {
                     setState(() {
                       Navigator.push(
@@ -630,6 +702,7 @@ class _NoTSTCTState extends State<NoTSTCT> {
               children: <Widget>[
                 ListTile(
                     title: Text("Hàm số bậc ba"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -640,6 +713,7 @@ class _NoTSTCTState extends State<NoTSTCT> {
                     }),
                 ListTile(
                     title: Text("Hàm trùng phương"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -650,6 +724,7 @@ class _NoTSTCTState extends State<NoTSTCT> {
                     }),
                 ListTile(
                     title: Text("Hàm phân thức"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -661,6 +736,7 @@ class _NoTSTCTState extends State<NoTSTCT> {
                 ListTile(
                     title:
                         Text("Phương trình đường thẳng qua hai điểm cực trị"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -693,6 +769,7 @@ class _NoTSFGTLNGTNNState extends State<NoTSFGTLNGTNN> {
               children: <Widget>[
                 ListTile(
                     title: Text("Hàm số bậc ba"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -703,6 +780,7 @@ class _NoTSFGTLNGTNNState extends State<NoTSFGTLNGTNN> {
                     }),
                 ListTile(
                     title: Text("Hàm trùng phương"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
@@ -713,6 +791,7 @@ class _NoTSFGTLNGTNNState extends State<NoTSFGTLNGTNN> {
                     }),
                 ListTile(
                     title: Text("Hàm phân thức"),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       setState(() {
                         Navigator.push(
