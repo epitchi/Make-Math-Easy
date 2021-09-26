@@ -70,7 +70,7 @@ class _MenuPageState extends State<MenuPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CacDangToanPage()),
+                            builder: (context) => DaiSoPage()),
                       );
                     });
                   }),
@@ -87,12 +87,125 @@ class _MenuPageState extends State<MenuPage> {
   }
 }
 
-class CacDangToanPage extends StatefulWidget {
+
+class DaiSoPage extends StatefulWidget {
   @override
-  _CacDangToanPageState createState() => _CacDangToanPageState();
+  _DaiSoPageState createState() => _DaiSoPageState();
 }
 
-class _CacDangToanPageState extends State<CacDangToanPage> {
+class _DaiSoPageState extends State<DaiSoPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text("Đại số")),
+        body: Container(
+            child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                  title: Text("Toán 12"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  // leading: Image.asset("assets/images/letter-m.png"),
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Toan12Page()),
+                      );
+                    });
+                  }),
+              SizedBox(height: 5.0),
+              ListTile(
+                  title: Text("Toán 11"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  onTap: () {
+                    setState(() {
+                      _showdialog(context);
+                    });
+                  }),
+              SizedBox(height: 5.0),
+              ListTile(
+                  title: Text("Toán 10"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  onTap: () {
+                    setState(() {
+                      _showdialog(context);
+                    });
+                  }),
+            ],
+          ),
+        )));
+  }
+}
+
+class Toan12Page extends StatefulWidget {
+
+  @override
+  _Toan12PageState createState() => _Toan12PageState();
+}
+
+class _Toan12PageState extends State<Toan12Page> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text("Đại số")),
+        body: Container(
+            child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                  title: Text("Chương 1: Ứng dụng đạo hàm để khảo sát và vẽ đồ thị của hàm số"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  // leading: Image.asset("assets/images/letter-m.png"),
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CacDangToan12Page()),
+                      );
+                    });
+                  }),
+              SizedBox(height: 5.0),
+              ListTile(
+                  title: Text("Chương 2: Hàm số lũy thừa. Hàm số mũ và hàm số logarit"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  onTap: () {
+                    setState(() {
+                      _showdialog(context);
+                    });
+                  }),
+              SizedBox(height: 5.0),
+              ListTile(
+                  title: Text("Chương 3: Nguyên hàm - Tích phân và ứng dụng"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  onTap: () {
+                    setState(() {
+                      _showdialog(context);
+                    });
+                  }),
+                  SizedBox(height: 5.0),
+              ListTile(
+                  title: Text("Chương 4: Số phức"),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                  onTap: () {
+                    setState(() {
+                      _showdialog(context);
+                    });
+                  }),
+            ],
+          ),
+        )));
+  }
+}
+
+class CacDangToan12Page extends StatefulWidget {
+  @override
+  _CacDangToan12PageState createState() => _CacDangToan12PageState();
+}
+
+class _CacDangToan12PageState extends State<CacDangToan12Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,6 +245,7 @@ class _CacDangToanPageState extends State<CacDangToanPage> {
   }
 }
 
+
 class BTCCTS extends StatefulWidget {
   @override
   _BTCCTSState createState() => _BTCCTSState();
@@ -146,7 +260,7 @@ class _BTCCTSState extends State<BTCCTS> {
           padding: EdgeInsets.all(10.0),
           child: Column(children: <Widget>[
             ListTile(
-              title: Text("Tính đơn điệu"),
+              title: Text("Bài 1: Sự đồng biến, nghịch biến của hàm số"),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 setState(() {
@@ -158,7 +272,7 @@ class _BTCCTSState extends State<BTCCTS> {
               },
             ),
             ListTile(
-              title: Text("Cực trị hàm số"),
+              title: Text("Bài 2: Cực trị của hàm số"),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 setState(() {
@@ -170,7 +284,8 @@ class _BTCCTSState extends State<BTCCTS> {
               },
             ),
             ListTile(
-              title: Text("GTLN, GTNN hàm số"),
+              title: Text(
+                  "Bài 3: Giá trị lớn nhất và giá trị nhỏ nhất của hàm số"),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 setState(() {
@@ -301,7 +416,7 @@ class _TSHCTHTPState extends State<TSHCTHTP> {
                       }),
                   ListTile(
                       title: Text("Tìm m để hàm số có 3 điểm cực trị"),
-                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -581,7 +696,7 @@ class _BTKCTSState extends State<BTKCTS> {
         child: Column(
           children: <Widget>[
             ListTile(
-                title: Text('Xét tính đơn điệu'),
+                title: Text('Bài 1: Sự đồng biến, nghịch biến của hàm số'),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
@@ -590,7 +705,7 @@ class _BTKCTSState extends State<BTKCTS> {
                   });
                 }),
             ListTile(
-                title: Text('Tìm cực trị'),
+                title: Text('Bài 2: Cực trị của hàm số'),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
@@ -599,7 +714,8 @@ class _BTKCTSState extends State<BTKCTS> {
                   });
                 }),
             ListTile(
-                title: Text('Tìm GTLN, GTNN'),
+                title: Text(
+                    'Bài 3: Giá trị lớn nhất và giá trị nhỏ nhất của hàm số'),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
@@ -610,7 +726,7 @@ class _BTKCTSState extends State<BTKCTS> {
                   });
                 }),
             ListTile(
-                title: Text('Tìm tiệm cận'),
+                title: Text('Bài 4: Đường tiệm cận'),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
                 onTap: () {
                   setState(() {
